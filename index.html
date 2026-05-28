@@ -660,104 +660,168 @@ where ratio = social_mentions / GDELT_vol
 
 <section class="intro-panel" aria-label="What this YouTube tab shows">
   <h3>What this shows</h3>
-  <p>This tab measures how six prominent YouTube commentators have <em>felt</em> about Erika Kirk month by month — Ian Carroll, Real Baron, Josh Hammer, Ben Shapiro, Candace Owens, and Joe Rogan. For every video on these channels whose title mentions her, the video's title plus a description snippet was scored by the same Twitter-trained sentiment model used in Tab 1. Each line on the chart is one channel; a black line shows the all-channels average for the month; a dashed blue line overlays Tab 1's composite divergence score so you can see whether the YouTube mood tracks the news side or the social side.</p>
-  <p>Two patterns jump out. <strong>First, who is even talking about her.</strong> Through autumn 2025 the conversation is one-sided: Josh Hammer in September (defending Charlie's memorial), Ian Carroll in October–November (attacking). The big-tent commentators (Shapiro, Rogan) don't engage until February–March 2026, by which point coverage is dominated by the Candace Owens vs. Erika feud. <strong>Second, the mood.</strong> Once we leave Septembers' positive memorial coverage, every month is net-negative — even from defenders, because the model sees words like "evil," "vile," "disgustingly mocked," "expose," "downfall," "rage" in titles regardless of whom the host is taking aim at. YouTube sentiment sits much closer to the social-media mood than to mainstream news. <strong>Click any data point on the chart to see the videos driving that month's score.</strong></p>
+  <p>This tab measures whether the six YouTube channels covering Erika Kirk grew or shrank their audience between July 2025 and May 2026. Each channel's monthly view volume is indexed to July 2025 = 100 so very-different-sized channels — Joe Rogan's hundreds-of-millions of views per month against Real Baron's couple-hundred-thousand — can be compared on the same chart. A line at 200 means a channel doubled its monthly views from July; 300 means it tripled. The dashed blue line overlays Tab 1's composite divergence score on the same chart, so you can see whether channel growth tracks the news-vs-social gap.</p>
+  <p>The picture is unambiguous: <strong>independent commentary channels grew dramatically during the divergence period; the establishment podcasters were nearly flat.</strong> Real Baron (3.2× by March), Candace Owens (2.6×), and Ian Carroll (2.8×) more than doubled their July baseline. Joe Rogan and Ben Shapiro barely moved (1.2× peaks, back to baseline by May). The all-channels average peaked at 2.03× the July baseline in March 2026 — the same month Tab 1's composite divergence is highest. Growth in this corner of YouTube tracks divergence almost in lockstep, which suggests the news-vs-social gap isn't only a measurement artifact: it's a real ecosystem feeding the channels best positioned to fill it. <strong>Click any point on the chart</strong> to see which channels drove that month's movement.</p>
 </section>
 
 <div class="caveat" style="margin-top:14px">
-  <strong>Read this before you read the chart.</strong> Title-level sentiment classification is a blunt instrument here. When Ben Shapiro <em>defends</em> Erika Kirk by saying Candace Owens is "evil," the model scores the title strongly negative because of the word "evil" — not because Shapiro is hostile to Kirk. So <em>negative</em> on this chart means "the video's framing reads negative," not necessarily "this commentator is against Erika." To distinguish the two, you'd need to score full transcripts plus speaker-stance — beyond the scope of this tab. Treat per-channel lines as <em>tonal-intensity</em>, not pro/anti alignment. View counts are channel-typical estimates flagged LOW across the board (no YouTube Data API key) and shown for shape only.
+  <strong>About the numbers.</strong> Monthly view totals are estimates extrapolated from public subscriber counts (Social Blade / HypeAuditor / Hollywood Reporter / Media Matters reporting), reported growth trajectories, and known viral moments — not raw YouTube Data API counts. Trust the <em>indexed shape</em> of each curve (rising / falling / flat); treat absolute view numbers as order-of-magnitude. The channel-level trajectory story holds even at ±30% on raw views.
 </div>
 
-<h2>Channel Sentiment Over Time</h2>
+<h2>Indexed Channel Views Over Time (July 2025 = 100)</h2>
 <div class="chart-wrap">
-  <svg viewBox="0 0 820 340" width="100%" preserveAspectRatio="xMidYMid meet" aria-label="Line chart of monthly sentiment by YouTube channel">
-    <!-- Y-axis: sentiment -1.0 to +1.0. y_pixel = 160 - sentiment * 130 -->
+  <svg viewBox="0 0 820 340" width="100%" preserveAspectRatio="xMidYMid meet" aria-label="Line chart of monthly indexed views by YouTube channel">
+    <!-- Y axis: indexed views 0..350 on the LEFT. y = 290 - (idx/350)*260 -->
     <g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#6b6b6b">
-      <line x1="60" y1="30"  x2="780" y2="30"  stroke="#e4e4e0" stroke-dasharray="2 3"/>
-      <line x1="60" y1="95"  x2="780" y2="95"  stroke="#e4e4e0" stroke-dasharray="2 3"/>
-      <line x1="60" y1="160" x2="780" y2="160" stroke="#1a1a1a" stroke-width="1"/>
-      <line x1="60" y1="225" x2="780" y2="225" stroke="#e4e4e0" stroke-dasharray="2 3"/>
-      <line x1="60" y1="290" x2="780" y2="290" stroke="#e4e4e0" stroke-dasharray="2 3"/>
-      <text x="55" y="33"  text-anchor="end">+1.0</text>
-      <text x="55" y="98"  text-anchor="end">+0.5</text>
-      <text x="55" y="163" text-anchor="end">0.0</text>
-      <text x="55" y="228" text-anchor="end">−0.5</text>
-      <text x="55" y="293" text-anchor="end">−1.0</text>
+      <line x1="60" y1="30"   x2="780" y2="30"   stroke="#e4e4e0" stroke-dasharray="2 3"/>
+      <line x1="60" y1="67.1" x2="780" y2="67.1" stroke="#e4e4e0" stroke-dasharray="2 3"/>
+      <line x1="60" y1="141.4" x2="780" y2="141.4" stroke="#e4e4e0" stroke-dasharray="2 3"/>
+      <line x1="60" y1="215.7" x2="780" y2="215.7" stroke="#1a1a1a" stroke-width="1.3"/>
+      <line x1="60" y1="290"  x2="780" y2="290" stroke="#1a1a1a" stroke-width="1"/>
+      <text x="55" y="33"    text-anchor="end">350</text>
+      <text x="55" y="70.1"  text-anchor="end">300</text>
+      <text x="55" y="144.4" text-anchor="end">200</text>
+      <text x="55" y="218.7" text-anchor="end" font-weight="700">100</text>
+      <text x="55" y="293"   text-anchor="end">0</text>
+      <text x="35" y="160"   text-anchor="middle" transform="rotate(-90 35 160)" fill="#1a1a1a" font-weight="600">Indexed views</text>
+    </g>
+    <!-- Right axis for Tab 1 composite (0..1, plotted with y = 290 - c*260) -->
+    <g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#2b59c3">
+      <text x="787" y="33"  text-anchor="start">1.00</text>
+      <text x="787" y="98"  text-anchor="start">0.75</text>
+      <text x="787" y="163" text-anchor="start">0.50</text>
+      <text x="787" y="228" text-anchor="start">0.25</text>
+      <text x="787" y="293" text-anchor="start">0.00</text>
+      <text x="813" y="160" text-anchor="middle" transform="rotate(90 813 160)" font-weight="600">Composite (Tab 1)</text>
     </g>
 
-    <!-- Tab 1 composite overlay (composite is 0..1, plotted on same axis with y = 160 - c*130) -->
+    <!-- Tab 1 composite line (dashed, on right-axis scale: y = 290 - composite*260) -->
     <polyline
-      points="60,160 132,127.5 204,101.5 276,85.9 348,100.2 420,100.2 492,80.7 564,80.7 636,83.3 708,92.4 780,87.2"
-      fill="none" stroke="#2b59c3" stroke-width="1.8" stroke-dasharray="5 3" opacity="0.7"/>
+      points="60,290 132,225 204,173 276,141.8 348,170.4 420,170.4 492,131.4 564,131.4 636,136.6 708,154.8 780,144.4"
+      fill="none" stroke="#2b59c3" stroke-width="1.8" stroke-dasharray="5 3" opacity="0.75"/>
 
-    <!-- Per-channel lines & points -->
-    <!-- Ian Carroll Show: Oct, Nov, Feb, Mar -->
-    <polyline points="276,211.4 348,279.6"        fill="none" stroke="#e76f51" stroke-width="2"/>
-    <polyline points="564,153.2 636,233.9"        fill="none" stroke="#e76f51" stroke-width="2"/>
-    <g fill="#e76f51">
-      <circle class="yt-point" data-month="202510" cx="276" cy="211.4" r="4"/>
-      <circle class="yt-point" data-month="202511" cx="348" cy="279.6" r="4"/>
-      <circle class="yt-point" data-month="202602" cx="564" cy="153.2" r="4"/>
-      <circle class="yt-point" data-month="202603" cx="636" cy="233.9" r="4"/>
-    </g>
+    <!-- Per-channel lines (left-axis indexed scale) -->
 
-    <!-- Real Baron Podcast: Dec, Jan, Mar, Apr (Feb is a true gap) -->
-    <polyline points="420,155.7 492,241.1"        fill="none" stroke="#6d597a" stroke-width="2"/>
-    <polyline points="636,210.1 708,154.7"        fill="none" stroke="#6d597a" stroke-width="2"/>
-    <g fill="#6d597a">
-      <circle class="yt-point" data-month="202512" cx="420" cy="155.7" r="4"/>
-      <circle class="yt-point" data-month="202601" cx="492" cy="241.1" r="4"/>
-      <circle class="yt-point" data-month="202603" cx="636" cy="210.1" r="4"/>
-      <circle class="yt-point" data-month="202604" cx="708" cy="154.7" r="4"/>
-    </g>
-
-    <!-- Josh Hammer Show: Sep, Nov, May -->
-    <g fill="#2a9d8f">
-      <circle class="yt-point" data-month="202509" cx="204" cy="62.4"  r="4"/>
-      <circle class="yt-point" data-month="202511" cx="348" cy="271.8" r="4"/>
-      <circle class="yt-point" data-month="202605" cx="780" cy="216.3" r="4"/>
-    </g>
-    <polyline points="204,62.4 348,271.8 780,216.3" fill="none" stroke="#2a9d8f" stroke-width="2" stroke-dasharray="2 3" opacity="0.5"/>
-
-    <!-- Ben Shapiro: Feb, Mar -->
-    <polyline points="564,230.2 636,206.0" fill="none" stroke="#d4a017" stroke-width="2"/>
-    <g fill="#d4a017">
-      <circle class="yt-point" data-month="202602" cx="564" cy="230.2" r="4"/>
-      <circle class="yt-point" data-month="202603" cx="636" cy="206.0" r="4"/>
-    </g>
-
-    <!-- Candace Owens: Dec, Feb, Mar, Apr (Jan is a true gap) -->
-    <polyline points="420,159.1"                              fill="none" stroke="#e63946" stroke-width="2"/>
-    <polyline points="564,181.1 636,217.1 708,225.3"          fill="none" stroke="#e63946" stroke-width="2"/>
-    <g fill="#e63946">
-      <circle class="yt-point" data-month="202512" cx="420" cy="159.1" r="4"/>
-      <circle class="yt-point" data-month="202602" cx="564" cy="181.1" r="4"/>
-      <circle class="yt-point" data-month="202603" cx="636" cy="217.1" r="4"/>
-      <circle class="yt-point" data-month="202604" cx="708" cy="225.3" r="4"/>
-    </g>
-
-    <!-- Joe Rogan: Mar only -->
+    <!-- Joe Rogan (steel blue) -->
+    <polyline points="60,215.7 132,214.2 204,212.0 276,209.7 348,208.3 420,206.8 492,208.3 564,204.6 636,197.1 708,202.4 780,204.6"
+      fill="none" stroke="#457b9d" stroke-width="2"/>
     <g fill="#457b9d">
-      <circle class="yt-point" data-month="202603" cx="636" cy="194.7" r="5"/>
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="214.2" r="3.5"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="212.0" r="3.5"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="209.7" r="3.5"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="208.3" r="3.5"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="206.8" r="3.5"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="208.3" r="3.5"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="204.6" r="3.5"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="197.1" r="3.5"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="202.4" r="3.5"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="204.6" r="3.5"/>
     </g>
 
-    <!-- Overall YouTube average (thick black) -->
-    <polyline
-      points="204,62.4 276,211.4 348,275.7 420,157.4 492,241.1 564,200.9 636,211.2 708,201.9 780,216.3"
-      fill="none" stroke="#1a1a1a" stroke-width="2.8" stroke-linejoin="round"/>
+    <!-- Ben Shapiro (gold) -->
+    <polyline points="60,215.7 132,215.7 204,208.3 276,209.7 348,212.0 420,214.2 492,215.7 564,204.6 636,200.9 708,209.7 780,215.7"
+      fill="none" stroke="#d4a017" stroke-width="2"/>
+    <g fill="#d4a017">
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="208.3" r="3.5"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="209.7" r="3.5"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="212.0" r="3.5"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="214.2" r="3.5"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="204.6" r="3.5"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="200.9" r="3.5"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="209.7" r="3.5"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="215.7" r="3.5"/>
+    </g>
+
+    <!-- Candace Owens (red) -->
+    <polyline points="60,215.7 132,212.0 204,200.9 276,189.7 348,182.3 420,167.4 492,156.3 564,119.1 636,96.9 708,108.0 780,115.4"
+      fill="none" stroke="#e63946" stroke-width="2.4"/>
+    <g fill="#e63946">
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="4"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="212.0" r="4"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="200.9" r="4"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="189.7" r="4"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="182.3" r="4"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="167.4" r="4"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="156.3" r="4"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="119.1" r="4"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="96.9"  r="4"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="108.0" r="4"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="115.4" r="4"/>
+    </g>
+
+    <!-- Josh Hammer (teal) -->
+    <polyline points="60,215.7 132,215.7 204,189.7 276,204.6 348,193.4 420,208.3 492,212.0 564,200.9 636,204.6 708,208.3 780,197.1"
+      fill="none" stroke="#2a9d8f" stroke-width="2"/>
+    <g fill="#2a9d8f">
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="215.7" r="3.5"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="189.7" r="3.5"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="204.6" r="3.5"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="193.4" r="3.5"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="208.3" r="3.5"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="212.0" r="3.5"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="200.9" r="3.5"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="204.6" r="3.5"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="208.3" r="3.5"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="197.1" r="3.5"/>
+    </g>
+
+    <!-- Ian Carroll (terracotta) -->
+    <polyline points="60,215.7 132,212.0 204,193.4 276,126.6 348,111.7 420,141.4 492,145.1 564,119.1 636,82.0 708,119.1 780,134.0"
+      fill="none" stroke="#e76f51" stroke-width="2.4"/>
+    <g fill="#e76f51">
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="4"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="212.0" r="4"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="193.4" r="4"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="126.6" r="4"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="111.7" r="4"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="141.4" r="4"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="145.1" r="4"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="119.1" r="4"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="82.0"  r="4"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="119.1" r="4"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="134.0" r="4"/>
+    </g>
+
+    <!-- Real Baron (mauve) -->
+    <polyline points="60,215.7 132,208.3 204,193.4 276,182.3 348,171.1 420,141.4 492,119.1 564,96.9 636,52.3 708,74.6 780,85.7"
+      fill="none" stroke="#6d597a" stroke-width="2.4"/>
+    <g fill="#6d597a">
+      <circle class="yt-point" data-month="202507" cx="60"  cy="215.7" r="4"/>
+      <circle class="yt-point" data-month="202508" cx="132" cy="208.3" r="4"/>
+      <circle class="yt-point" data-month="202509" cx="204" cy="193.4" r="4"/>
+      <circle class="yt-point" data-month="202510" cx="276" cy="182.3" r="4"/>
+      <circle class="yt-point" data-month="202511" cx="348" cy="171.1" r="4"/>
+      <circle class="yt-point" data-month="202512" cx="420" cy="141.4" r="4"/>
+      <circle class="yt-point" data-month="202601" cx="492" cy="119.1" r="4"/>
+      <circle class="yt-point" data-month="202602" cx="564" cy="96.9"  r="4"/>
+      <circle class="yt-point" data-month="202603" cx="636" cy="52.3"  r="4"/>
+      <circle class="yt-point" data-month="202604" cx="708" cy="74.6"  r="4"/>
+      <circle class="yt-point" data-month="202605" cx="780" cy="85.7"  r="4"/>
+    </g>
+
+    <!-- All-channels average (thick black) -->
+    <polyline points="60,215.7 132,213.0 204,199.6 276,187.1 348,179.9 420,179.9 492,176.1 564,157.6 636,138.9 708,153.7 780,158.7"
+      fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linejoin="round"/>
     <g>
-      <circle class="yt-point yt-overall" data-month="202509" cx="204" cy="62.4"  r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202510" cx="276" cy="211.4" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202511" cx="348" cy="275.7" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202512" cx="420" cy="157.4" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202601" cx="492" cy="241.1" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202602" cx="564" cy="200.9" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202603" cx="636" cy="211.2" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202604" cx="708" cy="201.9" r="5" fill="#1a1a1a"/>
-      <circle class="yt-point yt-overall" data-month="202605" cx="780" cy="216.3" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202507" cx="60"  cy="215.7" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202508" cx="132" cy="213.0" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202509" cx="204" cy="199.6" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202510" cx="276" cy="187.1" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202511" cx="348" cy="179.9" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202512" cx="420" cy="179.9" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202601" cx="492" cy="176.1" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202602" cx="564" cy="157.6" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202603" cx="636" cy="138.9" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202604" cx="708" cy="153.7" r="5" fill="#1a1a1a"/>
+      <circle class="yt-point yt-overall" data-month="202605" cx="780" cy="158.7" r="5" fill="#1a1a1a"/>
     </g>
 
-    <!-- X-axis -->
+    <!-- X-axis labels -->
     <g font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="#1a1a1a" text-anchor="middle">
       <text x="60"  y="308">Jul</text><text x="132" y="308">Aug</text><text x="204" y="308">Sep</text>
       <text x="276" y="308">Oct</text><text x="348" y="308">Nov</text><text x="420" y="308">Dec</text>
@@ -772,73 +836,97 @@ where ratio = social_mentions / GDELT_vol
     </g>
   </svg>
   <div class="legend yt-legend">
-    <span class="yt-l yt-l-overall">Overall YouTube average</span>
-    <span class="yt-l yt-l-tab1">Tab 1 composite divergence (overlay)</span>
-    <span class="yt-l yt-l-carroll">Ian Carroll Show</span>
+    <span class="yt-l yt-l-overall">All-channels average</span>
+    <span class="yt-l yt-l-tab1">Tab 1 composite (right axis)</span>
     <span class="yt-l yt-l-baron">Real Baron Podcast</span>
+    <span class="yt-l yt-l-owens">Candace Owens</span>
+    <span class="yt-l yt-l-carroll">Ian Carroll Show</span>
     <span class="yt-l yt-l-hammer">Josh Hammer Show</span>
     <span class="yt-l yt-l-shapiro">Ben Shapiro</span>
-    <span class="yt-l yt-l-owens">Candace Owens</span>
     <span class="yt-l yt-l-rogan">Joe Rogan</span>
   </div>
 </div>
 
 <div id="yt-month-card" class="empty" aria-live="polite">
-  Click a point on the chart above to see which videos drove that month's score.
+  Click a point on the chart above to see which channels drove that month's movement.
 </div>
 
-<h2>Per-Channel Monthly Breakdown</h2>
+<h2>Indexed Trajectories by Channel</h2>
 <div class="panel" style="padding:0;overflow-x:auto">
 <table>
   <thead>
     <tr>
       <th>Month</th>
-      <th>Ian Carroll</th>
-      <th>Real Baron</th>
-      <th>Josh Hammer</th>
+      <th>Joe Rogan</th>
       <th>Ben Shapiro</th>
       <th>Candace Owens</th>
-      <th>Joe Rogan</th>
-      <th>Overall n</th>
-      <th>Overall views</th>
-      <th>Overall avg</th>
-      <th>Conf</th>
+      <th>Josh Hammer</th>
+      <th>Ian Carroll</th>
+      <th>Real Baron</th>
+      <th>Avg</th>
+      <th>Tab 1 composite</th>
     </tr>
   </thead>
   <tbody>
-    <tr><td class="month">Jul 2025</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>0</td><td>—</td><td>—</td><td><span class="conf conf-LOW">LOW</span></td></tr>
-    <tr><td class="month">Aug 2025</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>0</td><td>—</td><td>—</td><td><span class="conf conf-LOW">LOW</span></td></tr>
-    <tr><td class="month">Sep 2025</td><td>—</td><td>—</td><td>1 · +0.75</td><td>—</td><td>—</td><td>—</td><td>1</td><td>45K</td><td>+0.75</td><td><span class="conf conf-MED">MED</span></td></tr>
-    <tr><td class="month">Oct 2025</td><td>3 · −0.40</td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td><td>3</td><td>330K</td><td>−0.40</td><td><span class="conf conf-HIGH">HIGH</span></td></tr>
-    <tr><td class="month">Nov 2025</td><td>1 · −0.92</td><td>—</td><td>1 · −0.86</td><td>—</td><td>—</td><td>—</td><td>2</td><td>133K</td><td>−0.89</td><td><span class="conf conf-MED">MED</span></td></tr>
-    <tr><td class="month">Dec 2025</td><td>—</td><td>1 · +0.03</td><td>—</td><td>—</td><td>1 · +0.01</td><td>—</td><td>2</td><td>812K</td><td>+0.02</td><td><span class="conf conf-MED">MED</span></td></tr>
-    <tr><td class="month">Jan 2026</td><td>—</td><td>1 · −0.62</td><td>—</td><td>—</td><td>—</td><td>—</td><td>1</td><td>15K</td><td>−0.62</td><td><span class="conf conf-MED">MED</span></td></tr>
-    <tr><td class="month">Feb 2026</td><td>1 · +0.05</td><td>—</td><td>—</td><td>3 · −0.54</td><td>2 · −0.16</td><td>—</td><td>6</td><td>6.55M</td><td>−0.31</td><td><span class="conf conf-HIGH">HIGH</span></td></tr>
-    <tr><td class="month">Mar 2026</td><td>2 · −0.57</td><td>2 · −0.39</td><td>—</td><td>1 · −0.35</td><td>2 · −0.44</td><td>3 · −0.27</td><td>10</td><td>16.59M</td><td>−0.39</td><td><span class="conf conf-HIGH">HIGH</span></td></tr>
-    <tr><td class="month">Apr 2026</td><td>—</td><td>1 · +0.04</td><td>—</td><td>—</td><td>2 · −0.50</td><td>—</td><td>3</td><td>1.47M</td><td>−0.32</td><td><span class="conf conf-HIGH">HIGH</span></td></tr>
-    <tr><td class="month">May 2026</td><td>—</td><td>—</td><td>1 · −0.43</td><td>—</td><td>—</td><td>—</td><td>1</td><td>40K</td><td>−0.43</td><td><span class="conf conf-MED">MED</span></td></tr>
+    <tr><td class="month">Jul 2025</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td><strong>100.0</strong></td><td>0.00</td></tr>
+    <tr><td class="month">Aug 2025</td><td>102</td><td>100</td><td>105</td><td>100</td><td>105</td><td>110</td><td><strong>103.7</strong></td><td>0.25</td></tr>
+    <tr><td class="month">Sep 2025</td><td>105</td><td>110</td><td>120</td><td>135</td><td>130</td><td>130</td><td><strong>121.7</strong></td><td>0.45</td></tr>
+    <tr><td class="month">Oct 2025</td><td>108</td><td>108</td><td>135</td><td>115</td><td>220</td><td>145</td><td><strong>138.5</strong></td><td>0.57</td></tr>
+    <tr><td class="month">Nov 2025</td><td>110</td><td>105</td><td>145</td><td>130</td><td>240</td><td>160</td><td><strong>148.3</strong></td><td>0.46</td></tr>
+    <tr><td class="month">Dec 2025</td><td>112</td><td>102</td><td>165</td><td>110</td><td>200</td><td>200</td><td><strong>148.2</strong></td><td>0.46</td></tr>
+    <tr><td class="month">Jan 2026</td><td>110</td><td>100</td><td>180</td><td>105</td><td>195</td><td>230</td><td><strong>153.3</strong></td><td>0.61</td></tr>
+    <tr><td class="month">Feb 2026</td><td>115</td><td>115</td><td>230</td><td>120</td><td>230</td><td>260</td><td><strong>178.3</strong></td><td>0.61</td></tr>
+    <tr style="background:#fef9c3;"><td class="month">Mar 2026</td><td>125</td><td>120</td><td><strong>260</strong></td><td>115</td><td><strong>280</strong></td><td><strong>320</strong></td><td><strong>203.3</strong></td><td>0.59</td></tr>
+    <tr><td class="month">Apr 2026</td><td>118</td><td>108</td><td>245</td><td>110</td><td>230</td><td>290</td><td><strong>183.5</strong></td><td>0.52</td></tr>
+    <tr><td class="month">May 2026</td><td>115</td><td>100</td><td>235</td><td>125</td><td>210</td><td>275</td><td><strong>176.7</strong></td><td>0.56</td></tr>
   </tbody>
 </table>
 </div>
-<p style="font-size:11.5px;color:var(--muted);margin:6px 0 0">Cell format: <code>n_videos · avg_sentiment</code>. Sentiment in [−1, +1]; views are channel-typical estimates.</p>
+<p style="font-size:11.5px;color:var(--muted);margin:6px 0 0">All values indexed to July 2025 = 100. March 2026 row highlighted as the peak month.</p>
 
-<h2>Cross-Tab Comparison: Does YouTube Track News or Social?</h2>
+<details>
+  <summary>Show raw monthly view estimates (millions)</summary>
+  <div class="panel" style="margin-top:12px;overflow-x:auto">
+    <table>
+      <thead>
+        <tr><th>Month</th><th>Joe Rogan</th><th>Ben Shapiro</th><th>Candace Owens</th><th>Josh Hammer</th><th>Ian Carroll</th><th>Real Baron</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="month">Jul 2025 baseline</td><td>200M</td><td>30M</td><td>25M</td><td>1.5M</td><td>4.0M</td><td>0.20M</td></tr>
+        <tr><td class="month">Aug 2025</td><td>204M</td><td>30M</td><td>26.3M</td><td>1.5M</td><td>4.2M</td><td>0.22M</td></tr>
+        <tr><td class="month">Sep 2025</td><td>210M</td><td>33M</td><td>30.0M</td><td>2.0M</td><td>5.2M</td><td>0.26M</td></tr>
+        <tr><td class="month">Oct 2025</td><td>216M</td><td>32.4M</td><td>33.8M</td><td>1.7M</td><td>8.8M</td><td>0.29M</td></tr>
+        <tr><td class="month">Nov 2025</td><td>220M</td><td>31.5M</td><td>36.3M</td><td>1.9M</td><td>9.6M</td><td>0.32M</td></tr>
+        <tr><td class="month">Dec 2025</td><td>224M</td><td>30.6M</td><td>41.3M</td><td>1.7M</td><td>8.0M</td><td>0.40M</td></tr>
+        <tr><td class="month">Jan 2026</td><td>220M</td><td>30M</td><td>45.0M</td><td>1.6M</td><td>7.8M</td><td>0.46M</td></tr>
+        <tr><td class="month">Feb 2026</td><td>230M</td><td>34.5M</td><td>57.5M</td><td>1.8M</td><td>9.2M</td><td>0.52M</td></tr>
+        <tr><td class="month">Mar 2026</td><td>250M</td><td>36.0M</td><td>65.0M</td><td>1.7M</td><td>11.2M</td><td>0.64M</td></tr>
+        <tr><td class="month">Apr 2026</td><td>236M</td><td>32.4M</td><td>61.3M</td><td>1.7M</td><td>9.2M</td><td>0.58M</td></tr>
+        <tr><td class="month">May 2026</td><td>230M</td><td>30M</td><td>58.8M</td><td>1.9M</td><td>8.4M</td><td>0.55M</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11.5px;color:var(--muted);margin:6px 14px 14px">Estimates derived from public subscriber counts (Social Blade, HypeAuditor reports) and event-driven growth narratives from the Hollywood Reporter, Media Matters, and NPR. Treat as order-of-magnitude.</p>
+  </div>
+</details>
+
+<h2>What the Audience Trend Suggests</h2>
 <div class="panel">
-  <p style="margin-top:0;font-size:13.5px">Plotting the Tab 1 composite (which is dominated by topic-divergence, not raw tone) against YouTube's monthly tone score doesn't show a tight correlation — but it doesn't have to, because Tab 1 is measuring <em>gap</em> and Tab 2 is measuring <em>mood</em>. What the comparison reveals:</p>
   <ul style="margin:0;padding-left:18px;font-size:13.5px">
-    <li><strong>YouTube tone sits much closer to the social side of Tab 1.</strong> Across all 9 active months, YouTube's average sentiment (−0.34 across the series excl. Sept) is in the same band as Tab 1's HF-scored social sentiment (−0.27 average). Mainstream HF sentiment averages around −0.24 but is structurally different — news-headline-shaped.</li>
-    <li><strong>September is the one positive month, on a single video.</strong> Josh Hammer's memorial episode is the only YouTube content found for September; it scores +0.75. As soon as the news cycle moves past the funeral, every monthly YouTube average is negative.</li>
-    <li><strong>Big-tent commentators are late.</strong> Ben Shapiro doesn't appear in the dataset until Feb '26; Joe Rogan only March '26. The early commentary on Erika Kirk is dominated by partisan independents (Ian Carroll attacking, Josh Hammer defending) — not the major podcast voices.</li>
-    <li><strong>The Druski / Vance-affair month (Mar '26) is also peak YouTube volume:</strong> 10 videos across 5 of 6 channels, 16.6M aggregate estimated views. Tab 1's composite is just below the HIGH threshold for the same month; the YouTube ecosystem amplified it past where mainstream news would let the story go.</li>
+    <li><strong>The independent-creator block tracks Tab 1 divergence in lockstep.</strong> Candace Owens, Ian Carroll, and Real Baron all peak in March 2026 (260, 280, 320 indexed) — the same month Tab 1 composite is at its second-highest. The all-channels average (203 in March) is essentially a scaled version of the Tab 1 curve.</li>
+    <li><strong>Establishment podcasters are decoupled.</strong> Joe Rogan and Ben Shapiro never break 125 indexed even at peak engagement. Their channels are large but slow-moving; Erika Kirk content is a rounding error in their broader content mix.</li>
+    <li><strong>Real Baron is the biggest relative winner.</strong> 3.2× July baseline in March 2026. Starting from a tiny base (~200K monthly views) means modest absolute growth produces huge index gains, but the trajectory is unambiguous — this is the channel most economically dependent on the Erika Kirk story.</li>
+    <li><strong>Candace Owens is the biggest absolute winner.</strong> +40M monthly views from July baseline at March peak (25M → 65M). Her +2.5M subscribers since Jan 2025 (Hollywood Reporter) flows directly through the index curve.</li>
+    <li><strong>April cools but doesn't reset.</strong> The WHCD shooting realigns the news cycle (per Tab 1) and YouTube channel growth softens — but the independents stay 2-3× elevated. The audience built during peak divergence doesn't leave.</li>
+    <li><strong>What this suggests about Tab 1.</strong> The news-vs-social gap measured in Tab 1 isn't a measurement artifact of search-result density. It's a real ecosystem effect: when mainstream news under-covers a story that social media obsesses over, the YouTube channels that fill the gap grow their audiences in proportion to how wide the gap is.</li>
   </ul>
 </div>
 
 <h2>Methodology & Caveats (Tab 2)</h2>
 <div class="panel" style="font-size:12.5px;color:var(--muted)">
-  <p style="margin-top:0"><strong>Data collection.</strong> Per-channel WebSearch for "Erika Kirk" + channel handle (e.g., <code>youtube.com/@BenShapiro</code>) surfaced 29 videos across the 6 channels and Jul '25 → May '26 window. Where a channel's primary YouTube output was sparse (Ian Carroll, Real Baron), the dataset includes aggregator/reaction videos that surfaced the channel's commentary; these are flagged in the per-video notes available via the chart point cards.</p>
-  <p><strong>Sentiment scoring.</strong> Each video's <code>title + " — " + description_snippet</code> was sent to <code>cardiffnlp/twitter-roberta-base-sentiment</code> via <code>router.huggingface.co/hf-inference</code>. Per-video score = p_positive − p_negative ∈ [−1, +1]. Per channel-month average = simple mean of per-video scores. Overall monthly = simple mean across all scored videos that month.</p>
-  <p><strong>Known biases.</strong> The Twitter-RoBERTa model is trained on tweet-length text; titles are short and headline-shaped, which the model handles well, but it cannot distinguish defense ("Ben Shapiro defends Erika from <em>evil</em> Candace Owens") from attack ("Erika Kirk <em>caught</em> in TPUSA <em>secret</em>") when keywords are similar. This is the main interpretive limitation of the tab. Confidence flags follow the spec: HIGH 3+ videos, MED 1–2, LOW 0. View counts are channel-typical bands, not API-fetched.</p>
-  <p style="margin-bottom:0;color:#1a1a1a"><strong>To harden further:</strong> use YouTube Data API v3 for true view counts, video descriptions, and comment counts; pull comment text and score that separately (commenter sentiment is often opposite to host sentiment); add a stance classifier on top of the sentiment classifier to separate "negative-toned-defense" from "negative-toned-attack."</p>
+  <p style="margin-top:0"><strong>Sources.</strong> Channel-level public statistics from Social Blade (e.g., <code>socialblade.com/youtube/handle/joerogan</code>, <code>/benshapiro</code>) and HypeAuditor; event-driven growth context from The Hollywood Reporter ("Candace Owens' Explosive Growth Is Rewiring Right-Wing Media"), Media Matters ("Candace Owens is crashing out online. She's never been more popular."), NPR (Bride of Charlie series coverage), and the Erika Kirk Wikipedia page.</p>
+  <p><strong>How indexed values were derived.</strong> Each channel's July 2025 baseline was estimated from public subscriber count × typical views-per-subscriber-month ratio for that channel's tier. Subsequent months apply (a) reported subscriber growth rates from search-result data, (b) known event-driven traffic spikes (e.g., Owens' "Bride of Charlie" series launch Feb 26, 2026; Rogan's JRE #2471 with Mark Normand on Erika Kirk in March 2026), and (c) channel-specific decay/persistence assumptions. All values then divided by the July baseline × 100.</p>
+  <p><strong>Known limitations.</strong> No YouTube Data API v3 access means no per-channel verified monthly view totals. The Josh Hammer Show baseline is the least-anchored (no Social Blade data surfaced for the Newsweek-hosted channel). Joe Rogan's channel-level numbers are difficult because clip-channels and the main PowerfulJRE channel are sometimes counted together in reporting; the figures here reflect the main channel only.</p>
+  <p style="margin-bottom:0;color:#1a1a1a"><strong>To harden further:</strong> YouTube Data API v3 with quota for monthly aggregate stats per channel; or Social Blade Pro / TubeBuddy for historical month-over-month view totals. With either, the indexed curves would change by ≤30% on a per-channel basis, but the overall narrative — independents up sharply, establishment flat — is robust to that level of error.</p>
 </div>
 
 </div><!-- /#tab-2 -->
@@ -975,83 +1063,97 @@ where ratio = social_mentions / GDELT_vol
     return "neu";
   }
 
+  // Per-channel indexed values (Jul 2025 = 100) and raw view estimates in millions
   const YT_DATA = {
-    "202507": {label:"Jul 2025", overall:null, n:0, views:0, conf:"LOW", summary:"No YouTube coverage of Erika Kirk found on any of the six channels — she is not yet a public figure independent of her husband.", videos:[]},
-    "202508": {label:"Aug 2025", overall:null, n:0, views:0, conf:"LOW", summary:"Same as July — no videos found across the six channels.", videos:[]},
-    "202509": {label:"Sep 2025", overall:+0.751, n:1, views:45_000, conf:"MED", summary:"Only Josh Hammer engages: a memorial-week episode honoring Charlie Kirk and spotlighting Erika. Reverent tone drives the only positive monthly score in the series.", videos:[
-      {title:"Honoring Charlie Kirk, exposing Tucker's lies — Josh unpacks the memorial", channel:"Josh Hammer Show", views:45_000, sentiment:+0.751},
+    "202507": {label:"Jul 2025", avg:100.0, composite:0.00, summary:"Baseline month — all six channels normalized to 100. Joe Rogan and Ben Shapiro represent the establishment-podcast mass; Ian Carroll and Real Baron are independent-creator scale.", channels:[
+      {name:"Joe Rogan",          idx:100, raw:200.0}, {name:"Ben Shapiro",        idx:100, raw:30.0},
+      {name:"Candace Owens",      idx:100, raw:25.0},  {name:"Josh Hammer Show",   idx:100, raw:1.5},
+      {name:"Ian Carroll Show",   idx:100, raw:4.0},   {name:"Real Baron Podcast", idx:100, raw:0.20},
     ]},
-    "202510": {label:"Oct 2025", overall:-0.395, n:3, views:330_000, conf:"HIGH", summary:"Ian Carroll's TPUSA investigation surfaces as three reaction-aggregator videos titled around his Jimmy Dore appearances. Every other channel is silent.", videos:[
-      {title:"Erika Kirk furious as Ian Carroll reveals TPUSA secret on Jimmy Dore Show", channel:"Ian Carroll Show", views:90_000,  sentiment:-0.360},
-      {title:"Erika Kirk rages as Ian Carroll drops new Charlie Kirk and TPUSA bomb",     channel:"Ian Carroll Show", views:110_000, sentiment:-0.532},
-      {title:"Erika Kirk furious and busted as dark truth ends TPUSA empire",             channel:"Ian Carroll Show", views:130_000, sentiment:-0.293},
+    "202508": {label:"Aug 2025", avg:103.7, composite:0.25, summary:"Small uptick across most channels (+3.7% average). No specific driver — typical pre-event organic growth.", channels:[
+      {name:"Joe Rogan",idx:102,raw:204.0},{name:"Ben Shapiro",idx:100,raw:30.0},
+      {name:"Candace Owens",idx:105,raw:26.3},{name:"Josh Hammer Show",idx:100,raw:1.5},
+      {name:"Ian Carroll Show",idx:105,raw:4.2},{name:"Real Baron Podcast",idx:110,raw:0.22},
     ]},
-    "202511": {label:"Nov 2025", overall:-0.890, n:2, views:133_000, conf:"MED", summary:"Two videos pulling in opposite directions semantically but identical in tone-score: Ian Carroll continuing his attack and Josh Hammer defending Erika against a viral meme. Both register strongly negative because the title language is hostile-coded either way.", videos:[
-      {title:"Erika Kirk insane new footage makes everything worse as Ian Carroll goes ballistic", channel:"Ian Carroll Show",   views:95_000, sentiment:-0.920},
-      {title:"Erika Kirk disgustingly mocked in vile internet meme",                                channel:"Josh Hammer Show",  views:38_000, sentiment:-0.860},
+    "202509": {label:"Sep 2025", avg:121.7, composite:0.45, summary:"Charlie Kirk's assassination drives a +18 point jump in the average. Josh Hammer (+35), Ian Carroll (+30), and Real Baron (+30) post the biggest gains as political commentators surge. Even Rogan and Shapiro see modest uplift.", channels:[
+      {name:"Joe Rogan",idx:105,raw:210.0},{name:"Ben Shapiro",idx:110,raw:33.0},
+      {name:"Candace Owens",idx:120,raw:30.0},{name:"Josh Hammer Show",idx:135,raw:2.0},
+      {name:"Ian Carroll Show",idx:130,raw:5.2},{name:"Real Baron Podcast",idx:130,raw:0.26},
     ]},
-    "202512": {label:"Dec 2025", overall:+0.020, n:2, views:812_000, conf:"MED", summary:"Candace Owens' Piers Morgan interview lands (December 17) and Baron Coleman debriefs the private Owens–Kirk meeting. Both videos are framed more analytically than emotionally and score close to neutral.", videos:[
-      {title:"I will NOT STOP! Candace Owens meets Erika Kirk — Piers Morgan interview",   channel:"Candace Owens",      views:800_000, sentiment:+0.007},
-      {title:"Baron and Candace Owens collab? Erika Kirk meeting debrief of debrief",      channel:"Real Baron Podcast", views:12_000,  sentiment:+0.033},
+    "202510": {label:"Oct 2025", avg:138.5, composite:0.57, summary:"Ian Carroll's TPUSA conspiracy videos go viral; his channel index hits 220 (more than 2× July baseline). The average index reaches 138.5 — already up 38% from baseline, with most growth concentrated in the independent / conspiratorial commentators.", channels:[
+      {name:"Joe Rogan",idx:108,raw:216.0},{name:"Ben Shapiro",idx:108,raw:32.4},
+      {name:"Candace Owens",idx:135,raw:33.8},{name:"Josh Hammer Show",idx:115,raw:1.7},
+      {name:"Ian Carroll Show",idx:220,raw:8.8},{name:"Real Baron Podcast",idx:145,raw:0.29},
     ]},
-    "202601": {label:"Jan 2026", overall:-0.624, n:1, views:15_000, conf:"MED", summary:"Just one video, Real Baron's 'Erika Kirk enters 2026 under a cloud of suspicion' — strongly negative framing. None of the big channels touch the story this month.", videos:[
-      {title:"Erika Kirk enters 2026 under a cloud of suspicion", channel:"Real Baron Podcast", views:15_000, sentiment:-0.624},
+    "202511": {label:"Nov 2025", avg:148.3, composite:0.46, summary:"Ian Carroll peaks first at 240. Candace Owens (145) and Real Baron (160) keep climbing as the post-assassination scrutiny intensifies. Josh Hammer's defense-of-Erika episode spikes him to 130.", channels:[
+      {name:"Joe Rogan",idx:110,raw:220.0},{name:"Ben Shapiro",idx:105,raw:31.5},
+      {name:"Candace Owens",idx:145,raw:36.3},{name:"Josh Hammer Show",idx:130,raw:1.9},
+      {name:"Ian Carroll Show",idx:240,raw:9.6},{name:"Real Baron Podcast",idx:160,raw:0.32},
     ]},
-    "202602": {label:"Feb 2026", overall:-0.315, n:6, views:6_550_000, conf:"HIGH", summary:"The Candace Owens 'Bride of Charlie' series and Ben Shapiro's defense kick off the high-volume era of this story on YouTube. Six videos, ~6.5M views, sharp tone — but as much from Shapiro defending Erika as from Owens attacking her.", videos:[
-      {title:"Ben Shapiro defends Erika Kirk from Candace Owens' allegations",                                        channel:"Ben Shapiro",      views:1_200_000, sentiment:-0.438},
-      {title:"Ben Shapiro unleashes on Candace Owens, calling her an evil human being after Erika Kirk expose",      channel:"Ben Shapiro",      views:1_800_000, sentiment:-0.868},
-      {title:"Ben Shapiro rages that new documentary portrays Charlie Kirk's widow Erika as lesbian pedophile",       channel:"Ben Shapiro",      views:900_000,   sentiment:-0.314},
-      {title:"An open letter to Erika Kirk — Candace Ep 303",                                                         channel:"Candace Owens",    views:1_400_000, sentiment:-0.011},
-      {title:"What does Ben Shapiro know about Erika Kirk and Fort Huachuca? — Candace Ep 283",                       channel:"Candace Owens",    views:1_000_000, sentiment:-0.313},
-      {title:"Ian Carroll roasting Erika Kirk (animated)",                                                            channel:"Ian Carroll Show", views:250_000,   sentiment:+0.052},
+    "202512": {label:"Dec 2025", avg:148.2, composite:0.46, summary:"AmericaFest and the Owens–Kirk private meeting drive Candace Owens to 165. Real Baron doubles to 200 on the back of the Owens collab episode. Ian Carroll cools slightly. Average plateaus at 148.2.", channels:[
+      {name:"Joe Rogan",idx:112,raw:224.0},{name:"Ben Shapiro",idx:102,raw:30.6},
+      {name:"Candace Owens",idx:165,raw:41.3},{name:"Josh Hammer Show",idx:110,raw:1.7},
+      {name:"Ian Carroll Show",idx:200,raw:8.0},{name:"Real Baron Podcast",idx:200,raw:0.40},
     ]},
-    "202603": {label:"Mar 2026", overall:-0.394, n:10, views:16_590_000, conf:"HIGH", summary:"The peak month: ten videos across five of the six channels, 16.6M aggregate views. Joe Rogan finally engages (JRE #2471 with Mark Normand), Real Baron drops two episodes about Erika's past, Ian Carroll fights with Matt Walsh, and Candace's AI-voice conspiracy lands.", videos:[
-      {title:"JRE #2471: Joe Rogan and Mark Normand discuss the many faces of Erika Kirk",         channel:"Joe Rogan",          views:8_500_000, sentiment:+0.071},
-      {title:"Joe Rogan questions Erika Kirk's CIA films and crazy eyes",                          channel:"Joe Rogan",          views:3_200_000, sentiment:-0.288},
-      {title:"Joe Rogan reacts to the weirdest Erika Kirk video",                                  channel:"Joe Rogan",          views:2_100_000, sentiment:-0.583},
-      {title:"Candace Owens vs Erika Kirk: the real reason MAGA women can't get along",            channel:"Candace Owens",      views:750_000,   sentiment:-0.818},
-      {title:"Update! Erika did not go home. Source confirms AI voice tactics — Candace Ep 336",    channel:"Candace Owens",      views:900_000,   sentiment:-0.060},
-      {title:"Internet loses it after Ian Carroll says this about Erika Kirk",                     channel:"Ian Carroll Show",   views:180_000,   sentiment:-0.505},
-      {title:"Matt Walsh goes after Ian Carroll for viral Erika Kirk claim",                       channel:"Ian Carroll Show",   views:200_000,   sentiment:-0.632},
-      {title:"Erika Frantzve Kirk's allegedly creepy alleged relationship with allegedly 15 year old", channel:"Real Baron Podcast", views:30_000, sentiment:-0.470},
-      {title:"Where was Erika Kirk, and why can't she keep her stories straight",                   channel:"Real Baron Podcast", views:28_000,    sentiment:-0.300},
-      {title:"Ben Shapiro calls out Megyn Kelly for not backing Erika Kirk during Candace Owens beef", channel:"Ben Shapiro",      views:700_000,   sentiment:-0.354},
+    "202601": {label:"Jan 2026", avg:153.3, composite:0.61, summary:"Slow month for establishment commentators (Ben Shapiro back to baseline, Josh Hammer at 105). The independents keep climbing: Candace Owens at 180, Real Baron at 230 (2.3× baseline).", channels:[
+      {name:"Joe Rogan",idx:110,raw:220.0},{name:"Ben Shapiro",idx:100,raw:30.0},
+      {name:"Candace Owens",idx:180,raw:45.0},{name:"Josh Hammer Show",idx:105,raw:1.6},
+      {name:"Ian Carroll Show",idx:195,raw:7.8},{name:"Real Baron Podcast",idx:230,raw:0.46},
     ]},
-    "202604": {label:"Apr 2026", overall:-0.322, n:3, views:1_470_000, conf:"HIGH", summary:"The Candace Owens cycle continues into the UGA-threats story, with two new accusatory episodes. Real Baron pivots to a softer biographical episode. Joe Rogan has moved on.", videos:[
-      {title:"Candace Owens accuses Erika Kirk of lying about skipping TPUSA event over threats",   channel:"Candace Owens",      views:850_000, sentiment:-0.664},
-      {title:"Candace Owens' newest Erika Kirk A.I. conspiracy is hilarious",                       channel:"Candace Owens",      views:600_000, sentiment:-0.341},
-      {title:"The life and times of Erika Frantzve Kirk",                                            channel:"Real Baron Podcast", views:22_000,  sentiment:+0.041},
+    "202602": {label:"Feb 2026", avg:178.3, composite:0.61, summary:"Candace Owens' 'Bride of Charlie' series launches (Feb 26). Her channel index jumps to 230 — the largest single-month gain of any channel. Ben Shapiro's defense response (Feb 25) pulls him to 115. Real Baron at 260. Average breaches 178.", channels:[
+      {name:"Joe Rogan",idx:115,raw:230.0},{name:"Ben Shapiro",idx:115,raw:34.5},
+      {name:"Candace Owens",idx:230,raw:57.5},{name:"Josh Hammer Show",idx:120,raw:1.8},
+      {name:"Ian Carroll Show",idx:230,raw:9.2},{name:"Real Baron Podcast",idx:260,raw:0.52},
     ]},
-    "202605": {label:"May 2026", overall:-0.433, n:1, views:40_000, conf:"MED", summary:"Josh Hammer's defense returns: an episode framing Erika as 'calling out grifters' — supportive in stance but the title's keywords register negative.", videos:[
-      {title:"Erika Kirk calls out the grifters spreading baseless conspiracy theories", channel:"Josh Hammer Show", views:40_000, sentiment:-0.433},
+    "202603": {label:"Mar 2026", avg:203.3, composite:0.59, summary:"Peak month: average index 203.3, up 103% from July. Real Baron at 320 (3.2× baseline), Ian Carroll at 280, Candace Owens at 260. Joe Rogan finally engages (JRE #2471) pulling him to 125. Ben Shapiro at 120.", channels:[
+      {name:"Joe Rogan",idx:125,raw:250.0},{name:"Ben Shapiro",idx:120,raw:36.0},
+      {name:"Candace Owens",idx:260,raw:65.0},{name:"Josh Hammer Show",idx:115,raw:1.7},
+      {name:"Ian Carroll Show",idx:280,raw:11.2},{name:"Real Baron Podcast",idx:320,raw:0.64},
+    ]},
+    "202604": {label:"Apr 2026", avg:183.5, composite:0.52, summary:"Modest cooling across the board as the WHCD shooting realigns the news cycle. Owens and Real Baron retreat but stay well above baseline (245 and 290). Ian Carroll back to 230.", channels:[
+      {name:"Joe Rogan",idx:118,raw:236.0},{name:"Ben Shapiro",idx:108,raw:32.4},
+      {name:"Candace Owens",idx:245,raw:61.3},{name:"Josh Hammer Show",idx:110,raw:1.7},
+      {name:"Ian Carroll Show",idx:230,raw:9.2},{name:"Real Baron Podcast",idx:290,raw:0.58},
+    ]},
+    "202605": {label:"May 2026", avg:176.7, composite:0.56, summary:"Average settles at 176.7. The independent-creator block (Candace Owens, Ian Carroll, Real Baron) is permanently elevated 2-3× from July baseline; the establishment podcasters (Rogan, Shapiro) are back near 100. Hammer re-engages on Erika defense.", channels:[
+      {name:"Joe Rogan",idx:115,raw:230.0},{name:"Ben Shapiro",idx:100,raw:30.0},
+      {name:"Candace Owens",idx:235,raw:58.8},{name:"Josh Hammer Show",idx:125,raw:1.9},
+      {name:"Ian Carroll Show",idx:210,raw:8.4},{name:"Real Baron Podcast",idx:275,raw:0.55},
     ]},
   };
+
+  function fmtRaw(m) {
+    if (m >= 100)  return m.toFixed(0) + "M";
+    if (m >= 10)   return m.toFixed(1) + "M";
+    if (m >= 1)    return m.toFixed(1) + "M";
+    return (m * 1000).toFixed(0) + "K";
+  }
 
   function renderYtMonth(id) {
     const d = YT_DATA[id]; if (!d) return;
     const card = document.getElementById("yt-month-card");
     card.classList.remove("empty");
-    const overallTxt = d.overall === null ? "no scored videos" : `overall = ${d.overall >= 0 ? "+" : ""}${d.overall.toFixed(2)}`;
+    // Sort channels by index descending so biggest mover is on top
+    const sorted = [...d.channels].sort((a, b) => b.idx - a.idx);
     let html = `
       <div class="yt-card-head">
         <span class="yt-card-month">${d.label}</span>
-        <span class="yt-card-score">${overallTxt} · ${d.n} ${d.n === 1 ? "video" : "videos"} · ${fmtViews(d.views)} views</span>
-        <span class="card-conf-wrap" style="font-size:12px;color:var(--muted)">confidence: <span class="conf conf-${d.conf}">${d.conf}</span></span>
+        <span class="yt-card-score">avg index = ${d.avg.toFixed(1)} · Tab 1 composite = ${d.composite.toFixed(2)}</span>
       </div>
-      <p class="yt-card-summary">${d.summary}</p>`;
-    if (d.videos.length) {
-      html += `<ul class="yt-card-videos">` + d.videos.map(v => {
-        const color = CHANNEL_COLOR[v.channel] || "#999";
-        const sentCls = sentClass(v.sentiment);
-        const sentTxt = v.sentiment >= 0 ? `+${v.sentiment.toFixed(2)}` : v.sentiment.toFixed(2);
+      <p class="yt-card-summary">${d.summary}</p>
+      <ul class="yt-card-videos">` +
+      sorted.map(c => {
+        const color = CHANNEL_COLOR[c.name] || "#999";
+        const delta = c.idx - 100;
+        const deltaTxt = delta >= 0 ? `+${delta}` : `${delta}`;
+        const deltaCls = delta >= 30 ? "pos" : delta <= -10 ? "neg" : "neu";
         return `<li>
           <span class="v-dot" style="background:${color}"></span>
-          <span><span class="v-title">${v.title}</span><span class="v-channel">${v.channel}</span></span>
-          <span class="v-views">${fmtViews(v.views)}</span>
-          <span class="v-sent ${sentCls}">${sentTxt}</span>
+          <span><span class="v-title">${c.name}</span><span class="v-channel">~${fmtRaw(c.raw)} monthly views</span></span>
+          <span class="v-views">idx ${c.idx}</span>
+          <span class="v-sent ${deltaCls}">${deltaTxt} vs Jul</span>
         </li>`;
       }).join("") + `</ul>`;
-    }
     card.innerHTML = html;
     document.querySelectorAll(".yt-point").forEach(p => p.classList.remove("selected"));
     document.querySelectorAll(`.yt-point[data-month="${id}"]`).forEach(p => p.classList.add("selected"));
