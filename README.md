@@ -4,6 +4,8 @@
 
 A single-file HTML tracker measuring the gap between mainstream news and social media coverage of Erika Kirk from July 2025 through May 2026, with a companion view of YouTube audience trends across eight commentary channels over the same window.
 
+**Picking up this project? Read [CLAUDE.md](./CLAUDE.md) first** — it covers repo layout, chart conventions, intentional design choices, and where to edit when refreshing data. The rest of this file is for general readers.
+
 ## What this measures
 
 The tracker has two tabs.
@@ -54,28 +56,25 @@ Tab 1's composite divergence is overlaid on both YouTube panels for shape compar
 
 ## How to reproduce
 
-The artifact is a single self-contained HTML file. No build step, no dependencies.
+The artifact is a single self-contained HTML file (`index.html`). No build step, no dependencies — open it directly in a browser.
 
 To refresh the data layer:
 
 ```bash
-# Tab 1 — GDELT volume + tone, full date range
-curl "https://api.gdeltproject.org/api/v2/doc/doc?query=%22Erika+Kirk%22&mode=timelinevol&format=json&startdatetime=20250701000000&enddatetime=20260531235959"
+# Tab 1 (GDELT + HuggingFace)
+python3 scripts/pull_gdelt.py                          # ~3 min, no key needed
+HF_TOKEN=hf_... python3 scripts/score_hf.py            # ~3 min, free tier
+python3 scripts/build_tab1.py                          # instant
 
-# Tab 1 — HF sentiment on a headline
-curl -X POST "https://router.huggingface.co/hf-inference/models/cardiffnlp/twitter-roberta-base-sentiment" \
-  -H "Authorization: Bearer hf_***" \
-  -H "Content-Type: application/json" \
-  -d '{"inputs": "Erika Kirk faces backlash for moving on too soon"}'
-
-# Tab 2 — YouTube channel resolution
-curl "https://www.googleapis.com/youtube/v3/channels?part=id,statistics,contentDetails&forHandle=@joerogan&key=AIza***"
-
-# Tab 2 — Walk uploads playlist (cheap: 1 unit/page of 50)
-curl "https://www.googleapis.com/youtube/v3/playlistItems?part=snippet,contentDetails&playlistId=UUzQUP1qoWDoEbmsQxvdjxgQ&maxResults=50&key=AIza***"
+# Tab 2 (YouTube Data API v3)
+YT_KEY=AIza... python3 scripts/pull_youtube.py         # ~30s, 150 quota units
 ```
 
-**Important quota note:** use `playlistItems.list` (1 unit per 50 videos), not `search.list` (100 units per call). The same data pull would cost ~7,000 quota units with `search.list` and ~80 units with `playlistItems.list` — a 90× difference. Documented in the methodology section inside the artifact.
+Outputs land in `data/`. Updating `index.html` after a refresh is currently manual — copy the new values into the SVG polylines and JS data objects. See [CLAUDE.md](./CLAUDE.md) for the chart conventions (x positions, y formulas, channel colors).
+
+**API key setup, key gotchas, full directory layout** — see [`scripts/README.md`](./scripts/README.md).
+
+**Critical quota note:** Tab 2 uses `playlistItems.list` (1 unit per page of 50 videos), not `search.list` (100 units per call). The same data pull would cost ~7,000 units with `search.list` and ~150 units with `playlistItems.list` — a 90× difference, and the default mental model for "date-bounded YouTube search" is the expensive one.
 
 ## Important caveats
 
