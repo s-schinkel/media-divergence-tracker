@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iran / Middle East Media &amp; Conflict Tracker</title>
+  <meta name="description" content="Interactive tracker of Middle East media coverage vs. real-world events, Jan 2025 to present. Work in progress." />
+
+  <!-- Charting libraries (CDN). Used once data collection is complete. -->
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0d1117;
+      --panel: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --accent: #58a6ff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Inter", system-ui, sans-serif;
+      line-height: 1.55;
+    }
+    code, .mono, .date { font-family: "JetBrains Mono", ui-monospace, monospace; }
+
+    header {
+      padding: 2.5rem 1.5rem 1.25rem;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    h1 { font-size: 1.6rem; margin: 0 0 .35rem; letter-spacing: -.01em; }
+    .subtitle { color: var(--muted); margin: 0; font-size: .95rem; }
+
+    main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+
+    /* Summary panel skeleton (Phase 3 requirement) */
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .summary .stat {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1rem 1.2rem;
+    }
+    .summary .stat .label { color: var(--muted); font-size: .75rem; text-transform: uppercase; letter-spacing: .06em; }
+    .summary .stat .value { font-family: "JetBrains Mono", monospace; font-size: 1.5rem; margin-top: .25rem; }
+
+    .banner {
+      background: rgba(88,166,255,.08);
+      border: 1px solid var(--accent);
+      border-radius: 8px;
+      padding: 1.1rem 1.3rem;
+      margin-bottom: 1.5rem;
+    }
+    .banner strong { color: var(--accent); }
+
+    .placeholder {
+      background: var(--panel);
+      border: 1px dashed var(--border);
+      border-radius: 8px;
+      min-height: 320px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted);
+      font-family: "JetBrains Mono", monospace;
+      font-size: .9rem;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    footer {
+      max-width: 1100px;
+      margin: 2rem auto 3rem;
+      padding: 1rem 1.5rem;
+      color: var(--muted);
+      font-size: .8rem;
+      border-top: 1px solid var(--border);
+    }
+    a { color: var(--accent); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Iran / Middle East — Media &amp; Conflict Tracker</h1>
+    <p class="subtitle">Leading and trailing indicators in media coverage vs. real-world events &middot; <span class="date">Jan 2025 → present</span></p>
+  </header>
+
+  <main>
+    <div class="banner">
+      <strong>⚠ Work in progress.</strong> This tracker is scaffolded but not yet populated.
+      Phase 1 (month-by-month data collection across UK / AU / USA / CA media volume,
+      world-leader posture, kinetic events, and flash points) has not been run yet. The
+      interactive D3 "wave" chart, posture swimlanes, and tone panels will appear here once
+      the dataset is validated.
+    </div>
+
+    <section class="summary" aria-label="Summary statistics (pending data)">
+      <div class="stat">
+        <div class="label">Total story volume</div>
+        <div class="value">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">Events logged</div>
+        <div class="value">—</div>
+      </div>
+      <div class="stat">
+        <div class="label">Date range</div>
+        <div class="value">—</div>
+      </div>
+    </section>
+
+    <div class="placeholder" id="chart">
+      Main chart (“The Wave”) renders here after Phase 1 data collection.
+    </div>
+  </main>
+
+  <footer>
+    Part of the <a href="../">media-divergence-tracker</a> collection &middot; side project,
+    not affiliated with any employer &middot; methodology and data sources documented in the
+    tracker README.
+  </footer>
+</body>
+</html>
