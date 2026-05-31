@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Iran / Middle East — Media &amp; Conflict Tracker</title>
+  <meta name="description" content="Interactive tracker of Middle East media coverage vs. real-world events, Jan 2025 – May 2026." />
+
+  <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root{
+      --bg:#0d1117; --panel:#161b22; --border:#30363d; --text:#e6edf3; --muted:#8b949e;
+      --blank:#1e2329;
+      --uk:#7b68ee; --usa:#ff6b6b; --au:#51cf66; --ca:#ffd43b; --wave:#4a9eff;
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;background:var(--bg);color:var(--text);font-family:"Inter",system-ui,sans-serif;}
+    .mono{font-family:"JetBrains Mono",ui-monospace,monospace;}
+
+    /* ZONE 1 — header strip (fixed top) */
+    #headerStrip{
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:rgba(13,17,23,.96);border-bottom:1px solid var(--border);
+      padding:.7rem 1.1rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;
+      backdrop-filter:blur(4px);
+    }
+    #headerStrip h1{font-size:1.02rem;margin:0;font-weight:700;letter-spacing:-.01em;}
+    #headerStrip h1 span{color:var(--muted);font-weight:400;font-size:.8rem;}
+    .pills{display:flex;gap:.6rem;margin-left:auto;flex-wrap:wrap;}
+    .pill{background:var(--panel);border:1px solid var(--border);border-radius:999px;
+      padding:.28rem .8rem;font-size:.72rem;display:flex;gap:.45rem;align-items:baseline;}
+    .pill b{font-family:"JetBrains Mono",monospace;font-size:.92rem;color:var(--wave);}
+    .pill span{color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-size:.62rem;}
+
+    /* middle scroll region */
+    #chartWrap{display:flex;margin-top:58px;margin-bottom:96px;}
+    #gutter{position:relative;width:122px;flex:0 0 122px;}
+    #scrollArea{flex:1 1 auto;overflow-x:auto;overflow-y:hidden;}
+
+    .gut-ylab{position:absolute;right:8px;font-family:"JetBrains Mono",monospace;
+      font-size:.6rem;color:var(--muted);transform:translateY(-50%);text-align:right;}
+    .gut-zone{position:absolute;left:8px;font-size:.58rem;color:var(--muted);
+      text-transform:uppercase;letter-spacing:.08em;font-weight:600;}
+    .lane-lab{position:absolute;left:6px;right:4px;font-size:.66rem;display:flex;
+      align-items:center;gap:.32rem;height:26px;}
+    .lane-lab .fl{font-size:.85rem;}
+    .lane-lab .nm{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+
+    /* tone tabs in gutter */
+    #toneTabs{position:absolute;left:6px;right:4px;display:flex;flex-direction:column;gap:4px;}
+    #toneTabs .tt-h{font-size:.58rem;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;font-weight:600;margin-bottom:2px;}
+    .tone-tab{background:var(--panel);border:1px solid var(--border);color:var(--text);
+      border-radius:5px;padding:.22rem .4rem;font-size:.66rem;cursor:pointer;text-align:left;font-family:inherit;}
+    .tone-tab.active{border-color:var(--wave);color:var(--wave);background:rgba(74,158,255,.1);}
+
+    #tonePanel{padding-top:6px;}
+    #tonePanel .tp-cap{font-size:.62rem;color:var(--muted);padding:0 0 4px 4px;}
+
+    /* tooltip */
+    #tip{position:fixed;z-index:90;pointer-events:none;opacity:0;transition:opacity .08s;
+      max-width:300px;background:#0b0e13;border:1px solid #4a9eff;border-radius:7px;
+      padding:.55rem .65rem;font-size:.72rem;line-height:1.35;box-shadow:0 6px 24px rgba(0,0,0,.6);}
+    #tip .t-h{font-family:"JetBrains Mono",monospace;font-size:.66rem;color:var(--wave);margin-bottom:.25rem;}
+    #tip .t-sub{font-weight:600;margin-bottom:.2rem;}
+    #tip ul{margin:.2rem 0 .2rem 0;padding-left:1rem;}
+    #tip li{margin:.05rem 0;}
+    #tip .t-src{color:var(--muted);font-size:.64rem;margin-top:.3rem;}
+    #tip .t-pez{color:#ffd43b;font-size:.66rem;margin-top:.3rem;}
+
+    svg text{font-family:"JetBrains Mono",monospace;}
+    .grid-line{stroke:#ffffff;stroke-opacity:.04;}
+    .mlabel{fill:var(--muted);font-size:9px;}
+    .ev-line{stroke-dasharray:2 2;stroke-opacity:.4;stroke-width:1px;}
+    .ev-sym{text-anchor:middle;dominant-baseline:central;cursor:pointer;}
+    .pblock{cursor:pointer;}
+    .pblock:hover{stroke:#fff;stroke-width:1.2px;}
+    .hov-pt{cursor:pointer;}
+    .divider{stroke:#fff;stroke-width:1.2px;stroke-opacity:.85;}
+    .divider-lab{fill:#fff;font-size:8.5px;font-weight:600;}
+
+    /* ZONE 5 — legend (fixed bottom) */
+    #legend{position:fixed;bottom:0;left:0;right:0;z-index:50;background:rgba(13,17,23,.97);
+      border-top:1px solid var(--border);padding:.5rem 1.1rem;backdrop-filter:blur(4px);}
+    .leg-row{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.68rem;}
+    .leg-row+ .leg-row{margin-top:.4rem;}
+    .leg-row > .leg-cap{color:var(--muted);text-transform:uppercase;letter-spacing:.06em;
+      font-size:.6rem;font-weight:600;min-width:96px;}
+    .leg-item{display:flex;align-items:center;gap:.32rem;}
+    .leg-sym{font-size:.95rem;width:16px;text-align:center;line-height:1;}
+    .leg-sw{width:14px;height:12px;border-radius:2px;display:inline-block;}
+    .leg-scale{display:flex;align-items:center;gap:.3rem;}
+    .leg-scale .lab{color:var(--muted);font-size:.62rem;}
+    .leg-div{width:1px;height:18px;background:var(--border);}
+    .leg-note{margin-left:auto;color:var(--muted);font-size:.62rem;font-style:italic;max-width:360px;text-align:right;}
+
+    /* Leading/trailing indicators panel */
+    #indPanel{margin:14px auto 24px;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    #indPanel .ind-head{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.8rem;
+      padding:.6rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.5rem;color:var(--text);user-select:none;}
+    #indPanel .ind-head .chev{color:#58a6ff;font-size:.7rem;width:.8rem;}
+    #indPanel .ind-body{max-height:0;overflow:hidden;padding:0 .9rem;transition:max-height .25s ease,padding .25s ease;}
+    #indPanel.open .ind-body{max-height:640px;padding:.1rem .9rem .8rem;}
+    #indPanel .ind-sec{color:#58a6ff;font-variant:small-caps;font-size:.74rem;font-weight:700;letter-spacing:.03em;margin:.6rem 0 .15rem;}
+    #indPanel ul.ind-list{margin:.1rem 0 .4rem;padding-left:1.1rem;}
+    #indPanel ul.ind-list li{font-family:"Inter",sans-serif;font-size:.78rem;line-height:1.6;color:#c9d1d9;margin:.18rem 0;}
+  </style>
+</head>
+<body>
+  <header id="headerStrip">
+    <h1>Iran / Middle East — Media &amp; Conflict Tracker<br><span>Media coverage vs. real-world events · Jan 2025 → May 2026</span></h1>
+    <div class="pills">
+      <div class="pill"><b id="pillVol">–</b><span>~Total story volume</span></div>
+      <div class="pill"><b id="pillEvt">–</b><span>Events logged</span></div>
+      <div class="pill"><b class="mono">Jan 2025 – May 2026</b><span>Date range</span></div>
+    </div>
+  </header>
+
+  <div id="chartWrap">
+    <div id="gutter"></div>
+    <div id="scrollArea">
+      <svg id="mainSvg"></svg>
+      <div id="tonePanel">
+        <div class="tp-cap">Story-tone composition by month (Escalatory / Neutral / De-escalatory) — switch country at left.</div>
+        <canvas id="toneCanvas"></canvas>
+      </div>
+      <div id="indPanel">
+        <div class="ind-head" id="indHead"><span class="chev">▶</span>📊 Leading &amp; Trailing Indicators</div>
+        <div class="ind-body">
+          <div class="ind-sec">Leading indicators (media precedes events)</div>
+          <ul class="ind-list">
+            <li>UK/USA volume spiked in May 2025 — 4–6 weeks before the June war. Tone turned Escalatory in Feb 2025 when the strikes were still 4 months away.</li>
+            <li>AU volume spike (Aug 2025) preceded the IRGC terror listing by 3 months (Nov 2025) — the expulsion drove coverage before policy hardened.</li>
+            <li>Canada's protest-solidarity coverage (Dec 2025–Jan 2026) preceded Epic Fury by 6–8 weeks.</li>
+          </ul>
+          <div class="ind-sec">Trailing indicators (events precede media)</div>
+          <ul class="ind-list">
+            <li>The snapback trigger (Aug 28 2025) took a full month to peak in AU/CA coverage — both countries' Sep volumes lag the E3 announcement.</li>
+            <li>MBS's conciliatory posture in June 2025 (refused airspace, condemned strikes) preceded a media narrative shift by ~6 weeks — outlets caught up in July/Aug.</li>
+            <li>The ceasefire (Apr 8 2026) produced a faster trailing response in UK (same month) vs USA (volume stayed elevated into May).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="tip"></div>
+
+  <footer id="legend"></footer>
+
+  <script>
+  "use strict";
+
+  /* ============================ DATA ============================ */
+
+  const MONTHS = ["2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07",
+    "2025-08","2025-09","2025-10","2025-11","2025-12","2026-01","2026-02","2026-03",
+    "2026-04","2026-05"];
+
+  // ZONE 2 — approximate monthly story volume by country (raw-approximate scale)
+  const VOLUME_DATA = [
+    { month:"2025-01", uk:90,   usa:120,  au:25,  ca:20  },
+    { month:"2025-02", uk:75,   usa:200,  au:45,  ca:45  },
+    { month:"2025-03", uk:110,  usa:250,  au:35,  ca:30  },
+    { month:"2025-04", uk:160,  usa:350,  au:55,  ca:50  },
+    { month:"2025-05", uk:200,  usa:400,  au:65,  ca:55  },
+    { month:"2025-06", uk:1100, usa:1400, au:480, ca:480 },
+    { month:"2025-07", uk:400,  usa:700,  au:90,  ca:110 },
+    { month:"2025-08", uk:280,  usa:450,  au:390, ca:120 },
+    { month:"2025-09", uk:250,  usa:380,  au:130, ca:100 },
+    { month:"2025-10", uk:150,  usa:320,  au:85,  ca:45  },
+    { month:"2025-11", uk:130,  usa:260,  au:220, ca:35  },
+    { month:"2025-12", uk:200,  usa:200,  au:140, ca:150 },
+    { month:"2026-01", uk:320,  usa:230,  au:175, ca:180 },
+    { month:"2026-02", uk:950,  usa:600,  au:550, ca:520 },
+    { month:"2026-03", uk:850,  usa:1100, au:620, ca:550 },
+    { month:"2026-04", uk:600,  usa:900,  au:400, ca:300 },
+    { month:"2026-05", uk:550,  usa:1200, au:210, ca:200 }
+  ];
+
+  // ZONE 2 — event markers (categories D kinetic + E flash points). type = taxonomy key.
+  const EVENTS_DATA = [
+    { date:"2025-01-08", type:"diplomatic", actor:"Iran, Italy", target_type:null, description:"Iran frees journalist Cecilia Sala after 21 days, linked to Italy’s detention of an Iranian engineer.", source:"Washington Post / Al Jazeera" },
+    { date:"2025-02-04", type:"policy", actor:"USA, Iran", target_type:null, description:"Trump signs NSPM-2 reinstating the ‘maximum pressure’ campaign on Iran.", source:"White House / Iran Primer" },
+    { date:"2025-04-12", type:"diplomatic", actor:"USA, Iran, Oman", target_type:null, description:"First indirect US–Iran nuclear talks held in Muscat (Witkoff / Araghchi).", source:"Arms Control Association" },
+    { date:"2025-04-19", type:"diplomatic", actor:"USA, Iran, Italy", target_type:null, description:"Second round of indirect nuclear talks held in Rome.", source:"Times of Israel" },
+    { date:"2025-05-04", type:"diplomatic", actor:"UK, Iran", target_type:null, description:"UK arrests several Iranian men over a suspected Iran-linked attack plot.", source:"Euronews" },
+    { date:"2025-05-06", type:"diplomatic", actor:"USA, Houthis, Oman", target_type:null, description:"Oman-brokered US–Houthi ceasefire halts US strikes in Yemen.", source:"Maritime Executive" },
+    { date:"2025-05-23", type:"diplomatic", actor:"USA, Iran", target_type:null, description:"Nuclear talks rounds 4–5 (Muscat 11 May, Rome 23 May) deadlock on enrichment.", source:"Times of Israel" },
+    { date:"2025-06-09", type:"protest", actor:"Israel, Freedom Flotilla", target_type:null, description:"Israel intercepts the Madleen aid vessel (Greta Thunberg aboard) in international waters.", source:"Time" },
+    { date:"2025-06-12", type:"diplomatic", actor:"IAEA, Iran", target_type:null, description:"IAEA Board finds Iran in non-proliferation breach — first such finding in ~20 years.", source:"IAEA GOV/2025/38" },
+    { date:"2025-06-13", type:"us_israel_strike", actor:"Israel", target_type:"nuclear facility", description:"Operation Rising Lion: 200+ aircraft strike Natanz/Fordow/Isfahan, airbases and Parchin — start of the 12-day war.", source:"Twelve-Day War reporting; CNN", landmark:true },
+    { date:"2025-06-13", type:"iran_strike", actor:"Iran", target_type:"drone-missile", description:"Operation True Promise III: ~150 ballistic missiles and 100+ drones fired at Israel.", source:"war reporting" },
+    { date:"2025-06-14", type:"us_israel_strike", actor:"Israel", target_type:"military base", description:"Israel strikes Tehran Defence Ministry, missile-storage sites and fuel depots.", source:"war reporting" },
+    { date:"2025-06-15", type:"iran_strike", actor:"Iran", target_type:"other", description:"Sustained Iranian ballistic barrages on Tel Aviv, Bat Yam and Rehovot.", source:"war reporting" },
+    { date:"2025-06-22", type:"us_israel_strike", actor:"USA", target_type:"nuclear facility", description:"Operation Midnight Hammer: 7 B-2s drop 14 GBU-57 on Fordow/Natanz; ~30 Tomahawks on Isfahan.", source:"CBS; Air & Space Forces Mag" },
+    { date:"2025-06-23", type:"iran_strike", actor:"Iran", target_type:"military base", description:"Iran fires ~14 missiles at Al Udeid Air Base, Qatar (pre-warned; 13 intercepted, no casualties).", source:"Al Jazeera; CBS" },
+    { date:"2025-07-06", type:"iran_strike", actor:"Iran-proxy (Houthi)", target_type:"naval", description:"Houthis break the May ceasefire, sinking the Magic Seas and resuming Red Sea attacks.", source:"FDD; Soufan Center" },
+    { date:"2025-07-31", type:"statement", actor:"USA, UK, France +11", target_type:null, description:"14-nation joint statement condemns a surge in Iranian assassination and kidnapping plots abroad.", source:"Al Jazeera" },
+    { date:"2025-08-26", type:"diplomatic", actor:"Australia, Iran", target_type:null, description:"Australia expels Iran’s ambassador after ASIO ties the IRGC to 2024 antisemitic arson — first expulsion since WWII.", source:"CNN; NPR; Axios" },
+    { date:"2025-08-28", type:"policy", actor:"E3 (UK/DE/FR), Iran", target_type:null, description:"The E3 trigger the JCPOA snapback mechanism, starting a 30-day countdown to reimpose UN sanctions.", source:"Commons Library CBP-10330" },
+    { date:"2025-09-19", type:"policy", actor:"UNSC, E3, Iran", target_type:null, description:"UN Security Council rejects a sanctions-relief extension (4–9–2), locking in snapback.", source:"UN News; PBS" },
+    { date:"2025-09-28", type:"policy", actor:"UN, EU, Iran", target_type:null, description:"Pre-2015 UN sanctions snap back into force; the EU reimposes its restrictive measures on 29 Sep.", source:"EU Council" },
+    { date:"2025-11-15", type:"diplomatic", actor:"France, Iran", target_type:null, description:"French detainees Kohler & Paris released from prison but barred from leaving (exact day unconfirmed ⚠).", source:"Iran International; Euronews" },
+    { date:"2025-11-27", type:"policy", actor:"Australia, Iran", target_type:null, description:"Australia lists the IRGC as a state sponsor of terrorism and imposes new sanctions.", source:"Australian Foreign Minister; SBS" },
+    { date:"2025-12-28", type:"protest", actor:"Iran", target_type:null, description:"Nationwide protests erupt over the rial’s collapse and ~42% inflation; a mass crackdown follows.", source:"Al Jazeera; Amnesty" },
+    { date:"2026-01-08", type:"protest", actor:"Iran", target_type:null, description:"Protest crackdown peaks amid an internet shutdown; security forces fire on crowds.", source:"BBC Verify; Commons Library CBP-10462" },
+    { date:"2026-02-28", type:"us_israel_strike", actor:"USA+Israel", target_type:"military base", description:"Operation Epic Fury: ~900 US strikes in 12h; Supreme Leader Khamenei and senior officials killed — second war begins.", source:"NPR; USNI News; Fox", landmark:true },
+    { date:"2026-02-28", type:"iran_strike", actor:"Iran", target_type:"military base", description:"Iran fires ~170 ballistic missiles at Israel and US bases (Al Udeid, Ali Al Salem, Al Dhafra, 5th Fleet HQ Bahrain).", source:"USNI News" },
+    { date:"2026-02-28", type:"diplomatic", actor:"USA, Iran, Oman", target_type:null, description:"A round of US–Iran talks in Muscat reports progress the same day the war begins.", source:"Commons Library CBP-10637" },
+    { date:"2026-03-02", type:"us_israel_strike", actor:"USA+Israel", target_type:"nuclear facility", description:"Sustained joint strikes on Natanz, command HQs and the state broadcaster.", source:"timeline reporting" },
+    { date:"2026-03-03", type:"iran_strike", actor:"Iran", target_type:"naval", description:"Iran strikes Israel and Gulf states; ~10 vessels hit in the Strait of Hormuz; a drone hits RAF Akrotiri.", source:"timeline reporting" },
+    { date:"2026-04-08", type:"diplomatic", actor:"USA, Iran, Pakistan", target_type:null, description:"Pakistan brokers a conditional two-week US–Iran ceasefire toward a lasting agreement.", source:"Commons Library; CRS" },
+    { date:"2026-05-23", type:"diplomatic", actor:"USA, Iran", target_type:null, description:"Trump says a deal reopening the Strait of Hormuz is ‘largely negotiated.’", source:"CNN; CNBC; WaPo; Axios" },
+    { date:"2026-05-25", type:"us_israel_strike", actor:"USA", target_type:"naval", description:"US ‘self-defense’ strikes hit two IRGC mine-laying boats and a Bandar Abbas SAM site; Iran calls it a ceasefire violation.", source:"CNN; NBC; NPR" }
+  ];
+
+  // Per-country dominant topics + tone code per month.
+  // tone codes: E=Escalatory(+1) N=Neutral(0) D=De-escalatory(-1) EN=mixed esc/neu  ND=mixed neu/deesc
+  const DETAIL = {
+    "2025-01":{uk:{tone:"N",topics:["E3–Iran Geneva nuclear talks","Trump return / max-pressure signals","IAEA enrichment reports"]},usa:{tone:"N",topics:["Trump transition / anticipated max-pressure","IAEA stockpile warnings","Red Sea–Houthi disruption"]},au:{tone:"N",topics:["Pre-inauguration Iran signals","IRGC-linked 2024 arson under AFP investigation","Executions / human rights"]},ca:{tone:"N",topics:["Iran enrichment (IAEA)","Anticipation of Trump reset","PS752 anniversary advocacy"]}},
+    "2025-02":{uk:{tone:"E",topics:["Trump reinstates maximum pressure","E3 flag ‘unprecedented’ HEU stockpiles","Khamenei rejects talks"]},usa:{tone:"E",topics:["NSPM-2 restores maximum pressure (4 Feb)","Oil-network sanctions","Khamenei rebuff (7 Feb)"]},au:{tone:"E",topics:["Trump max-pressure EO (4 Feb)","Oil-export pressure","AU sanctions framework"]},ca:{tone:"E",topics:["Trump max-pressure (4 Feb)","Sanctions enforcement","Canada–Iran diplomatic limbo"]}},
+    "2025-03":{uk:{tone:"E",topics:["Trump letter to Khamenei","Parliament debates Iran threat","Araghchi signals openness"]},usa:{tone:"E",topics:["Trump letter to Khamenei (7 Mar)","Military-consequences threat","‘Oil exports to zero’"]},au:{tone:"E",topics:["Trump letter to Khamenei","Houthi/Iran proxy axis","Nuclear-site imagery"]},ca:{tone:"N",topics:["Joly additional Iran sanctions","IRGC-deportation slow-pace criticism","Carney wins Liberal leadership (9 Mar)"]}},
+    "2025-04":{uk:{tone:"E",topics:["First US–Iran indirect talks (Muscat, Rome)","UK in E3 formation"]},usa:{tone:"D",topics:["Rounds 1–3 indirect talks ‘constructive’","Iran enrichment counter-offer"]},au:{tone:"N",topics:["Oman/Rome indirect talks","Enrichment dispute","Election-campaign backdrop"]},ca:{tone:"ND",topics:["Muscat talks begin","Iran ‘ready for talks’ with Canada (Ottawa declines)","Carney wins election (28 Apr)"]}},
+    "2025-05":{uk:{tone:"E",topics:["Talks rounds 4–5 deadlock on enrichment","Trump ‘June 13’ military-threat framing"]},usa:{tone:"E",topics:["Rounds 4–5 deadlock","‘Zero enrichment’ red line","60-day deadline pressure"]},au:{tone:"N",topics:["Federal election 3 May (IRGC arson a minor angle)","Talks rounds 4–5","Albanese re-elected"]},ca:{tone:"D",topics:["Talks round 4","Diaspora watching diplomacy","‘No thaw’ in Canada–Iran relations"]}},
+    "2025-06":{uk:{tone:"E",topics:["Israel’s Operation Rising Lion (13 Jun)","US bombs Fordow/Natanz/Isfahan (22 Jun)","Iran hits Al Udeid; ceasefire (24 Jun)"]},usa:{tone:"E",topics:["IAEA breach finding (12 Jun)","Operation Midnight Hammer B-2 strikes (21–22 Jun)","550+ Iranian missiles; ceasefire (24 Jun)"]},au:{tone:"E",topics:["Israel/US strikes; ceasefire (24 Jun)","DFAT crisis hub","Smartraveller alerts (~1,500 Australians)"]},ca:{tone:"E",topics:["Israel/US strikes (13/21–22 Jun)","Canada evacuation flights","Carney/Anand urge de-escalation"]}},
+    "2025-07":{uk:{tone:"N",topics:["Post-war damage assessment","E3–Iran talks resume (Istanbul)","Snapback deadline flagged"]},usa:{tone:"EN",topics:["Fragile ceasefire / traded violations","60-day extension framework","Iran defiant on enrichment"]},au:{tone:"D",topics:["Post-war analysis","AFP arrests re 2024 synagogue arson","Citizens returning"]},ca:{tone:"D",topics:["Post-ceasefire aftermath","PS752 Winnipeg memorial","Court ruling on PS752 compensation"]}},
+    "2025-08":{uk:{tone:"E",topics:["E3 trigger snapback (28 Aug)","Araghchi op-ed in Guardian calls it ‘baseless’"]},usa:{tone:"E",topics:["E3 trigger snapback (28 Aug)","Iran–Russia $25B reactor deal","IAEA-access law"]},au:{tone:"E",topics:["26 Aug: Australia expels Iranian ambassador","ASIO ties IRGC to arson","Tehran embassy suspended"]},ca:{tone:"E",topics:["E3 snapback (28 Aug)","Canada UN-sanctions implementation","IRGC-deportation pace scrutiny"]}},
+    "2025-09":{uk:{tone:"E",topics:["UN snapback sanctions reimposed (27–29 Sep)","UK a co-triggering party"]},usa:{tone:"E",topics:["UN sanctions reimposed (27 Sep)","Khamenei rules out talks (23 Sep)","Iran cancels IAEA deal"]},au:{tone:"E",topics:["Snapback fallout","IRGC terror-listing bill in Parliament","Diplomatic fallout"]},ca:{tone:"E",topics:["UN snapback reimposed (28–29 Sep)","Canada amends UN Iran Regulations (30 Sep)"]}},
+    "2025-10":{uk:{tone:"N",topics:["IAEA loses visibility on stockpiles","Iran reinforces sites; talks stall"]},usa:{tone:"N",topics:["JCPOA expires (18 Oct)","IAEA cooperation collapses","Trump ‘ready to deal’ (13 Oct)"]},au:{tone:"N",topics:["IRGC listing bill progressing","AFP arson investigation","Post-snapback nuclear status"]},ca:{tone:"N",topics:["Domestic implementation of snapback","Nuclear-diplomacy analysis","IRGC accountability"]}},
+    "2025-11":{uk:{tone:"E",topics:["Pezeshkian vows to rebuild nuclear sites","Russia reactor plans"]},usa:{tone:"N",topics:["Iran ‘not in a hurry’ to talk","Khamenei: US ‘not worthy’ (27 Nov)","Diplomatic cold"]},au:{tone:"E",topics:["27 Nov: Australia lists IRGC as terrorist org","Iran condemns","Diaspora reaction"]},ca:{tone:"N",topics:["Court upholds immigration bar on IRGC-linked Iranian (26 Nov)","Removal-proceedings debate"]}},
+    "2025-12":{uk:{tone:"E",topics:["Economic protests erupt (28 Dec)","Rial collapse / ~42% inflation","BBC Persian staff threatened"]},usa:{tone:"N",topics:["Trump–Netanyahu joint pledge","Routine UNSC briefing","Holiday lull"]},au:{tone:"E",topics:["Iranian protests begin (28 Dec)","Diaspora rallies (Sydney/Brisbane)","Albanese/Wong back protesters"]},ca:{tone:"E",topics:["Protests begin (28 Dec)","New Canada sanctions (15 Dec, Anand)","Toronto solidarity rallies"]}},
+    "2026-01":{uk:{tone:"E",topics:["Protests peak; internet shutdown","UK condemns; announces IRGC sanctions"]},usa:{tone:"E",topics:["Trump signals ‘fair deal’; analysts doubt Iran","USS Abraham Lincoln repositioned"]},au:{tone:"E",topics:["Protest crackdown","New AU sanctions (20 individuals/3 entities)","Senate condemnation motion"]},ca:{tone:"E",topics:["Internet blackout","Large Toronto solidarity rally","PS752 6th anniversary"]}},
+    "2026-02":{uk:{tone:"E",topics:["Muscat talks collapse","Operation Epic Fury (28 Feb); Khamenei killed","Starmer: ‘planes in sky, not involved’"]},usa:{tone:"E",topics:["Muscat talks (6 Feb); 10-day ultimatum (20 Feb)","Operation Epic Fury (28 Feb); Khamenei killed"]},au:{tone:"E",topics:["Operation Epic Fury (28 Feb); Khamenei killed","Albanese/Wong/Marles statement","Evacuation advisories"]},ca:{tone:"E",topics:["Epic Fury (28 Feb); Khamenei killed","Carney/Anand back US action, then walk back","Liberal caucus concerns"]}},
+    "2026-03":{uk:{tone:"E",topics:["Sustained US–Israel strikes","Drone hits RAF Akrotiri","Trump–Starmer row; Stop-the-War protests"]},usa:{tone:"E",topics:["Full-scale war; Strait of Hormuz closed","Larijani killed","Trump ‘UNCONDITIONAL SURRENDER’ post"]},au:{tone:"E",topics:["Full war; Iran hits Al Minhad airbase (AU personnel)","Hormuz closed; AU rules out naval ships","61% want to stay out (Resolve poll)"]},ca:{tone:"E",topics:["Full war; Hormuz closed","Carney ‘Canada will not participate’","Gas prices up ~30%"]}},
+    "2026-04":{uk:{tone:"ND",topics:["Pakistan-brokered ceasefire (8 Apr)","Strait of Hormuz ‘dual blockade’","UK evacuations from Gulf"]},usa:{tone:"EN",topics:["Pakistan ceasefire (7–8 Apr)","Islamabad talks fail (11–12 Apr)","US naval blockade (13 Apr)"]},au:{tone:"D",topics:["Pakistan ceasefire (8 Apr)","Hormuz de-mining; energy/fuel shock","SAS deployment"]},ca:{tone:"D",topics:["Pakistan ceasefire (8 Apr)","Trump extends indefinitely (21 Apr)","Canada condemns Iran Hormuz attacks"]}},
+    "2026-05":{uk:{tone:"D",topics:["Peace deal ‘largely negotiated’","Enrichment moratorium discussed","Pakistani mediation"]},usa:{tone:"ND",topics:["~25 May ‘defensive’ US strikes","Deal ‘largely negotiated’ (23 May)","Tentative MOU (28–29 May), unsigned"]},au:{tone:"D",topics:["Ceasefire-extension framework","Hormuz-reopening near-deal","AU economic-impact assessments"]},ca:{tone:"D",topics:["Hormuz deal ‘largely negotiated’ (23 May)","Ceasefire/nuclear framework","‘Risk-averse Carney’ debate"]}}
+  };
+
+  // ZONE 3 — posture per leader per month. Trump uses US scale; others use the non-US scale.
+  // Only signal months are listed; missing month/leader combos render as a dark "no signal" block.
+  const POSTURE_DATA = [
+    // Trump (US scale) — all 17 months
+    { month:"2025-01", leader:"trump", posture:"Hawkish", summary:"Term begins (20 Jan); returns to ‘Iran cannot have a nuclear weapon’; low direct signal.", source:"CFR Transition 2025" },
+    { month:"2025-02", leader:"trump", posture:"Threatening", summary:"Reimposes maximum pressure; ‘drive oil exports to zero’; ‘all options on the table.’", source:"White House NSPM-2; Iran Primer" },
+    { month:"2025-03", leader:"trump", posture:"Threatening", summary:"Letter to Khamenei with a ~60-day deadline; warns a military option ‘would be a terrible thing.’", source:"NPR; FDD; PBS" },
+    { month:"2025-04", leader:"trump", posture:"Diplomatic", summary:"First indirect talks (Oman/Rome) ‘constructive’; floats meeting Khamenei.", source:"WaPo; Axios; NPR" },
+    { month:"2025-05", leader:"trump", posture:"Hawkish", summary:"Hardens on ‘zero enrichment’ red line; ‘serious consequences’ warning; claims a deal is ‘close.’", source:"RFE/RL; Soufan Center" },
+    { month:"2025-06", leader:"trump", posture:"Threatening", summary:"Orders strikes on Fordow/Natanz/Isfahan (21–22 Jun); ‘obliterated’; then declares a ceasefire (24 Jun).", source:"NPR; CNN; CBS" },
+    { month:"2025-07", leader:"trump", posture:"Hawkish", summary:"‘Peace through strength’; aggressive oil-sanctions enforcement (~115 entities, 30 Jul); talks dormant.", source:"US sanctions tracker; PBS" },
+    { month:"2025-08", leader:"trump", posture:"Hawkish", summary:"Continued pressure; backs the E3 snapback while leaving the door open.", source:"Reuters; AP" },
+    { month:"2025-09", leader:"trump", posture:"Neutral", summary:"Low-signal month; pressure-plus-openness as snapback mechanics dominate.", source:"negotiations timeline" },
+    { month:"2025-10", leader:"trump", posture:"Diplomatic", summary:"‘Ready to reach an agreement with Iran’ (13 Oct); optimistic tone.", source:"PBS" },
+    { month:"2025-11", leader:"trump", posture:"Neutral", summary:"Low-signal; the diplomatic opening lingers without a framework.", source:"Carnegie (Nov)" },
+    { month:"2025-12", leader:"trump", posture:"Hawkish", summary:"Reverts to ‘zero enrichment’/full dismantlement as Iran’s unrest grows.", source:"CBS; Time" },
+    { month:"2026-01", leader:"trump", posture:"Threatening", summary:"Cancels meetings amid the protests; ‘help is on its way’; surges naval forces.", source:"CBS; Commons Library" },
+    { month:"2026-02", leader:"trump", posture:"Threatening", summary:"10-day ultimatum (20 Feb); launches Operation Epic Fury (28 Feb); talks suspended.", source:"White House; NPR; FDD" },
+    { month:"2026-03", leader:"trump", posture:"Threatening", summary:"Peak war rhetoric: ‘UNCONDITIONAL SURRENDER’; infrastructure threats; brief oil-sanctions easing (~20 Mar).", source:"White House; WaPo" },
+    { month:"2026-04", leader:"trump", posture:"Threatening", summary:"Coercive diplomacy: short ceasefires, failed Islamabad talks, then a naval blockade (13 Apr).", source:"CNN; Commons Library" },
+    { month:"2026-05", leader:"trump", posture:"Hawkish", summary:"‘Negotiating on fumes’; claims a settlement is ‘largely negotiated’ while running ~25 May ‘defensive’ strikes.", source:"NPR; PBS; CBS" },
+
+    // Starmer (UK)
+    { month:"2025-03", leader:"starmer", posture:"Engaged", summary:"Backed a negotiated settlement amid Trump’s max-pressure; UK ‘focused on supporting the political process.’", source:"Soufan Center (25 Mar)" },
+    { month:"2025-06", leader:"starmer", posture:"Cautious", summary:"Urged ‘restraint, calm and a return to diplomacy’; declined to join the US strikes.", source:"LBC; Time" },
+    { month:"2025-08", leader:"starmer", posture:"Hostile", summary:"UK (with France/Germany) triggered the UN snapback (28 Aug), citing Iran’s ‘significant non-performance.’", source:"Commons Library CBP-10330; Al Jazeera" },
+    { month:"2025-09", leader:"starmer", posture:"Hostile", summary:"UN sanctions reimposed; UK added measures on 70+ Iranian individuals/entities (29 Sep).", source:"GOV.UK; CBP-10330" },
+    { month:"2026-01", leader:"starmer", posture:"Hostile", summary:"Joined the 9 Jan E3 statement condemning the protest crackdown; moved toward IRGC sanctions.", source:"LBC; CBP-10462" },
+    { month:"2026-02", leader:"starmer", posture:"Hostile", summary:"After Epic Fury, ‘not involved’ but UK planes ‘in the sky’ for a defensive op; condemned Iran’s attacks.", source:"GOV.UK E3 statement; Élysée" },
+    { month:"2026-03", leader:"starmer", posture:"Hostile", summary:"UK announced ‘defensive military action’ (1 Mar); joined E3 condemnation of Iran’s ‘indiscriminate’ attacks.", source:"GOV.UK; SOF News" },
+    { month:"2026-04", leader:"starmer", posture:"Cautious", summary:"Welcomed the 8 Apr ceasefire; priorities: reopen Hormuz and curb the nuclear/missile programmes.", source:"CBP-10637" },
+    { month:"2026-05", leader:"starmer", posture:"Hostile", summary:"Condemned Iran’s strikes on UAE oil infrastructure; urged meaningful negotiations.", source:"ITV (4 May)" },
+
+    // Albanese (AU)
+    { month:"2025-06", leader:"albanese", posture:"Cautious", summary:"Welcomed the 24 Jun ceasefire; ‘dialogue, diplomacy and de-escalation.’", source:"PM.gov.au; The Nightly" },
+    { month:"2025-08", leader:"albanese", posture:"Hostile", summary:"Expelled Iran’s ambassador (26 Aug), suspended the Tehran embassy, pledged to list the IRGC.", source:"CNN; NPR; Axios" },
+    { month:"2025-11", leader:"albanese", posture:"Hostile", summary:"Listed the IRGC as a state sponsor of terrorism (27 Nov); Wong: ‘acts of aggression… on Australian soil.’", source:"foreignminister.gov.au; SBS" },
+    { month:"2025-12", leader:"albanese", posture:"Hostile", summary:"Fresh sanctions over the protest crackdown (‘horrific use of violence’).", source:"SBS; foreignminister.gov.au" },
+    { month:"2026-02", leader:"albanese", posture:"Hostile", summary:"28 Feb joint statement: ‘Australia stands with the brave people of Iran’; Iran ‘a destabilising force.’", source:"pm.gov.au" },
+    { month:"2026-03", leader:"albanese", posture:"Cautious", summary:"Backed the US/Israel effort but ruled out ground troops; deployed defensive assets to the UAE; demanded clarity on objectives.", source:"Reuters; Modern Diplomacy" },
+
+    // CA PM (Trudeau→Carney; all signal months fall under Carney)
+    { month:"2025-03", leader:"ca_pm", who:"Carney", posture:"Cautious", summary:"Canada broadened Iran sanctions-listing criteria (6 Mar) across the handover.", source:"international.gc.ca" },
+    { month:"2025-06", leader:"ca_pm", who:"Carney", posture:"Cautious", summary:"Hosted G7 Kananaskis (16 Jun): Iran ‘principal source of regional instability’; urged ‘maximum restraint.’", source:"pm.gc.ca; CBC" },
+    { month:"2025-09", leader:"ca_pm", who:"Carney", posture:"Cautious", summary:"Backed the snapback; implemented the reimposed UN sanctions (30 Sep).", source:"canada.ca" },
+    { month:"2026-02", leader:"ca_pm", who:"Carney", posture:"Hostile", summary:"More sanctions (14 Feb); 28 Feb backed the US ‘acting to prevent Iran obtaining a nuclear weapon.’", source:"pm.gc.ca" },
+    { month:"2026-03", leader:"ca_pm", who:"Carney", posture:"Cautious", summary:"Walked back support ‘with regret’ (3 Mar) as ‘inconsistent with international law’; ‘Canada… will never participate.’", source:"pm.gc.ca; CBC" },
+    { month:"2026-04", leader:"ca_pm", who:"Carney", posture:"Cautious", summary:"Co-signed the 8 Apr ceasefire statement; would support reopening the Strait of Hormuz.", source:"pm.gc.ca; CTV" },
+
+    // Netanyahu (Israel)
+    { month:"2025-05", leader:"netanyahu", posture:"Hostile", summary:"Lobbied against US–Iran talks; threatened unilateral strikes; Trump warned him off.", source:"Al Jazeera (28 May)" },
+    { month:"2025-06", leader:"netanyahu", posture:"Hostile", summary:"Launched Operation Rising Lion (13 Jun); post-ceasefire claimed a ‘historic victory.’", source:"CNN; PBS" },
+    { month:"2026-02", leader:"netanyahu", posture:"Hostile", summary:"Pressed Trump for a joint decapitation strike; Israel’s side of Epic Fury = ‘Roaring Lion.’", source:"NBC (28 Feb)" },
+    { month:"2026-03", leader:"netanyahu", posture:"Hostile", summary:"Sustained the joint air campaign; ground forces entered Lebanon after Hezbollah joined.", source:"timeline reporting" },
+    { month:"2026-04", leader:"netanyahu", posture:"Hostile", summary:"Welcomed the ceasefire but ‘not the end… a stop on the way’ to all objectives.", source:"ceasefire reporting" },
+    { month:"2026-05", leader:"netanyahu", posture:"Cautious", summary:"Wary acceptance of the deal track rather than new strikes (interpretive).", source:"CNN (29 May)" },
+
+    // Iran (Supreme Leader precedence; Pezeshkian divergence as tooltip note)
+    { month:"2025-03", leader:"iran", who:"Khamenei", posture:"Cautious", summary:"Reluctantly allowed indirect talks after Trump’s letter.", source:"ToI / NYT" },
+    { month:"2025-04", leader:"iran", who:"Pezeshkian", posture:"Engaged", summary:"‘We are not seeking war, or nuclear weapons. We seek dialogue.’", source:"Tehran Times; UN News", pezeshkian_note:"No Supreme Leader statement this month; block reflects President Pezeshkian." },
+    { month:"2025-05", leader:"iran", who:"Leadership (Shamkhani)", posture:"Cautious", summary:"Dismissed US ‘control’ demands as ‘fantasy’; no surrender of enrichment.", source:"PBS" },
+    { month:"2025-06", leader:"iran", who:"Khamenei", posture:"Hostile", summary:"Defiant post-ceasefire address (26 Jun); the pre-warned Al Udeid strike framed as calibrated retaliation.", source:"WaPo; NPR" },
+    { month:"2025-09", leader:"iran", who:"Khamenei", posture:"Hostile", summary:"Ruled out talks and an enrichment halt as snapback hit; called it ‘illegal.’", source:"FDD; Arms Control Assoc.", pezeshkian_note:"Pezeshkian struck a softer tone at UNGA — ‘never sought a nuclear bomb’ (Cautious)." },
+    { month:"2025-10", leader:"iran", who:"Khamenei", posture:"Hostile", summary:"Told Trump to ‘keep dreaming’ that the strikes destroyed the program.", source:"Iran International (20 Oct)" },
+    { month:"2025-12", leader:"iran", who:"Khamenei / leadership", posture:"Hostile", summary:"Ordered a violent crackdown on the protests (casualty figures wildly disputed ⚠).", source:"Britannica; Al Jazeera" },
+    { month:"2026-02", leader:"iran", who:"Khamenei (killed 28 Feb)", posture:"Hostile", summary:"Killed 28 Feb in Epic Fury; Iran fired ~170 missiles in retaliation.", source:"NBC; Soufan" },
+    { month:"2026-03", leader:"iran", who:"Mojtaba Khamenei (new Supreme Leader)", posture:"Hostile", summary:"Installed ~8 Mar (59/88); first statement (12 Mar, read out — he did not appear) vowed revenge and to keep Hormuz closed.", source:"Al Jazeera; Axios; NPR" },
+    { month:"2026-04", leader:"iran", who:"Mojtaba Khamenei", posture:"Cautious", summary:"Agreed (8 Apr, Pakistan-mediated) to a ceasefire and to reopen Hormuz; extended 21 Apr.", source:"CBP-10637" },
+    { month:"2026-05", leader:"iran", who:"Leadership / Pezeshkian", posture:"Engaged", summary:"Negotiating a Hormuz/de-mining framework; Fars insists the strait stays ‘under Iran’s management’ (residual defiance).", source:"Axios; WaPo (24 May)" },
+
+    // MBS (Saudi Arabia)
+    { month:"2025-06", leader:"mbs", posture:"Conciliatory", summary:"Refused Saudi airspace/territory for the attack; condemned Israeli ‘aggressions against the brotherly Islamic Republic of Iran.’", source:"Arab Center; INSS" },
+    { month:"2025-07", leader:"mbs", posture:"Engaged", summary:"Hosted FM Araghchi in Jeddah for ‘fruitful’ talks.", source:"Al Jazeera (8 Jul)" },
+    { month:"2026-03", leader:"mbs", posture:"Cautious", summary:"Authorized force against Iranian incursions but avoided joining the offensive (strategic restraint).", source:"Chatham House" },
+    { month:"2026-04", leader:"mbs", posture:"Cautious", summary:"Denied use of Prince Sultan airbase for the US Hormuz escort mission; backed Pakistan diplomacy.", source:"Jerusalem Post; Chatham House" },
+    { month:"2026-05", leader:"mbs", posture:"Engaged", summary:"Supported the diplomatic Hormuz track (strong oil-market de-escalation incentive).", source:"CNBC (11 May)" },
+
+    // Kallas (EU High Representative)
+    { month:"2025-04", leader:"kallas", posture:"Engaged", summary:"Backed US–Iran diplomacy with a hard edge: ‘nuclear experts around the table’ or ‘a more dangerous Iran.’", source:"The National; APA" },
+    { month:"2025-05", leader:"kallas", posture:"Engaged", summary:"Call with FM Araghchi; stressed EU readiness to engage on the nuclear file.", source:"PressTV (5 May)" },
+    { month:"2025-06", leader:"kallas", posture:"Cautious", summary:"‘Iran must not be allowed to develop a nuclear weapon’; urged all sides to step back; joined Geneva talks.", source:"EEAS; ToI" },
+    { month:"2025-09", leader:"kallas", posture:"Hostile", summary:"EU follows the UN snapback in reimposing sanctions; ‘must not be the end of diplomacy.’", source:"Consilium (29 Sep)" },
+    { month:"2026-01", leader:"kallas", posture:"Hostile", summary:"EU condemned the crackdown; FAC (29 Jan) agreed to list the IRGC as terrorist + new measures.", source:"EEAS; CBP-10462" },
+    { month:"2026-03", leader:"kallas", posture:"Cautious", summary:"Condemned Iran’s retaliation but distanced the EU: ‘This is not Europe’s war… We were not consulted.’", source:"Euronews; RFE/RL" },
+    { month:"2026-04", leader:"kallas", posture:"Engaged", summary:"Welcomed the 8 Apr ceasefire as ‘a step back from the brink’; ‘the Strait of Hormuz must be open.’", source:"Kallas/X (8 Apr)" },
+    { month:"2026-05", leader:"kallas", posture:"Engaged", summary:"Focused on Hormuz freedom of navigation (EU Aspides mission needs ‘more ships’).", source:"US News (28 May)" }
+  ];
+
+  /* ============================ CONFIG ============================ */
+  const MW=66, PADL=12, PADR=24;
+  const CHART_W = PADL + MONTHS.length*MW + PADR;
+  const EVENT_TOP=16, WAVE_PLOT_TOP=128, WAVE_BASE=288, WAVE_H=310;
+  const MAXVOL=4200;
+  const LANE_H=26, LANE_GAP=4, SWIM_TOP=WAVE_H;
+  const LANES=[
+    {slug:"trump",     flag:"🇺🇸", name:"Trump",      scale:"us"},
+    {slug:"starmer",   flag:"🇬🇧", name:"Starmer",    scale:"other"},
+    {slug:"albanese",  flag:"🇦🇺", name:"Albanese",   scale:"other"},
+    {slug:"ca_pm",     flag:"🇨🇦", name:"CA PM",      scale:"other"},
+    {slug:"netanyahu", flag:"🇮🇱", name:"Netanyahu",  scale:"other"},
+    {slug:"iran",      flag:"🇮🇷", name:"Iran (SL)",  scale:"other"},
+    {slug:"mbs",       flag:"🇸🇦", name:"MBS",        scale:"other"},
+    {slug:"kallas",    flag:"🇪🇺", name:"EU / Kallas",scale:"other"}
+  ];
+  const SWIM_H = LANES.length*(LANE_H+LANE_GAP);
+  const SVG_H = SWIM_TOP + SWIM_H + 6;
+
+  const CCOL={uk:"#7b68ee",usa:"#ff6b6b",au:"#51cf66",ca:"#ffd43b"};
+  const CNAME={uk:"United Kingdom",usa:"United States",au:"Australia",ca:"Canada"};
+  const TYPE={
+    us_israel_strike:{c:"#ff4444",s:"✕",label:"US/Israel strike"},
+    iran_strike:{c:"#ff8c00",s:"▲",label:"Iranian strike / retaliation"},
+    diplomatic:{c:"#ffd700",s:"◆",label:"Diplomatic flash point"},
+    protest:{c:"#20b2aa",s:"●",label:"Protest / civil event"},
+    statement:{c:"#4169e1",s:"■",label:"Leadership statement"},
+    policy:{c:"#9370db",s:"★",label:"Policy / sanctions"}
+  };
+  const PUS={Threatening:"#cc0000",Hawkish:"#ff6600",Neutral:"#888888",Diplomatic:"#4488ff",Conciliatory:"#00aa44"};
+  const POTHER={Hostile:"#cc0000",Cautious:"#ff8800",Neutral:"#888888",Engaged:"#4488ff",Conciliatory:"#00aa44"};
+  const BLANK="#1e2329";
+
+  const mi = m => MONTHS.indexOf(m);
+  const cellX = (i,f) => PADL + i*MW + f*MW;
+  const xc = i => cellX(i,0.5);
+  const yVol = v => WAVE_BASE - (v/MAXVOL)*(WAVE_BASE-WAVE_PLOT_TOP);
+  const AB=["","Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const mShort = m => { const p=m.split("-"); return AB[+p[1]]+" ’"+p[0].slice(2); };
+  const toneProp = c => ({E:[1,0,0],N:[0,1,0],D:[0,0,1],EN:[.5,.5,0],ND:[0,.5,.5]}[c]||[0,1,0]);
+  const toneLabel = c => ({E:"Escalatory (+1)",N:"Neutral (0)",D:"De-escalatory (−1)",
+    EN:"Mixed: Escalatory / Neutral",ND:"Mixed: Neutral / De-escalatory"}[c]||"—");
+
+  /* ============================ TOOLTIP ============================ */
+  const tip=document.getElementById("tip");
+  function showTip(html,ev){ tip.innerHTML=html; tip.style.opacity=1; moveTip(ev); }
+  function moveTip(ev){
+    const pad=14; let x=ev.clientX+pad, y=ev.clientY+pad;
+    const r=tip.getBoundingClientRect();
+    if(x+r.width>window.innerWidth-8) x=ev.clientX-r.width-pad;
+    if(y+r.height>window.innerHeight-8) y=ev.clientY-r.height-pad;
+    tip.style.left=x+"px"; tip.style.top=Math.max(8,y)+"px";
+  }
+  function hideTip(){ tip.style.opacity=0; }
+
+  /* ============================ SVG ============================ */
+  const svg=d3.select("#mainSvg").attr("width",CHART_W).attr("height",SVG_H)
+    .attr("viewBox",`0 0 ${CHART_W} ${SVG_H}`);
+
+  // vertical month gridlines (full height)
+  MONTHS.forEach((m,i)=>{
+    svg.append("line").attr("class","grid-line")
+      .attr("x1",cellX(i,0)).attr("x2",cellX(i,0)).attr("y1",6).attr("y2",SVG_H-2);
+  });
+  svg.append("line").attr("class","grid-line")
+    .attr("x1",cellX(MONTHS.length,0)).attr("x2",cellX(MONTHS.length,0)).attr("y1",6).attr("y2",SVG_H-2);
+
+  // baseline
+  svg.append("line").attr("x1",PADL).attr("x2",CHART_W-PADR+8).attr("y1",WAVE_BASE).attr("y2",WAVE_BASE)
+    .attr("stroke","#30363d").attr("stroke-width",1);
+
+  // --- WAVE (total volume) ---
+  const totals = VOLUME_DATA.map((d,i)=>({i,total:d.uk+d.usa+d.au+d.ca}));
+  const area=d3.area().x(d=>xc(d.i)).y0(WAVE_BASE).y1(d=>yVol(d.total)).curve(d3.curveCatmullRom.alpha(.5));
+  const lineGen=d3.line().x(d=>xc(d.i)).y(d=>yVol(d.total)).curve(d3.curveCatmullRom.alpha(.5));
+
+  // --- WAR-PERIOD SHADING (behind the wave; wave-zone only) ---
+  const WARS=[
+    {x1:cellX(5,0.43),  x2:cellX(5,0.80),  label:"War I"},    // 13–24 Jun 2025
+    {x1:cellX(13,0.98), x2:cellX(15,0.27), label:"War II"}    // 28 Feb – 8 Apr 2026
+  ];
+  WARS.forEach(w=>{
+    svg.append("rect").attr("x",w.x1).attr("y",6).attr("width",w.x2-w.x1).attr("height",WAVE_BASE-6)
+      .attr("fill","#ff4444").attr("fill-opacity",.09);
+    svg.append("text").attr("x",(w.x1+w.x2)/2).attr("y",13).attr("text-anchor","middle")
+      .attr("fill","#ff4444").attr("fill-opacity",.7).attr("font-size",8).text(w.label);
+  });
+
+  svg.append("path").datum(totals).attr("d",area).attr("fill","#4a9eff").attr("fill-opacity",.2);
+  svg.append("path").datum(totals).attr("d",lineGen).attr("fill","none").attr("stroke","#4a9eff").attr("stroke-width",2);
+
+  // --- COUNTRY LINES ---
+  ["uk","usa","au","ca"].forEach(c=>{
+    const pts=VOLUME_DATA.map((d,i)=>({i,v:d[c]}));
+    const lg=d3.line().x(d=>xc(d.i)).y(d=>yVol(d.v)).curve(d3.curveCatmullRom.alpha(.5));
+    svg.append("path").datum(pts).attr("d",lg).attr("fill","none")
+      .attr("stroke",CCOL[c]).attr("stroke-width",1.5).attr("opacity",.92);
+    // hover points
+    pts.forEach(d=>{
+      const det=DETAIL[MONTHS[d.i]][c];
+      svg.append("circle").attr("cx",xc(d.i)).attr("cy",yVol(d.v)).attr("r",2.6).attr("fill",CCOL[c]);
+      svg.append("circle").attr("class","hov-pt").attr("cx",xc(d.i)).attr("cy",yVol(d.v)).attr("r",8)
+        .attr("fill","transparent")
+        .on("mousemove",ev=>showTip(
+          `<div class="t-h">${CNAME[c]} · ${mShort(MONTHS[d.i])}</div>`+
+          `<div class="t-sub">~${d.v} stories <span style="color:var(--muted)">(approx.)</span></div>`+
+          `<ul>${det.topics.map(t=>`<li>${t}</li>`).join("")}</ul>`+
+          `<div>Tone: ${toneLabel(det.tone)}</div>`,ev))
+        .on("mouseleave",hideTip);
+    });
+  });
+
+  // --- INLINE MONTH ANNOTATIONS (above the total wave) ---
+  const ANNOT=[
+    {m:"2025-06", t:"12-Day War"},
+    {m:"2025-08", t:"AU expels ambassador"},
+    {m:"2025-09", t:"UN snapback", sec:true},
+    {m:"2025-11", t:"AU lists IRGC"},
+    {m:"2025-12", t:"Iran protests begin", sec:true},
+    {m:"2026-02", t:"Operation Epic Fury"},
+    {m:"2026-03", t:"War peaks / Hormuz closed", sec:true},
+    {m:"2026-04", t:"Pakistan ceasefire"},
+    {m:"2026-05", t:"Deal largely negotiated", sec:true}
+  ];
+  ANNOT.forEach(a=>{
+    const i=mi(a.m); if(i<0) return;
+    const x=xc(i), wy=yVol(totals[i].total), ty=wy-(a.sec?40:10);
+    svg.append("line").attr("x1",x).attr("x2",x).attr("y1",ty+1).attr("y2",wy)
+      .attr("stroke","#e6edf3").attr("stroke-opacity",.35).attr("stroke-width",1);
+    svg.append("text").attr("x",x).attr("y",ty).attr("text-anchor","middle")
+      .attr("fill","#e6edf3").attr("fill-opacity",.85).attr("font-size",8.5).text(a.t);
+  });
+
+  // --- EVENT MARKERS (grouped by month, staggered) ---
+  const byMonth={};
+  EVENTS_DATA.forEach(e=>{ const k=e.date.slice(0,7); (byMonth[k]=byMonth[k]||[]).push(e); });
+  Object.keys(byMonth).forEach(k=>{
+    const i=mi(k); if(i<0) return;
+    const evs=byMonth[k].slice().sort((a,b)=>a.date.localeCompare(b.date));
+    const x=xc(i);
+    const topY=EVENT_TOP;
+    // single dotted reference line for the month, from top dot to baseline
+    svg.append("line").attr("class","ev-line").attr("x1",x).attr("x2",x)
+      .attr("y1",topY-6).attr("y2",WAVE_BASE).attr("stroke","#8b949e");
+    evs.forEach((e,kk)=>{
+      const y=topY+kk*13, t=TYPE[e.type], land=!!e.landmark;
+      const g=svg.append("g");
+      if(land){
+        g.append("circle").attr("cx",x).attr("cy",y).attr("r",10)
+          .attr("fill","none").attr("stroke","#fff").attr("stroke-width",2);
+      }
+      g.append("text").attr("class","ev-sym").attr("x",x).attr("y",y)
+        .attr("fill",t.c).attr("font-size",land?17:12).text(t.s);
+      g.append("rect").attr("x",x-9).attr("y",y-9).attr("width",18).attr("height",18)
+        .attr("fill","transparent").style("cursor","pointer")
+        .on("mousemove",ev=>showTip(
+          `<div class="t-h">${e.date}${land?" ★":""}</div>`+
+          `<div class="t-sub" style="color:${t.c}">${t.label}</div>`+
+          `<div><b>Actor:</b> ${e.actor}</div>`+
+          (e.target_type?`<div><b>Target:</b> ${e.target_type}</div>`:"")+
+          `<div style="margin-top:.25rem">${e.description}</div>`+
+          `<div class="t-src">${e.source}</div>`,ev))
+        .on("mouseleave",hideTip);
+    });
+  });
+
+  // --- POSTURE SWIMLANES ---
+  const pmap={}; // slug -> month -> obj
+  POSTURE_DATA.forEach(p=>{ (pmap[p.leader]=pmap[p.leader]||{})[p.month]=p; });
+  const laneTop = j => SWIM_TOP + j*(LANE_H+LANE_GAP);
+  LANES.forEach((lane,j)=>{
+    const y=laneTop(j), pal = lane.scale==="us"?PUS:POTHER;
+    MONTHS.forEach((m,i)=>{
+      const p = pmap[lane.slug] && pmap[lane.slug][m];
+      const col = p ? (pal[p.posture]||BLANK) : BLANK;
+      const rect=svg.append("rect").attr("class","pblock")
+        .attr("x",cellX(i,0)+1).attr("y",y).attr("width",MW-2).attr("height",LANE_H)
+        .attr("fill",col).attr("rx",2);
+      rect.on("mousemove",ev=>{
+        if(p){
+          showTip(
+            `<div class="t-h">${(p.who?p.who+" · ":"")+lane.name} · ${mShort(m)}</div>`+
+            `<div class="t-sub" style="color:${col}">${p.posture}</div>`+
+            `<div>${p.summary}</div>`+
+            `<div class="t-src">${p.source}</div>`+
+            (p.pezeshkian_note?`<div class="t-pez">⚠ Pezeshkian: ${p.pezeshkian_note}</div>`:""),ev);
+        } else {
+          showTip(`<div class="t-h">${lane.name} · ${mShort(m)}</div><div style="color:var(--muted)">No notable Iran statement.</div>`,ev);
+        }
+      }).on("mouseleave",hideTip);
+    });
+  });
+
+  // --- HANDOVER DIVIDERS ---
+  function divider(laneIdx, x, label, anchor){
+    const y=laneTop(laneIdx);
+    svg.append("line").attr("class","divider").attr("x1",x).attr("x2",x).attr("y1",y-1).attr("y2",y+LANE_H+1);
+    svg.append("text").attr("class","divider-lab").attr("x",anchor==="end"?x-3:x+3).attr("y",y+9)
+      .attr("text-anchor",anchor||"start").text(label);
+  }
+  divider(3, cellX(2,0.45), "Carney ↑", "start");                 // Trudeau→Carney, 14 Mar 2025
+  divider(5, cellX(13,0.98), "Mojtaba ↑ Mar 8", "end");           // Khamenei death 28 Feb 2026
+
+  // --- MONTH LABELS (under wave) ---
+  MONTHS.forEach((m,i)=>{
+    svg.append("text").attr("class","mlabel").attr("x",xc(i)).attr("y",WAVE_BASE+12)
+      .attr("text-anchor","middle").text(mShort(m));
+  });
+
+  /* ============================ GUTTER ============================ */
+  const gut=document.getElementById("gutter");
+  gut.style.minHeight=(SVG_H+230)+"px";
+  function gel(cls,top,html,extra){ const d=document.createElement("div"); d.className=cls;
+    d.style.top=top+"px"; d.innerHTML=html; if(extra) Object.assign(d.style,extra); gut.appendChild(d); return d; }
+  // wave y-axis labels
+  [0,1000,2000,3000,4000].forEach(v=> gel("gut-ylab",yVol(v),v.toLocaleString()));
+  gel("gut-zone",6,"Volume →");
+  gel("gut-zone",SWIM_TOP-12,"Posture ↓");
+  // lane labels
+  LANES.forEach((lane,j)=> gel("lane-lab",laneTop(j),`<span class="fl">${lane.flag}</span><span class="nm">${lane.name}</span>`));
+  // tone tabs
+  const tabsTop=SVG_H+34;
+  const tabBox=gel("",tabsTop,"",{}); tabBox.id="toneTabs";
+  const th=document.createElement("div"); th.className="tt-h"; th.textContent="Tone — country"; tabBox.appendChild(th);
+  const COUNTRIES=[["uk","UK"],["usa","USA"],["au","AU"],["ca","CA"]];
+  let toneCountry="usa";
+  COUNTRIES.forEach(([slug,lab])=>{
+    const b=document.createElement("button"); b.className="tone-tab"+(slug===toneCountry?" active":"");
+    b.textContent=lab; b.dataset.c=slug;
+    b.onclick=()=>{ toneCountry=slug; document.querySelectorAll(".tone-tab").forEach(x=>x.classList.toggle("active",x.dataset.c===slug)); updateTone(); };
+    tabBox.appendChild(b);
+  });
+
+  /* ============================ TONE PANEL (Chart.js) ============================ */
+  document.getElementById("tonePanel").style.width=CHART_W+"px";
+  const indP=document.getElementById("indPanel");
+  if(indP){ indP.style.width=CHART_W+"px";
+    document.getElementById("indHead").addEventListener("click",()=>{
+      const open=indP.classList.toggle("open");
+      indP.querySelector(".chev").textContent=open?"▼":"▶";
+    });
+  }
+  const cv=document.getElementById("toneCanvas"); cv.width=CHART_W; cv.height=180;
+  cv.style.width=CHART_W+"px"; cv.style.height="180px";
+  function toneDatasets(c){
+    const esc=[],neu=[],de=[];
+    MONTHS.forEach(m=>{ const p=toneProp(DETAIL[m][c].tone); esc.push(p[0]); neu.push(p[1]); de.push(p[2]); });
+    return [
+      {label:"Escalatory",data:esc,backgroundColor:"#ff4444",stack:"s"},
+      {label:"Neutral",data:neu,backgroundColor:"#666666",stack:"s"},
+      {label:"De-escalatory",data:de,backgroundColor:"#44aa44",stack:"s"}
+    ];
+  }
+  const toneChart=new Chart(cv.getContext("2d"),{
+    type:"bar",
+    data:{labels:MONTHS.map(mShort),datasets:toneDatasets(toneCountry)},
+    options:{responsive:false,maintainAspectRatio:false,
+      scales:{
+        x:{stacked:true,grid:{color:"rgba(255,255,255,.04)"},ticks:{color:"#8b949e",font:{family:"JetBrains Mono",size:9}}},
+        y:{stacked:true,min:0,max:1,grid:{color:"rgba(255,255,255,.05)"},ticks:{color:"#8b949e",font:{size:9},stepSize:.5}}
+      },
+      plugins:{legend:{labels:{color:"#e6edf3",font:{size:10},boxWidth:12}},
+        tooltip:{callbacks:{title:items=>items[0].label+" — "+CNAME[toneCountry]}}}
+    }
+  });
+  function updateTone(){ toneChart.data.datasets=toneDatasets(toneCountry); toneChart.update(); }
+
+  /* ============================ HEADER PILLS ============================ */
+  const grand=VOLUME_DATA.reduce((s,d)=>s+d.uk+d.usa+d.au+d.ca,0);
+  document.getElementById("pillVol").textContent="~"+grand.toLocaleString();
+  document.getElementById("pillEvt").textContent=EVENTS_DATA.length;
+
+  /* ============================ LEGEND ============================ */
+  const leg=document.getElementById("legend");
+  const evItems=Object.values(TYPE).map(t=>`<span class="leg-item"><span class="leg-sym" style="color:${t.c}">${t.s}</span>${t.label}</span>`).join("");
+  function scale(map){ return Object.entries(map).map(([k,v])=>`<span class="leg-item"><span class="leg-sw" style="background:${v}"></span><span class="lab">${k}</span></span>`).join(""); }
+  const cLines=Object.entries(CCOL).map(([k,v])=>`<span class="leg-item"><span class="leg-sw" style="background:${v};height:3px;border-radius:0"></span><span class="lab">${k.toUpperCase()}</span></span>`).join("");
+  leg.innerHTML=
+    `<div class="leg-row"><span class="leg-cap">Event markers</span>${evItems}`+
+      `<span class="leg-note">Story volumes are approximate (search-signal estimates, not Factiva/LexisNexis). 2026 events verified against primary wire sources. Shape reliable; absolute numbers indicative.</span></div>`+
+    `<div class="leg-row"><span class="leg-cap">Posture</span>`+
+      `<span class="leg-scale"><span class="lab" style="font-weight:600">US:</span>${scale(PUS)}</span>`+
+      `<span class="leg-div"></span>`+
+      `<span class="leg-scale"><span class="lab" style="font-weight:600">Others:</span>${scale(POTHER)}</span>`+
+      `<span class="leg-div"></span>`+
+      `<span class="leg-item"><span class="leg-sw" style="background:${BLANK};border:1px solid #30363d"></span><span class="lab">No signal</span></span>`+
+      `<span class="leg-div"></span>`+
+      `<span class="leg-scale"><span class="lab" style="font-weight:600">Wave + country lines:</span>`+
+      `<span class="leg-item"><span class="leg-sw" style="background:#4a9eff"></span><span class="lab">Total wave</span></span>${cLines}</span>`+
+    `</div>`;
+</script>
+</body>
+</html>
