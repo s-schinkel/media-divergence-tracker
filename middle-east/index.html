@@ -119,6 +119,7 @@
       <div class="pill"><b id="pillEvt">–</b><span>Events logged</span></div>
       <div class="pill"><b class="mono">Jan 2025 – May 2026</b><span>Date range</span></div>
     </div>
+    <button class="pill" id="warToggle" title="Toggle war-period shading" style="cursor:pointer;font-family:inherit;font-size:.72rem;color:var(--text);align-items:center"><span id="warDot" style="color:#ff4444;font-size:.8rem">●</span><span>War periods</span></button>
   </header>
 
   <div id="chartWrap">
@@ -412,7 +413,7 @@
     {x1:cellX(13,0.98), x2:cellX(15,0.27), label:"War II"}    // 28 Feb – 8 Apr 2026
   ];
   WARS.forEach(w=>{
-    svg.append("rect").attr("x",w.x1).attr("y",6).attr("width",w.x2-w.x1).attr("height",WAVE_BASE-6)
+    svg.append("rect").attr("class","war-rect").attr("x",w.x1).attr("y",6).attr("width",w.x2-w.x1).attr("height",WAVE_BASE-6)
       .attr("fill","#ff4444").attr("fill-opacity",.09);
     svg.append("text").attr("x",(w.x1+w.x2)/2).attr("y",13).attr("text-anchor","middle")
       .attr("fill","#ff4444").attr("fill-opacity",.7).attr("font-size",8).text(w.label);
@@ -452,14 +453,14 @@
     {m:"2026-02", t:"Operation Epic Fury"},
     {m:"2026-03", t:"War peaks / Hormuz closed", sec:true},
     {m:"2026-04", t:"Pakistan ceasefire"},
-    {m:"2026-05", t:"Deal largely negotiated", sec:true}
+    {m:"2026-05", t:"Deal largely negotiated", sec:true, anchor:"end"}
   ];
   ANNOT.forEach(a=>{
     const i=mi(a.m); if(i<0) return;
     const x=xc(i), wy=yVol(totals[i].total), ty=wy-(a.sec?40:10);
     svg.append("line").attr("x1",x).attr("x2",x).attr("y1",ty+1).attr("y2",wy)
       .attr("stroke","#e6edf3").attr("stroke-opacity",.35).attr("stroke-width",1);
-    svg.append("text").attr("x",x).attr("y",ty).attr("text-anchor","middle")
+    svg.append("text").attr("x",x).attr("y",ty).attr("text-anchor",a.anchor||"middle")
       .attr("fill","#e6edf3").attr("fill-opacity",.85).attr("font-size",8.5).text(a.t);
   });
 
@@ -572,6 +573,14 @@
       indP.querySelector(".chev").textContent=open?"▼":"▶";
     });
   }
+  // war-period shading toggle (0.09 default <-> 0 hidden)
+  let warShown=true;
+  const warBtn=document.getElementById("warToggle");
+  if(warBtn){ warBtn.addEventListener("click",()=>{
+    warShown=!warShown;
+    d3.selectAll(".war-rect").attr("fill-opacity",warShown?.09:0);
+    document.getElementById("warDot").textContent=warShown?"●":"○";
+  }); }
   const cv=document.getElementById("toneCanvas"); cv.width=CHART_W; cv.height=180;
   cv.style.width=CHART_W+"px"; cv.style.height="180px";
   function toneDatasets(c){
