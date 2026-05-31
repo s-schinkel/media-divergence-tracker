@@ -1,0 +1,497 @@
+[
+  {
+    "month": "2025-01",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Term begins (20 Jan); returns to ‘Iran cannot have a nuclear weapon’; low direct signal.",
+    "source": "CFR Transition 2025"
+  },
+  {
+    "month": "2025-02",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Reimposes maximum pressure; ‘drive oil exports to zero’; ‘all options on the table.’",
+    "source": "White House NSPM-2; Iran Primer"
+  },
+  {
+    "month": "2025-03",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Letter to Khamenei with a ~60-day deadline; warns a military option ‘would be a terrible thing.’",
+    "source": "NPR; FDD; PBS"
+  },
+  {
+    "month": "2025-04",
+    "leader": "trump",
+    "posture": "Diplomatic",
+    "summary": "First indirect talks (Oman/Rome) ‘constructive’; floats meeting Khamenei.",
+    "source": "WaPo; Axios; NPR"
+  },
+  {
+    "month": "2025-05",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Hardens on ‘zero enrichment’ red line; ‘serious consequences’ warning; claims a deal is ‘close.’",
+    "source": "RFE/RL; Soufan Center"
+  },
+  {
+    "month": "2025-06",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Orders strikes on Fordow/Natanz/Isfahan (21–22 Jun); ‘obliterated’; then declares a ceasefire (24 Jun).",
+    "source": "NPR; CNN; CBS"
+  },
+  {
+    "month": "2025-07",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "‘Peace through strength’; aggressive oil-sanctions enforcement (~115 entities, 30 Jul); talks dormant.",
+    "source": "US sanctions tracker; PBS"
+  },
+  {
+    "month": "2025-08",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Continued pressure; backs the E3 snapback while leaving the door open.",
+    "source": "Reuters; AP"
+  },
+  {
+    "month": "2025-09",
+    "leader": "trump",
+    "posture": "Neutral",
+    "summary": "Low-signal month; pressure-plus-openness as snapback mechanics dominate.",
+    "source": "negotiations timeline"
+  },
+  {
+    "month": "2025-10",
+    "leader": "trump",
+    "posture": "Diplomatic",
+    "summary": "‘Ready to reach an agreement with Iran’ (13 Oct); optimistic tone.",
+    "source": "PBS"
+  },
+  {
+    "month": "2025-11",
+    "leader": "trump",
+    "posture": "Neutral",
+    "summary": "Low-signal; the diplomatic opening lingers without a framework.",
+    "source": "Carnegie (Nov)"
+  },
+  {
+    "month": "2025-12",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Reverts to ‘zero enrichment’/full dismantlement as Iran’s unrest grows.",
+    "source": "CBS; Time"
+  },
+  {
+    "month": "2026-01",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Cancels meetings amid the protests; ‘help is on its way’; surges naval forces.",
+    "source": "CBS; Commons Library"
+  },
+  {
+    "month": "2026-02",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "10-day ultimatum (20 Feb); launches Operation Epic Fury (28 Feb); talks suspended.",
+    "source": "White House; NPR; FDD"
+  },
+  {
+    "month": "2026-03",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Peak war rhetoric: ‘UNCONDITIONAL SURRENDER’; infrastructure threats; brief oil-sanctions easing (~20 Mar).",
+    "source": "White House; WaPo"
+  },
+  {
+    "month": "2026-04",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Coercive diplomacy: short ceasefires, failed Islamabad talks, then a naval blockade (13 Apr).",
+    "source": "CNN; Commons Library"
+  },
+  {
+    "month": "2026-05",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "‘Negotiating on fumes’; claims a settlement is ‘largely negotiated’ while running ~25 May ‘defensive’ strikes.",
+    "source": "NPR; PBS; CBS"
+  },
+  {
+    "month": "2025-03",
+    "leader": "starmer",
+    "posture": "Engaged",
+    "summary": "Backed a negotiated settlement amid Trump’s max-pressure; UK ‘focused on supporting the political process.’",
+    "source": "Soufan Center (25 Mar)"
+  },
+  {
+    "month": "2025-06",
+    "leader": "starmer",
+    "posture": "Cautious",
+    "summary": "Urged ‘restraint, calm and a return to diplomacy’; declined to join the US strikes.",
+    "source": "LBC; Time"
+  },
+  {
+    "month": "2025-08",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "UK (with France/Germany) triggered the UN snapback (28 Aug), citing Iran’s ‘significant non-performance.’",
+    "source": "Commons Library CBP-10330; Al Jazeera"
+  },
+  {
+    "month": "2025-09",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "UN sanctions reimposed; UK added measures on 70+ Iranian individuals/entities (29 Sep).",
+    "source": "GOV.UK; CBP-10330"
+  },
+  {
+    "month": "2026-01",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "Joined the 9 Jan E3 statement condemning the protest crackdown; moved toward IRGC sanctions.",
+    "source": "LBC; CBP-10462"
+  },
+  {
+    "month": "2026-02",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "After Epic Fury, ‘not involved’ but UK planes ‘in the sky’ for a defensive op; condemned Iran’s attacks.",
+    "source": "GOV.UK E3 statement; Élysée"
+  },
+  {
+    "month": "2026-03",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "UK announced ‘defensive military action’ (1 Mar); joined E3 condemnation of Iran’s ‘indiscriminate’ attacks.",
+    "source": "GOV.UK; SOF News"
+  },
+  {
+    "month": "2026-04",
+    "leader": "starmer",
+    "posture": "Cautious",
+    "summary": "Welcomed the 8 Apr ceasefire; priorities: reopen Hormuz and curb the nuclear/missile programmes.",
+    "source": "CBP-10637"
+  },
+  {
+    "month": "2026-05",
+    "leader": "starmer",
+    "posture": "Hostile",
+    "summary": "Condemned Iran’s strikes on UAE oil infrastructure; urged meaningful negotiations.",
+    "source": "ITV (4 May)"
+  },
+  {
+    "month": "2025-06",
+    "leader": "albanese",
+    "posture": "Cautious",
+    "summary": "Welcomed the 24 Jun ceasefire; ‘dialogue, diplomacy and de-escalation.’",
+    "source": "PM.gov.au; The Nightly"
+  },
+  {
+    "month": "2025-08",
+    "leader": "albanese",
+    "posture": "Hostile",
+    "summary": "Expelled Iran’s ambassador (26 Aug), suspended the Tehran embassy, pledged to list the IRGC.",
+    "source": "CNN; NPR; Axios"
+  },
+  {
+    "month": "2025-11",
+    "leader": "albanese",
+    "posture": "Hostile",
+    "summary": "Listed the IRGC as a state sponsor of terrorism (27 Nov); Wong: ‘acts of aggression… on Australian soil.’",
+    "source": "foreignminister.gov.au; SBS"
+  },
+  {
+    "month": "2025-12",
+    "leader": "albanese",
+    "posture": "Hostile",
+    "summary": "Fresh sanctions over the protest crackdown (‘horrific use of violence’).",
+    "source": "SBS; foreignminister.gov.au"
+  },
+  {
+    "month": "2026-02",
+    "leader": "albanese",
+    "posture": "Hostile",
+    "summary": "28 Feb joint statement: ‘Australia stands with the brave people of Iran’; Iran ‘a destabilising force.’",
+    "source": "pm.gov.au"
+  },
+  {
+    "month": "2026-03",
+    "leader": "albanese",
+    "posture": "Cautious",
+    "summary": "Backed the US/Israel effort but ruled out ground troops; deployed defensive assets to the UAE; demanded clarity on objectives.",
+    "source": "Reuters; Modern Diplomacy"
+  },
+  {
+    "month": "2025-03",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Cautious",
+    "summary": "Canada broadened Iran sanctions-listing criteria (6 Mar) across the handover.",
+    "source": "international.gc.ca"
+  },
+  {
+    "month": "2025-06",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Cautious",
+    "summary": "Hosted G7 Kananaskis (16 Jun): Iran ‘principal source of regional instability’; urged ‘maximum restraint.’",
+    "source": "pm.gc.ca; CBC"
+  },
+  {
+    "month": "2025-09",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Cautious",
+    "summary": "Backed the snapback; implemented the reimposed UN sanctions (30 Sep).",
+    "source": "canada.ca"
+  },
+  {
+    "month": "2026-02",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Hostile",
+    "summary": "More sanctions (14 Feb); 28 Feb backed the US ‘acting to prevent Iran obtaining a nuclear weapon.’",
+    "source": "pm.gc.ca"
+  },
+  {
+    "month": "2026-03",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Cautious",
+    "summary": "Walked back support ‘with regret’ (3 Mar) as ‘inconsistent with international law’; ‘Canada… will never participate.’",
+    "source": "pm.gc.ca; CBC"
+  },
+  {
+    "month": "2026-04",
+    "leader": "ca_pm",
+    "who": "Carney",
+    "posture": "Cautious",
+    "summary": "Co-signed the 8 Apr ceasefire statement; would support reopening the Strait of Hormuz.",
+    "source": "pm.gc.ca; CTV"
+  },
+  {
+    "month": "2025-05",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Lobbied against US–Iran talks; threatened unilateral strikes; Trump warned him off.",
+    "source": "Al Jazeera (28 May)"
+  },
+  {
+    "month": "2025-06",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Launched Operation Rising Lion (13 Jun); post-ceasefire claimed a ‘historic victory.’",
+    "source": "CNN; PBS"
+  },
+  {
+    "month": "2026-02",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Pressed Trump for a joint decapitation strike; Israel’s side of Epic Fury = ‘Roaring Lion.’",
+    "source": "NBC (28 Feb)"
+  },
+  {
+    "month": "2026-03",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Sustained the joint air campaign; ground forces entered Lebanon after Hezbollah joined.",
+    "source": "timeline reporting"
+  },
+  {
+    "month": "2026-04",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Welcomed the ceasefire but ‘not the end… a stop on the way’ to all objectives.",
+    "source": "ceasefire reporting"
+  },
+  {
+    "month": "2026-05",
+    "leader": "netanyahu",
+    "posture": "Cautious",
+    "summary": "Wary acceptance of the deal track rather than new strikes (interpretive).",
+    "source": "CNN (29 May)"
+  },
+  {
+    "month": "2025-03",
+    "leader": "iran",
+    "who": "Khamenei",
+    "posture": "Cautious",
+    "summary": "Reluctantly allowed indirect talks after Trump’s letter.",
+    "source": "ToI / NYT"
+  },
+  {
+    "month": "2025-04",
+    "leader": "iran",
+    "who": "Pezeshkian",
+    "posture": "Engaged",
+    "summary": "‘We are not seeking war, or nuclear weapons. We seek dialogue.’",
+    "source": "Tehran Times; UN News",
+    "pezeshkian_note": "No Supreme Leader statement this month; block reflects President Pezeshkian."
+  },
+  {
+    "month": "2025-05",
+    "leader": "iran",
+    "who": "Leadership (Shamkhani)",
+    "posture": "Cautious",
+    "summary": "Dismissed US ‘control’ demands as ‘fantasy’; no surrender of enrichment.",
+    "source": "PBS"
+  },
+  {
+    "month": "2025-06",
+    "leader": "iran",
+    "who": "Khamenei",
+    "posture": "Hostile",
+    "summary": "Defiant post-ceasefire address (26 Jun); the pre-warned Al Udeid strike framed as calibrated retaliation.",
+    "source": "WaPo; NPR"
+  },
+  {
+    "month": "2025-09",
+    "leader": "iran",
+    "who": "Khamenei",
+    "posture": "Hostile",
+    "summary": "Ruled out talks and an enrichment halt as snapback hit; called it ‘illegal.’",
+    "source": "FDD; Arms Control Assoc.",
+    "pezeshkian_note": "Pezeshkian struck a softer tone at UNGA — ‘never sought a nuclear bomb’ (Cautious)."
+  },
+  {
+    "month": "2025-10",
+    "leader": "iran",
+    "who": "Khamenei",
+    "posture": "Hostile",
+    "summary": "Told Trump to ‘keep dreaming’ that the strikes destroyed the program.",
+    "source": "Iran International (20 Oct)"
+  },
+  {
+    "month": "2025-12",
+    "leader": "iran",
+    "who": "Khamenei / leadership",
+    "posture": "Hostile",
+    "summary": "Ordered a violent crackdown on the protests (casualty figures wildly disputed ⚠).",
+    "source": "Britannica; Al Jazeera"
+  },
+  {
+    "month": "2026-02",
+    "leader": "iran",
+    "who": "Khamenei (killed 28 Feb)",
+    "posture": "Hostile",
+    "summary": "Killed 28 Feb in Epic Fury; Iran fired ~170 missiles in retaliation.",
+    "source": "NBC; Soufan"
+  },
+  {
+    "month": "2026-03",
+    "leader": "iran",
+    "who": "Mojtaba Khamenei (new Supreme Leader)",
+    "posture": "Hostile",
+    "summary": "Installed ~8 Mar (59/88); first statement (12 Mar, read out — he did not appear) vowed revenge and to keep Hormuz closed.",
+    "source": "Al Jazeera; Axios; NPR"
+  },
+  {
+    "month": "2026-04",
+    "leader": "iran",
+    "who": "Mojtaba Khamenei",
+    "posture": "Cautious",
+    "summary": "Agreed (8 Apr, Pakistan-mediated) to a ceasefire and to reopen Hormuz; extended 21 Apr.",
+    "source": "CBP-10637"
+  },
+  {
+    "month": "2026-05",
+    "leader": "iran",
+    "who": "Leadership / Pezeshkian",
+    "posture": "Engaged",
+    "summary": "Negotiating a Hormuz/de-mining framework; Fars insists the strait stays ‘under Iran’s management’ (residual defiance).",
+    "source": "Axios; WaPo (24 May)"
+  },
+  {
+    "month": "2025-06",
+    "leader": "mbs",
+    "posture": "Conciliatory",
+    "summary": "Refused Saudi airspace/territory for the attack; condemned Israeli ‘aggressions against the brotherly Islamic Republic of Iran.’",
+    "source": "Arab Center; INSS"
+  },
+  {
+    "month": "2025-07",
+    "leader": "mbs",
+    "posture": "Engaged",
+    "summary": "Hosted FM Araghchi in Jeddah for ‘fruitful’ talks.",
+    "source": "Al Jazeera (8 Jul)"
+  },
+  {
+    "month": "2026-03",
+    "leader": "mbs",
+    "posture": "Cautious",
+    "summary": "Authorized force against Iranian incursions but avoided joining the offensive (strategic restraint).",
+    "source": "Chatham House"
+  },
+  {
+    "month": "2026-04",
+    "leader": "mbs",
+    "posture": "Cautious",
+    "summary": "Denied use of Prince Sultan airbase for the US Hormuz escort mission; backed Pakistan diplomacy.",
+    "source": "Jerusalem Post; Chatham House"
+  },
+  {
+    "month": "2026-05",
+    "leader": "mbs",
+    "posture": "Engaged",
+    "summary": "Supported the diplomatic Hormuz track (strong oil-market de-escalation incentive).",
+    "source": "CNBC (11 May)"
+  },
+  {
+    "month": "2025-04",
+    "leader": "kallas",
+    "posture": "Engaged",
+    "summary": "Backed US–Iran diplomacy with a hard edge: ‘nuclear experts around the table’ or ‘a more dangerous Iran.’",
+    "source": "The National; APA"
+  },
+  {
+    "month": "2025-05",
+    "leader": "kallas",
+    "posture": "Engaged",
+    "summary": "Call with FM Araghchi; stressed EU readiness to engage on the nuclear file.",
+    "source": "PressTV (5 May)"
+  },
+  {
+    "month": "2025-06",
+    "leader": "kallas",
+    "posture": "Cautious",
+    "summary": "‘Iran must not be allowed to develop a nuclear weapon’; urged all sides to step back; joined Geneva talks.",
+    "source": "EEAS; ToI"
+  },
+  {
+    "month": "2025-09",
+    "leader": "kallas",
+    "posture": "Hostile",
+    "summary": "EU follows the UN snapback in reimposing sanctions; ‘must not be the end of diplomacy.’",
+    "source": "Consilium (29 Sep)"
+  },
+  {
+    "month": "2026-01",
+    "leader": "kallas",
+    "posture": "Hostile",
+    "summary": "EU condemned the crackdown; FAC (29 Jan) agreed to list the IRGC as terrorist + new measures.",
+    "source": "EEAS; CBP-10462"
+  },
+  {
+    "month": "2026-03",
+    "leader": "kallas",
+    "posture": "Cautious",
+    "summary": "Condemned Iran’s retaliation but distanced the EU: ‘This is not Europe’s war… We were not consulted.’",
+    "source": "Euronews; RFE/RL"
+  },
+  {
+    "month": "2026-04",
+    "leader": "kallas",
+    "posture": "Engaged",
+    "summary": "Welcomed the 8 Apr ceasefire as ‘a step back from the brink’; ‘the Strait of Hormuz must be open.’",
+    "source": "Kallas/X (8 Apr)"
+  },
+  {
+    "month": "2026-05",
+    "leader": "kallas",
+    "posture": "Engaged",
+    "summary": "Focused on Hormuz freedom of navigation (EU Aspides mission needs ‘more ships’).",
+    "source": "US News (28 May)"
+  }
+]

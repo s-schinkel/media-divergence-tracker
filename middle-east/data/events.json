@@ -1,0 +1,268 @@
+[
+  {
+    "date": "2025-01-08",
+    "type": "diplomatic",
+    "actor": "Iran, Italy",
+    "target_type": null,
+    "description": "Iran frees journalist Cecilia Sala after 21 days, linked to Italy’s detention of an Iranian engineer.",
+    "source": "Washington Post / Al Jazeera"
+  },
+  {
+    "date": "2025-02-04",
+    "type": "policy",
+    "actor": "USA, Iran",
+    "target_type": null,
+    "description": "Trump signs NSPM-2 reinstating the ‘maximum pressure’ campaign on Iran.",
+    "source": "White House / Iran Primer"
+  },
+  {
+    "date": "2025-04-12",
+    "type": "diplomatic",
+    "actor": "USA, Iran, Oman",
+    "target_type": null,
+    "description": "First indirect US–Iran nuclear talks held in Muscat (Witkoff / Araghchi).",
+    "source": "Arms Control Association"
+  },
+  {
+    "date": "2025-04-19",
+    "type": "diplomatic",
+    "actor": "USA, Iran, Italy",
+    "target_type": null,
+    "description": "Second round of indirect nuclear talks held in Rome.",
+    "source": "Times of Israel"
+  },
+  {
+    "date": "2025-05-04",
+    "type": "diplomatic",
+    "actor": "UK, Iran",
+    "target_type": null,
+    "description": "UK arrests several Iranian men over a suspected Iran-linked attack plot.",
+    "source": "Euronews"
+  },
+  {
+    "date": "2025-05-06",
+    "type": "diplomatic",
+    "actor": "USA, Houthis, Oman",
+    "target_type": null,
+    "description": "Oman-brokered US–Houthi ceasefire halts US strikes in Yemen.",
+    "source": "Maritime Executive"
+  },
+  {
+    "date": "2025-05-23",
+    "type": "diplomatic",
+    "actor": "USA, Iran",
+    "target_type": null,
+    "description": "Nuclear talks rounds 4–5 (Muscat 11 May, Rome 23 May) deadlock on enrichment.",
+    "source": "Times of Israel"
+  },
+  {
+    "date": "2025-06-09",
+    "type": "protest",
+    "actor": "Israel, Freedom Flotilla",
+    "target_type": null,
+    "description": "Israel intercepts the Madleen aid vessel (Greta Thunberg aboard) in international waters.",
+    "source": "Time"
+  },
+  {
+    "date": "2025-06-12",
+    "type": "diplomatic",
+    "actor": "IAEA, Iran",
+    "target_type": null,
+    "description": "IAEA Board finds Iran in non-proliferation breach — first such finding in ~20 years.",
+    "source": "IAEA GOV/2025/38"
+  },
+  {
+    "date": "2025-06-13",
+    "type": "us_israel_strike",
+    "actor": "Israel",
+    "target_type": "nuclear facility",
+    "description": "Operation Rising Lion: 200+ aircraft strike Natanz/Fordow/Isfahan, airbases and Parchin — start of the 12-day war.",
+    "source": "Twelve-Day War reporting; CNN",
+    "landmark": true
+  },
+  {
+    "date": "2025-06-13",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "drone-missile",
+    "description": "Operation True Promise III: ~150 ballistic missiles and 100+ drones fired at Israel.",
+    "source": "war reporting"
+  },
+  {
+    "date": "2025-06-14",
+    "type": "us_israel_strike",
+    "actor": "Israel",
+    "target_type": "military base",
+    "description": "Israel strikes Tehran Defence Ministry, missile-storage sites and fuel depots.",
+    "source": "war reporting"
+  },
+  {
+    "date": "2025-06-15",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "other",
+    "description": "Sustained Iranian ballistic barrages on Tel Aviv, Bat Yam and Rehovot.",
+    "source": "war reporting"
+  },
+  {
+    "date": "2025-06-22",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "nuclear facility",
+    "description": "Operation Midnight Hammer: 7 B-2s drop 14 GBU-57 on Fordow/Natanz; ~30 Tomahawks on Isfahan.",
+    "source": "CBS; Air & Space Forces Mag"
+  },
+  {
+    "date": "2025-06-23",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran fires ~14 missiles at Al Udeid Air Base, Qatar (pre-warned; 13 intercepted, no casualties).",
+    "source": "Al Jazeera; CBS"
+  },
+  {
+    "date": "2025-07-06",
+    "type": "iran_strike",
+    "actor": "Iran-proxy (Houthi)",
+    "target_type": "naval",
+    "description": "Houthis break the May ceasefire, sinking the Magic Seas and resuming Red Sea attacks.",
+    "source": "FDD; Soufan Center"
+  },
+  {
+    "date": "2025-07-31",
+    "type": "statement",
+    "actor": "USA, UK, France +11",
+    "target_type": null,
+    "description": "14-nation joint statement condemns a surge in Iranian assassination and kidnapping plots abroad.",
+    "source": "Al Jazeera"
+  },
+  {
+    "date": "2025-08-26",
+    "type": "diplomatic",
+    "actor": "Australia, Iran",
+    "target_type": null,
+    "description": "Australia expels Iran’s ambassador after ASIO ties the IRGC to 2024 antisemitic arson — first expulsion since WWII.",
+    "source": "CNN; NPR; Axios"
+  },
+  {
+    "date": "2025-08-28",
+    "type": "policy",
+    "actor": "E3 (UK/DE/FR), Iran",
+    "target_type": null,
+    "description": "The E3 trigger the JCPOA snapback mechanism, starting a 30-day countdown to reimpose UN sanctions.",
+    "source": "Commons Library CBP-10330"
+  },
+  {
+    "date": "2025-09-19",
+    "type": "policy",
+    "actor": "UNSC, E3, Iran",
+    "target_type": null,
+    "description": "UN Security Council rejects a sanctions-relief extension (4–9–2), locking in snapback.",
+    "source": "UN News; PBS"
+  },
+  {
+    "date": "2025-09-28",
+    "type": "policy",
+    "actor": "UN, EU, Iran",
+    "target_type": null,
+    "description": "Pre-2015 UN sanctions snap back into force; the EU reimposes its restrictive measures on 29 Sep.",
+    "source": "EU Council"
+  },
+  {
+    "date": "2025-11-15",
+    "type": "diplomatic",
+    "actor": "France, Iran",
+    "target_type": null,
+    "description": "French detainees Kohler & Paris released from prison but barred from leaving (exact day unconfirmed ⚠).",
+    "source": "Iran International; Euronews"
+  },
+  {
+    "date": "2025-11-27",
+    "type": "policy",
+    "actor": "Australia, Iran",
+    "target_type": null,
+    "description": "Australia lists the IRGC as a state sponsor of terrorism and imposes new sanctions.",
+    "source": "Australian Foreign Minister; SBS"
+  },
+  {
+    "date": "2025-12-28",
+    "type": "protest",
+    "actor": "Iran",
+    "target_type": null,
+    "description": "Nationwide protests erupt over the rial’s collapse and ~42% inflation; a mass crackdown follows.",
+    "source": "Al Jazeera; Amnesty"
+  },
+  {
+    "date": "2026-01-08",
+    "type": "protest",
+    "actor": "Iran",
+    "target_type": null,
+    "description": "Protest crackdown peaks amid an internet shutdown; security forces fire on crowds.",
+    "source": "BBC Verify; Commons Library CBP-10462"
+  },
+  {
+    "date": "2026-02-28",
+    "type": "us_israel_strike",
+    "actor": "USA+Israel",
+    "target_type": "military base",
+    "description": "Operation Epic Fury: ~900 US strikes in 12h; Supreme Leader Khamenei and senior officials killed — second war begins.",
+    "source": "NPR; USNI News; Fox",
+    "landmark": true
+  },
+  {
+    "date": "2026-02-28",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran fires ~170 ballistic missiles at Israel and US bases (Al Udeid, Ali Al Salem, Al Dhafra, 5th Fleet HQ Bahrain).",
+    "source": "USNI News"
+  },
+  {
+    "date": "2026-02-28",
+    "type": "diplomatic",
+    "actor": "USA, Iran, Oman",
+    "target_type": null,
+    "description": "A round of US–Iran talks in Muscat reports progress the same day the war begins.",
+    "source": "Commons Library CBP-10637"
+  },
+  {
+    "date": "2026-03-02",
+    "type": "us_israel_strike",
+    "actor": "USA+Israel",
+    "target_type": "nuclear facility",
+    "description": "Sustained joint strikes on Natanz, command HQs and the state broadcaster.",
+    "source": "timeline reporting"
+  },
+  {
+    "date": "2026-03-03",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "naval",
+    "description": "Iran strikes Israel and Gulf states; ~10 vessels hit in the Strait of Hormuz; a drone hits RAF Akrotiri.",
+    "source": "timeline reporting"
+  },
+  {
+    "date": "2026-04-08",
+    "type": "diplomatic",
+    "actor": "USA, Iran, Pakistan",
+    "target_type": null,
+    "description": "Pakistan brokers a conditional two-week US–Iran ceasefire toward a lasting agreement.",
+    "source": "Commons Library; CRS"
+  },
+  {
+    "date": "2026-05-23",
+    "type": "diplomatic",
+    "actor": "USA, Iran",
+    "target_type": null,
+    "description": "Trump says a deal reopening the Strait of Hormuz is ‘largely negotiated.’",
+    "source": "CNN; CNBC; WaPo; Axios"
+  },
+  {
+    "date": "2026-05-25",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "naval",
+    "description": "US ‘self-defense’ strikes hit two IRGC mine-laying boats and a Bandar Abbas SAM site; Iran calls it a ceasefire violation.",
+    "source": "CNN; NBC; NPR"
+  }
+]

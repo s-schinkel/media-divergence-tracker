@@ -1,0 +1,568 @@
+{
+  "2025-01": {
+    "uk": {
+      "tone": "N",
+      "topics": [
+        "E3–Iran Geneva nuclear talks",
+        "Trump return / max-pressure signals",
+        "IAEA enrichment reports"
+      ]
+    },
+    "usa": {
+      "tone": "N",
+      "topics": [
+        "Trump transition / anticipated max-pressure",
+        "IAEA stockpile warnings",
+        "Red Sea–Houthi disruption"
+      ]
+    },
+    "au": {
+      "tone": "N",
+      "topics": [
+        "Pre-inauguration Iran signals",
+        "IRGC-linked 2024 arson under AFP investigation",
+        "Executions / human rights"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "Iran enrichment (IAEA)",
+        "Anticipation of Trump reset",
+        "PS752 anniversary advocacy"
+      ]
+    }
+  },
+  "2025-02": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Trump reinstates maximum pressure",
+        "E3 flag ‘unprecedented’ HEU stockpiles",
+        "Khamenei rejects talks"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "NSPM-2 restores maximum pressure (4 Feb)",
+        "Oil-network sanctions",
+        "Khamenei rebuff (7 Feb)"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Trump max-pressure EO (4 Feb)",
+        "Oil-export pressure",
+        "AU sanctions framework"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Trump max-pressure (4 Feb)",
+        "Sanctions enforcement",
+        "Canada–Iran diplomatic limbo"
+      ]
+    }
+  },
+  "2025-03": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Trump letter to Khamenei",
+        "Parliament debates Iran threat",
+        "Araghchi signals openness"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Trump letter to Khamenei (7 Mar)",
+        "Military-consequences threat",
+        "‘Oil exports to zero’"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Trump letter to Khamenei",
+        "Houthi/Iran proxy axis",
+        "Nuclear-site imagery"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "Joly additional Iran sanctions",
+        "IRGC-deportation slow-pace criticism",
+        "Carney wins Liberal leadership (9 Mar)"
+      ]
+    }
+  },
+  "2025-04": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "First US–Iran indirect talks (Muscat, Rome)",
+        "UK in E3 formation"
+      ]
+    },
+    "usa": {
+      "tone": "D",
+      "topics": [
+        "Rounds 1–3 indirect talks ‘constructive’",
+        "Iran enrichment counter-offer"
+      ]
+    },
+    "au": {
+      "tone": "N",
+      "topics": [
+        "Oman/Rome indirect talks",
+        "Enrichment dispute",
+        "Election-campaign backdrop"
+      ]
+    },
+    "ca": {
+      "tone": "ND",
+      "topics": [
+        "Muscat talks begin",
+        "Iran ‘ready for talks’ with Canada (Ottawa declines)",
+        "Carney wins election (28 Apr)"
+      ]
+    }
+  },
+  "2025-05": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Talks rounds 4–5 deadlock on enrichment",
+        "Trump ‘June 13’ military-threat framing"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Rounds 4–5 deadlock",
+        "‘Zero enrichment’ red line",
+        "60-day deadline pressure"
+      ]
+    },
+    "au": {
+      "tone": "N",
+      "topics": [
+        "Federal election 3 May (IRGC arson a minor angle)",
+        "Talks rounds 4–5",
+        "Albanese re-elected"
+      ]
+    },
+    "ca": {
+      "tone": "D",
+      "topics": [
+        "Talks round 4",
+        "Diaspora watching diplomacy",
+        "‘No thaw’ in Canada–Iran relations"
+      ]
+    }
+  },
+  "2025-06": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Israel’s Operation Rising Lion (13 Jun)",
+        "US bombs Fordow/Natanz/Isfahan (22 Jun)",
+        "Iran hits Al Udeid; ceasefire (24 Jun)"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "IAEA breach finding (12 Jun)",
+        "Operation Midnight Hammer B-2 strikes (21–22 Jun)",
+        "550+ Iranian missiles; ceasefire (24 Jun)"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Israel/US strikes; ceasefire (24 Jun)",
+        "DFAT crisis hub",
+        "Smartraveller alerts (~1,500 Australians)"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Israel/US strikes (13/21–22 Jun)",
+        "Canada evacuation flights",
+        "Carney/Anand urge de-escalation"
+      ]
+    }
+  },
+  "2025-07": {
+    "uk": {
+      "tone": "N",
+      "topics": [
+        "Post-war damage assessment",
+        "E3–Iran talks resume (Istanbul)",
+        "Snapback deadline flagged"
+      ]
+    },
+    "usa": {
+      "tone": "EN",
+      "topics": [
+        "Fragile ceasefire / traded violations",
+        "60-day extension framework",
+        "Iran defiant on enrichment"
+      ]
+    },
+    "au": {
+      "tone": "D",
+      "topics": [
+        "Post-war analysis",
+        "AFP arrests re 2024 synagogue arson",
+        "Citizens returning"
+      ]
+    },
+    "ca": {
+      "tone": "D",
+      "topics": [
+        "Post-ceasefire aftermath",
+        "PS752 Winnipeg memorial",
+        "Court ruling on PS752 compensation"
+      ]
+    }
+  },
+  "2025-08": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "E3 trigger snapback (28 Aug)",
+        "Araghchi op-ed in Guardian calls it ‘baseless’"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "E3 trigger snapback (28 Aug)",
+        "Iran–Russia $25B reactor deal",
+        "IAEA-access law"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "26 Aug: Australia expels Iranian ambassador",
+        "ASIO ties IRGC to arson",
+        "Tehran embassy suspended"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "E3 snapback (28 Aug)",
+        "Canada UN-sanctions implementation",
+        "IRGC-deportation pace scrutiny"
+      ]
+    }
+  },
+  "2025-09": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "UN snapback sanctions reimposed (27–29 Sep)",
+        "UK a co-triggering party"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "UN sanctions reimposed (27 Sep)",
+        "Khamenei rules out talks (23 Sep)",
+        "Iran cancels IAEA deal"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Snapback fallout",
+        "IRGC terror-listing bill in Parliament",
+        "Diplomatic fallout"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "UN snapback reimposed (28–29 Sep)",
+        "Canada amends UN Iran Regulations (30 Sep)"
+      ]
+    }
+  },
+  "2025-10": {
+    "uk": {
+      "tone": "N",
+      "topics": [
+        "IAEA loses visibility on stockpiles",
+        "Iran reinforces sites; talks stall"
+      ]
+    },
+    "usa": {
+      "tone": "N",
+      "topics": [
+        "JCPOA expires (18 Oct)",
+        "IAEA cooperation collapses",
+        "Trump ‘ready to deal’ (13 Oct)"
+      ]
+    },
+    "au": {
+      "tone": "N",
+      "topics": [
+        "IRGC listing bill progressing",
+        "AFP arson investigation",
+        "Post-snapback nuclear status"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "Domestic implementation of snapback",
+        "Nuclear-diplomacy analysis",
+        "IRGC accountability"
+      ]
+    }
+  },
+  "2025-11": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Pezeshkian vows to rebuild nuclear sites",
+        "Russia reactor plans"
+      ]
+    },
+    "usa": {
+      "tone": "N",
+      "topics": [
+        "Iran ‘not in a hurry’ to talk",
+        "Khamenei: US ‘not worthy’ (27 Nov)",
+        "Diplomatic cold"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "27 Nov: Australia lists IRGC as terrorist org",
+        "Iran condemns",
+        "Diaspora reaction"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "Court upholds immigration bar on IRGC-linked Iranian (26 Nov)",
+        "Removal-proceedings debate"
+      ]
+    }
+  },
+  "2025-12": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Economic protests erupt (28 Dec)",
+        "Rial collapse / ~42% inflation",
+        "BBC Persian staff threatened"
+      ]
+    },
+    "usa": {
+      "tone": "N",
+      "topics": [
+        "Trump–Netanyahu joint pledge",
+        "Routine UNSC briefing",
+        "Holiday lull"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Iranian protests begin (28 Dec)",
+        "Diaspora rallies (Sydney/Brisbane)",
+        "Albanese/Wong back protesters"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Protests begin (28 Dec)",
+        "New Canada sanctions (15 Dec, Anand)",
+        "Toronto solidarity rallies"
+      ]
+    }
+  },
+  "2026-01": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Protests peak; internet shutdown",
+        "UK condemns; announces IRGC sanctions"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Trump signals ‘fair deal’; analysts doubt Iran",
+        "USS Abraham Lincoln repositioned"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Protest crackdown",
+        "New AU sanctions (20 individuals/3 entities)",
+        "Senate condemnation motion"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Internet blackout",
+        "Large Toronto solidarity rally",
+        "PS752 6th anniversary"
+      ]
+    }
+  },
+  "2026-02": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Muscat talks collapse",
+        "Operation Epic Fury (28 Feb); Khamenei killed",
+        "Starmer: ‘planes in sky, not involved’"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Muscat talks (6 Feb); 10-day ultimatum (20 Feb)",
+        "Operation Epic Fury (28 Feb); Khamenei killed"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Operation Epic Fury (28 Feb); Khamenei killed",
+        "Albanese/Wong/Marles statement",
+        "Evacuation advisories"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Epic Fury (28 Feb); Khamenei killed",
+        "Carney/Anand back US action, then walk back",
+        "Liberal caucus concerns"
+      ]
+    }
+  },
+  "2026-03": {
+    "uk": {
+      "tone": "E",
+      "topics": [
+        "Sustained US–Israel strikes",
+        "Drone hits RAF Akrotiri",
+        "Trump–Starmer row; Stop-the-War protests"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Full-scale war; Strait of Hormuz closed",
+        "Larijani killed",
+        "Trump ‘UNCONDITIONAL SURRENDER’ post"
+      ]
+    },
+    "au": {
+      "tone": "E",
+      "topics": [
+        "Full war; Iran hits Al Minhad airbase (AU personnel)",
+        "Hormuz closed; AU rules out naval ships",
+        "61% want to stay out (Resolve poll)"
+      ]
+    },
+    "ca": {
+      "tone": "E",
+      "topics": [
+        "Full war; Hormuz closed",
+        "Carney ‘Canada will not participate’",
+        "Gas prices up ~30%"
+      ]
+    }
+  },
+  "2026-04": {
+    "uk": {
+      "tone": "ND",
+      "topics": [
+        "Pakistan-brokered ceasefire (8 Apr)",
+        "Strait of Hormuz ‘dual blockade’",
+        "UK evacuations from Gulf"
+      ]
+    },
+    "usa": {
+      "tone": "EN",
+      "topics": [
+        "Pakistan ceasefire (7–8 Apr)",
+        "Islamabad talks fail (11–12 Apr)",
+        "US naval blockade (13 Apr)"
+      ]
+    },
+    "au": {
+      "tone": "D",
+      "topics": [
+        "Pakistan ceasefire (8 Apr)",
+        "Hormuz de-mining; energy/fuel shock",
+        "SAS deployment"
+      ]
+    },
+    "ca": {
+      "tone": "D",
+      "topics": [
+        "Pakistan ceasefire (8 Apr)",
+        "Trump extends indefinitely (21 Apr)",
+        "Canada condemns Iran Hormuz attacks"
+      ]
+    }
+  },
+  "2026-05": {
+    "uk": {
+      "tone": "D",
+      "topics": [
+        "Peace deal ‘largely negotiated’",
+        "Enrichment moratorium discussed",
+        "Pakistani mediation"
+      ]
+    },
+    "usa": {
+      "tone": "ND",
+      "topics": [
+        "~25 May ‘defensive’ US strikes",
+        "Deal ‘largely negotiated’ (23 May)",
+        "Tentative MOU (28–29 May), unsigned"
+      ]
+    },
+    "au": {
+      "tone": "D",
+      "topics": [
+        "Ceasefire-extension framework",
+        "Hormuz-reopening near-deal",
+        "AU economic-impact assessments"
+      ]
+    },
+    "ca": {
+      "tone": "D",
+      "topics": [
+        "Hormuz deal ‘largely negotiated’ (23 May)",
+        "Ceasefire/nuclear framework",
+        "‘Risk-averse Carney’ debate"
+      ]
+    }
+  }
+}
