@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Categories B + C — world-leader posture (STUB).
 
-Intended output: data/leader_posture.json
+Intended output: data/posture.json  (consumed by build_dataset.py)
+After editing the JSON, run:  python3 scripts/build_dataset.py
 
 Per month, classify each leader's posture on Iran. Leave blank where no notable
 statement was made that month.

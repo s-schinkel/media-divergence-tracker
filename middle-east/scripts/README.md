@@ -1,38 +1,75 @@
 # Data pipeline — Iran / Middle East tracker
 
-**Status: stubs.** These scripts define the *intended* Phase 1 collection steps and the
-data contract. They do not yet perform live collection — collection is a manual,
-web-search-driven, multi-pass effort (see `../CLAUDE.md`, "Build phases").
-
-## Pipeline
+The tracker is driven by JSON in `middle-east/data/`, which is the **source of record**.
+`index.html` ships with that data inlined (so the artifact stays self-contained) — but you
+never hand-edit the HTML data block. You edit the JSON and run the build script, which
+regenerates the inline block, recomputes `meta.json`, and bumps the "last updated" dates.
 
 ```
-collect_media_volume.py   →  data/media_volume.json     (Cat. A: per-country volume + tone + summary)
-collect_leader_posture.py →  data/leader_posture.json   (Cat. B + C: posture classifications)
-collect_events.py         →  data/events.json           (Cat. D + E: kinetic events + flash points)
-build_dataset.py          →  data/dataset.json          (merge of the above; consumed by index.html)
+collect_*.py  (manual web search)        build_dataset.py
+        │                                        │
+        ▼                                        ▼
+  data/volume.json   ┐                    index.html  (inline DATA block regenerated)
+  data/detail.json   ├──────────────────► data/meta.json  (counts + last_updated)
+  data/posture.json  │                    ../../index.html (root Erika "Last updated:" string)
+  data/events.json   ┘
 ```
 
-Run from the `middle-east/` directory. All scripts read any API credentials from
-environment variables; no secrets in the repo.
+## The build script (the automation)
 
 ```bash
 cd middle-east
-python3 scripts/collect_media_volume.py
-python3 scripts/collect_leader_posture.py
-python3 scripts/collect_events.py
-python3 scripts/build_dataset.py
+
+# Full rebuild from data/*.json: validate → regenerate index.html → meta.json → root date.
+python3 scripts/build_dataset.py                 # date = today
+python3 scripts/build_dataset.py --date 2026-06-07
+
+# Just bump the timestamps (no data change) — the common weekly tick:
+python3 scripts/build_dataset.py --date-only
 ```
 
-## Approach notes
+`build_dataset.py` validates before writing anything and **exits non-zero on any error**
+(bad event type, unknown leader, invalid posture class, month-coverage mismatch, bad tone
+code). It is idempotent: re-running with the same data + date produces no change.
 
-- **Volume is approximate.** Estimate monthly story counts from search-result signal
-  density (no Factiva/LexisNexis). Capture the relative month-by-month shape; absolute
-  numbers are secondary. Flag thin-coverage months (`thin_coverage: true`).
-- **Sources** — UK: BBC, Guardian, Sky. AU: ABC, SMH, The Australian. USA: NYT, WaPo, Fox.
+After a rebuild, sanity-check and ship:
+
+```bash
+node --check <(sed -n '/<script>/,/<\/script>/p' index.html)   # or open index.html in a browser
+git add -A && git commit -m "data: refresh <month>" && git push origin main   # auto-deploys via Pages
+```
+
+## Collection (manual)
+
+Actual collection is web-search-driven (no Factiva/LexisNexis). The `collect_*.py` files are
+documented stubs describing each output's shape; fill the JSON by hand / via an agent, then
+run `build_dataset.py`.
+
+| Script | Writes | Category |
+|---|---|---|
+| `collect_media_volume.py`   | `data/volume.json`, `data/detail.json` | A — per-country volume + tone + topics |
+| `collect_leader_posture.py` | `data/posture.json`                    | B + C — Trump + 7 leaders' posture |
+| `collect_events.py`         | `data/events.json`                     | D + E — kinetic strikes + flash points |
+
+### Source/approach notes
+- **Volume is approximate** — estimate monthly counts from search-result signal density;
+  capture the relative month-by-month shape, flag thin months (tone/topics still required).
+- Sources — UK: BBC, Guardian, Sky. AU: ABC, SMH, The Australian. USA: NYT, WaPo, Fox.
   CA: Globe and Mail, CBC, National Post.
-- **Trump / Truth Social** — capture via Reuters/AP/major-outlet verbatim quotes and
-  press/EO records, not direct API.
-- Prefer primary sources (official statements, directly quoted articles) over aggregators.
+- **Trump / Truth Social** — capture via Reuters/AP/major-outlet verbatim quotes, not API.
+- Prefer primary sources over aggregators.
 
-See `../CLAUDE.md` for the full `dataset.json` contract and the event/posture taxonomies.
+## Data contract
+
+See `../CLAUDE.md` for the authoritative field/taxonomy spec. Quick reference:
+
+- **volume.json** — `[{ "month":"YYYY-MM", "uk":int, "usa":int, "au":int, "ca":int }, …]`
+- **detail.json** — `{ "YYYY-MM": { "uk":{ "tone":"E|N|D|EN|ND", "topics":[…] }, … }, … }`
+- **events.json** — `[{ "date":"YYYY-MM-DD", "type":<taxonomy key>, "actor":…, "target_type":…|null, "description":…, "source":…, "landmark":true? }, …]`
+  - taxonomy keys: `us_israel_strike, iran_strike, diplomatic, protest, statement, policy`
+  - combined joint ops use actor `"USA+Israel"`
+- **posture.json** — `[{ "month":"YYYY-MM", "leader":<slug>, "posture":<class>, "summary":…, "source":…, "who"?:…, "pezeshkian_note"?:… }, …]`
+  - leaders: `trump, starmer, albanese, ca_pm, netanyahu, iran, mbs, kallas`
+  - Trump uses the US scale (Threatening/Hawkish/Neutral/Diplomatic/Conciliatory); others use
+    Hostile/Cautious/Neutral/Engaged/Conciliatory
+- **meta.json** — regenerated by the build script; do not hand-edit.

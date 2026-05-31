@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Categories D + E — kinetic events + flash points (STUB).
 
-Intended output: data/events.json
+Intended output: data/events.json  (consumed by build_dataset.py)
+After editing the JSON, run:  python3 scripts/build_dataset.py
 
 D. Kinetic events — confirmed direct strikes / military actions:
    date, actor (USA / Israel / Iran / proxy), target type (nuclear facility /

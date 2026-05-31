@@ -5,8 +5,27 @@ present. Served at https://s-schinkel.github.io/media-divergence-tracker/middle-
 `middle-east/index.html`. Part of the multi-tracker repo — see `../CLAUDE.md` for the repo
 map and the rules around the frozen root URL.
 
-> **Status: scaffolded, not populated.** `index.html` is currently a placeholder shell and
-> `scripts/` are stubs. The build proceeds in phases (below). Do not assume data exists.
+> **Status: built & live.** The artifact is populated (D3 wave + event markers + posture
+> swimlanes + Chart.js tone panel + notation layer) and deployed at the URL above. Data
+> lives in `data/*.json` (source of record) and is mirrored inline in `index.html`.
+
+## Refreshing the data (do NOT hand-edit the inline HTML data block)
+
+`data/*.json` is the source of truth. `index.html` carries that data inline between the
+`/* DATA:START */` and `/* DATA:END */` markers, but that block is **generated** — never
+edit it by hand. To refresh:
+
+```bash
+cd middle-east
+# edit data/volume.json / detail.json / events.json / posture.json (manual web-search collection)
+python3 scripts/build_dataset.py            # validate → regen index.html + meta.json + root date
+python3 scripts/build_dataset.py --date-only  # just bump the "last updated" dates
+```
+
+The script validates (taxonomy keys, posture classes, month coverage) and writes nothing on
+failure. `meta.json` drives the "Last updated" pill + the >7-day staleness banner; the build
+also updates the root Erika tracker's "Last updated:" string. Full workflow + data contract:
+`scripts/README.md`.
 
 ## This folder is self-contained
 
