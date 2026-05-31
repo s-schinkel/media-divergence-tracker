@@ -8,12 +8,15 @@ This script:
      /* DATA:START */ and /* DATA:END */ markers) so the served artifact stays
      self-contained — you edit the JSON, never the HTML data block,
   3. recomputes middle-east/data/meta.json (row counts + coverage + last_updated),
-  4. updates the "Last updated: YYYY-MM-DD" string in the root Erika tracker.
+     which drives the "Last updated" pill + staleness banner in this tracker.
+
+The root Erika tracker owns its own "Last updated" line — see erika-kirk/scripts/bump_date.py.
+This script only touches the Middle East tracker.
 
 Usage:
   python3 scripts/build_dataset.py                 # full rebuild, date = today
   python3 scripts/build_dataset.py --date 2026-06-07
-  python3 scripts/build_dataset.py --date-only     # only bump meta.json + root date
+  python3 scripts/build_dataset.py --date-only     # only bump meta.json
 
 Run from anywhere; paths are resolved relative to this file.
 Exits non-zero (and writes nothing) if validation fails.
@@ -31,7 +34,6 @@ ME = HERE.parent                                 # middle-east
 REPO = ME.parent                                 # repo root
 DATA = ME / "data"
 ME_INDEX = ME / "index.html"
-ROOT_INDEX = REPO / "index.html"
 
 EVENT_TYPES = {"us_israel_strike", "iran_strike", "diplomatic", "protest", "statement", "policy"}
 US_POSTURE = {"Threatening", "Hawkish", "Neutral", "Diplomatic", "Conciliatory"}
@@ -142,19 +144,10 @@ def update_meta(volume, events, posture, months, date):
     meta_path.write_text(json.dumps(meta, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
-def update_root_date(date):
-    html = ROOT_INDEX.read_text(encoding="utf-8")
-    new, n = re.subn(r"Last updated: \d{4}-\d{2}-\d{2}", f"Last updated: {date}", html)
-    if n == 0:
-        print("  ! root index.html: 'Last updated: <date>' string not found — skipped")
-        return
-    ROOT_INDEX.write_text(new, encoding="utf-8")
-
-
 def main():
     ap = argparse.ArgumentParser(description="Refresh the Iran/Middle East tracker from data/*.json")
     ap.add_argument("--date", help="YYYY-MM-DD (default: today)")
-    ap.add_argument("--date-only", action="store_true", help="only bump meta.json + root date; skip data validation/regen")
+    ap.add_argument("--date-only", action="store_true", help="only bump meta.json last_updated; skip data validation/regen")
     args = ap.parse_args()
 
     date = args.date or _dt.date.today().isoformat()
@@ -169,8 +162,7 @@ def main():
 
     if args.date_only:
         update_meta(volume, events, posture, months, date)
-        update_root_date(date)
-        print(f"date-only refresh → {date}  (meta.json + root index.html)")
+        print(f"date-only refresh → {date}  (meta.json)")
         return
 
     errs, months = validate(volume, events, posture, detail)
@@ -182,14 +174,13 @@ def main():
 
     regen_index(volume, events, posture, detail, months)
     update_meta(volume, events, posture, months, date)
-    update_root_date(date)
     print("Rebuilt artifact from data/*.json")
     print(f"  months   : {months[0]} … {months[-1]}  ({len(months)})")
     print(f"  volume   : {len(volume)} rows")
     print(f"  events   : {len(events)} rows")
     print(f"  posture  : {len(posture)} rows")
     print(f"  updated  : {date}")
-    print("  wrote    : middle-east/index.html, data/meta.json, root index.html")
+    print("  wrote    : middle-east/index.html, data/meta.json")
 
 
 if __name__ == "__main__":

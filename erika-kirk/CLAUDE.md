@@ -44,6 +44,22 @@ gh api repos/s-schinkel/media-divergence-tracker/pages/builds/latest --jq '{stat
 curl -sI https://s-schinkel.github.io/media-divergence-tracker/ | head -3
 ```
 
+## "Last updated" date
+
+The footer line `Last updated: YYYY-MM-DD` in the root `index.html` is owned by this tracker
+(the Middle East build script does NOT touch it). Bump it when you refresh the page:
+
+```bash
+python3 erika-kirk/scripts/bump_date.py            # today
+python3 erika-kirk/scripts/bump_date.py --date 2026-06-07
+```
+
+There is also a manual GitHub Action (`.github/workflows/refresh-erika.yml` → "Run workflow")
+that runs this and commits the result. It is dispatch-only by design: the page is
+hand-maintained (no JSON→HTML regenerator), so there is no honest weekly auto-refresh — run
+it after you've actually updated the page. Building a regenerator (so data refreshes could
+auto-rebuild the page like the Middle East tracker's `build_dataset.py`) is a future option.
+
 ## Two-tab structure
 
 Top of `index.html`:

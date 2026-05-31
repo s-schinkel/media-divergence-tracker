@@ -1,0 +1,71 @@
+name: Refresh Erika tracker (date)
+
+# Stamps the "Last updated: YYYY-MM-DD" line on the root Erika Kirk tracker (index.html).
+#
+# Unlike the Middle East tracker, the Erika page is HAND-MAINTAINED — there is no
+# JSON->HTML regenerator, so CI cannot rebuild the page from data. The honest, automatable
+# piece is the footer date, which you stamp when you've actually refreshed the page.
+#
+# Trigger: manual "Run workflow" (with an optional date). Run it after you hand-update the
+# page so the footer reflects the real refresh.
+#
+# A weekly cron is intentionally left commented out: auto-stamping a hand-maintained page
+# every week would claim updates that didn't happen. Uncomment ONLY if you want the footer
+# to mean "last checked" rather than "last refreshed".
+#
+# Fuller automation (auto data pull, or a regenerator like the ME tracker's) can be added
+# later — see erika-kirk/CLAUDE.md.
+
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to stamp (YYYY-MM-DD). Blank = today (UTC)."
+        required: false
+        type: string
+  # schedule:
+  #   - cron: "0 8 * * 1"   # Mondays 08:00 UTC — see note above before enabling
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-erika
+  cancel-in-progress: false
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Bump root "Last updated" date
+        env:
+          IN_DATE: ${{ inputs.date }}
+        run: |
+          set -euo pipefail
+          if [ -n "${IN_DATE:-}" ]; then
+            python3 erika-kirk/scripts/bump_date.py --date "$IN_DATE"
+          else
+            python3 erika-kirk/scripts/bump_date.py
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(erika): bump last-updated date ($(date -u +%F)) [skip ci]"
+            git push
+            echo "Pushed date bump."
+          else
+            echo "No change — date already current."
+          fi
