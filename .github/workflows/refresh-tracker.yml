@@ -1,0 +1,88 @@
+name: Refresh Middle East tracker
+
+# Keeps middle-east/index.html (+ meta.json + the root "Last updated" string) in sync
+# with the JSON source of record in middle-east/data/.
+#
+# Triggers:
+#   • push to main touching middle-east/data/**  → full rebuild, commit result back
+#   • manual "Run workflow"                       → full rebuild or --date-only (your choice)
+#   • weekly cron                                 → --date-only timestamp bump
+#
+# NOTE on the weekly cron: --date-only stamps meta.json's last_updated to the run date,
+# which also resets the >7-day staleness banner. If you'd rather the badge reflect the last
+# *data* refresh (so the banner can actually warn you), delete the `schedule:` block below —
+# the push trigger already rebuilds whenever you edit the data.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "middle-east/data/**"
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Date to stamp (YYYY-MM-DD). Blank = today (UTC)."
+        required: false
+        type: string
+      mode:
+        description: "Build mode"
+        required: false
+        default: "full"
+        type: choice
+        options: ["full", "date-only"]
+  schedule:
+    # Mondays 08:00 UTC — weekly timestamp bump (see NOTE above)
+    - cron: "0 8 * * 1"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-tracker
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Rebuild from data/*.json
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          IN_DATE: ${{ inputs.date }}
+          IN_MODE: ${{ inputs.mode }}
+        run: |
+          set -euo pipefail
+          ARGS=""
+          case "$EVENT_NAME" in
+            schedule)
+              ARGS="--date-only" ;;
+            workflow_dispatch)
+              [ "$IN_MODE" = "date-only" ] && ARGS="--date-only"
+              [ -n "$IN_DATE" ] && ARGS="$ARGS --date $IN_DATE" ;;
+            *)
+              ARGS="" ;;   # push to data/** → full rebuild, date = today
+          esac
+          echo "Running: build_dataset.py $ARGS"
+          python3 middle-east/scripts/build_dataset.py $ARGS
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(data): rebuild tracker artifact ($(date -u +%F)) [skip ci]"
+            git push
+            echo "Pushed regenerated artifact."
+          else
+            echo "No changes — artifact already in sync."
+          fi
