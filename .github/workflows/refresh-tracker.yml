@@ -3,15 +3,18 @@ name: Refresh Middle East tracker
 # Keeps middle-east/index.html (+ meta.json + the root "Last updated" string) in sync
 # with the JSON source of record in middle-east/data/.
 #
-# Triggers:
-#   • push to main touching middle-east/data/**  → full rebuild, commit result back
-#   • manual "Run workflow"                       → full rebuild or --date-only (your choice)
-#   • weekly cron                                 → --date-only timestamp bump
+# Every run first collects any new months (collect_incremental.py, via the Claude API +
+# web search) and then rebuilds from the JSON source of record in middle-east/data/.
 #
-# NOTE on the weekly cron: --date-only stamps meta.json's last_updated to the run date,
-# which also resets the >7-day staleness banner. If you'd rather the badge reflect the last
-# *data* refresh (so the banner can actually warn you), delete the `schedule:` block below —
-# the push trigger already rebuilds whenever you edit the data.
+# Triggers:
+#   • push to main touching middle-east/data/**  → collect + full rebuild, commit result back
+#   • manual "Run workflow"                       → collect + full rebuild or --date-only (your choice)
+#   • weekly cron                                 → collect new months, then FULL rebuild
+#
+# NOTE: the weekly cron does a FULL rebuild (not --date-only) so any month collect_incremental.py
+# adds actually reaches index.html — a full rebuild also stamps meta.json's last_updated to the
+# run date. collect_incremental.py needs the ANTHROPIC_API_KEY repo secret; with no new months it
+# is a no-op and the secret is unused.
 
 on:
   push:
@@ -53,6 +56,14 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Anthropic SDK
+        run: pip install anthropic
+
+      - name: Collect new months (Claude API + web search)
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 middle-east/scripts/collect_incremental.py
+
       - name: Rebuild from data/*.json
         env:
           EVENT_NAME: ${{ github.event_name }}
@@ -63,7 +74,7 @@ jobs:
           ARGS=""
           case "$EVENT_NAME" in
             schedule)
-              ARGS="--date-only" ;;
+              ARGS="" ;;   # full rebuild — incorporates any newly collected months and bumps the date
             workflow_dispatch)
               [ "$IN_MODE" = "date-only" ] && ARGS="--date-only"
               [ -n "$IN_DATE" ] && ARGS="$ARGS --date $IN_DATE" ;;
