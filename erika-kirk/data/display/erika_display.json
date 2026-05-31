@@ -1,0 +1,797 @@
+{
+  "_note": "Source of record for the Erika tracker's mechanical regions. Tab 1 numbers are recomputed by build_tab1.py; edit event/summary prose and Tab 2 captured values here, then run build_erika.py. Tab 2 chart SVG geometry stays verbatim in index.html.",
+  "tab1_rows": {
+    "202507": {
+      "ym": "202507",
+      "label": "Jul 2025",
+      "gdelt_vol_sum": 0,
+      "gdelt_tone_norm": 0.0,
+      "hf_mainstream_avg": 0.0,
+      "hf_social_avg": 0.0,
+      "social_mentions": 1500,
+      "social_confidence": "LOW",
+      "topic_overlap": 1.0,
+      "sentiment_delta": 0.0,
+      "volume_normalized": null,
+      "volume_score": 0.0,
+      "composite": 0.0,
+      "high": false
+    },
+    "202508": {
+      "ym": "202508",
+      "label": "Aug 2025",
+      "gdelt_vol_sum": 0,
+      "gdelt_tone_norm": 0.0,
+      "hf_mainstream_avg": 0.0,
+      "hf_social_avg": 0.0,
+      "social_mentions": 2500,
+      "social_confidence": "LOW",
+      "topic_overlap": 0.5,
+      "sentiment_delta": 0.0,
+      "volume_normalized": null,
+      "volume_score": 0.0,
+      "composite": 0.25,
+      "high": false
+    },
+    "202509": {
+      "ym": "202509",
+      "label": "Sep 2025",
+      "gdelt_vol_sum": 2.9527,
+      "gdelt_tone_norm": -0.0232,
+      "hf_mainstream_avg": -0.1327,
+      "hf_social_avg": -0.4751,
+      "social_mentions": 11000000,
+      "social_confidence": "HIGH",
+      "topic_overlap": 0.308,
+      "sentiment_delta": 0.3424,
+      "volume_normalized": 1.0,
+      "volume_score": 0.0,
+      "composite": 0.449,
+      "high": false
+    },
+    "202510": {
+      "ym": "202510",
+      "label": "Oct 2025",
+      "gdelt_vol_sum": 0.6055,
+      "gdelt_tone_norm": -0.0163,
+      "hf_mainstream_avg": -0.0188,
+      "hf_social_avg": -0.3889,
+      "social_mentions": 4500000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.143,
+      "sentiment_delta": 0.3701,
+      "volume_normalized": 1.99,
+      "volume_score": 0.15,
+      "composite": 0.57,
+      "high": false
+    },
+    "202511": {
+      "ym": "202511",
+      "label": "Nov 2025",
+      "gdelt_vol_sum": 0.5821,
+      "gdelt_tone_norm": -0.0148,
+      "hf_mainstream_avg": -0.2072,
+      "hf_social_avg": -0.1522,
+      "social_mentions": 8000000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.222,
+      "sentiment_delta": -0.055,
+      "volume_normalized": 3.69,
+      "volume_score": 0.283,
+      "composite": 0.462,
+      "high": false
+    },
+    "202512": {
+      "ym": "202512",
+      "label": "Dec 2025",
+      "gdelt_vol_sum": 1.9094,
+      "gdelt_tone_norm": -0.0237,
+      "hf_mainstream_avg": -0.2245,
+      "hf_social_avg": -0.1399,
+      "social_mentions": 14000000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.182,
+      "sentiment_delta": -0.0846,
+      "volume_normalized": 1.97,
+      "volume_score": 0.147,
+      "composite": 0.464,
+      "high": false
+    },
+    "202601": {
+      "ym": "202601",
+      "label": "Jan 2026",
+      "gdelt_vol_sum": 0.3732,
+      "gdelt_tone_norm": -0.0235,
+      "hf_mainstream_avg": -0.2988,
+      "hf_social_avg": -0.2468,
+      "social_mentions": 12000000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.0,
+      "sentiment_delta": -0.052,
+      "volume_normalized": 8.63,
+      "volume_score": 0.468,
+      "composite": 0.609,
+      "high": true
+    },
+    "202602": {
+      "ym": "202602",
+      "label": "Feb 2026",
+      "gdelt_vol_sum": 0.615,
+      "gdelt_tone_norm": -0.0143,
+      "hf_mainstream_avg": -0.2516,
+      "hf_social_avg": -0.517,
+      "social_mentions": 18000000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.111,
+      "sentiment_delta": 0.2654,
+      "volume_normalized": 7.86,
+      "volume_score": 0.448,
+      "composite": 0.614,
+      "high": true
+    },
+    "202603": {
+      "ym": "202603",
+      "label": "Mar 2026",
+      "gdelt_vol_sum": 0.2407,
+      "gdelt_tone_norm": -0.0252,
+      "hf_mainstream_avg": -0.2037,
+      "hf_social_avg": -0.2164,
+      "social_mentions": 95000000,
+      "social_confidence": "HIGH",
+      "topic_overlap": 0.222,
+      "sentiment_delta": 0.0128,
+      "volume_normalized": 105.94,
+      "volume_score": 1.0,
+      "composite": 0.593,
+      "high": false
+    },
+    "202604": {
+      "ym": "202604",
+      "label": "Apr 2026",
+      "gdelt_vol_sum": 0.6169,
+      "gdelt_tone_norm": -0.0264,
+      "hf_mainstream_avg": -0.3601,
+      "hf_social_avg": -0.276,
+      "social_mentions": 65000000,
+      "social_confidence": "HIGH",
+      "topic_overlap": 0.3,
+      "sentiment_delta": -0.0841,
+      "volume_normalized": 28.28,
+      "volume_score": 0.726,
+      "composite": 0.52,
+      "high": false
+    },
+    "202605": {
+      "ym": "202605",
+      "label": "May 2026",
+      "gdelt_vol_sum": 0.2311,
+      "gdelt_tone_norm": -0.0287,
+      "hf_mainstream_avg": -0.3508,
+      "hf_social_avg": -0.2077,
+      "social_mentions": 22000000,
+      "social_confidence": "MED",
+      "topic_overlap": 0.25,
+      "sentiment_delta": -0.1432,
+      "volume_normalized": 25.55,
+      "volume_score": 0.704,
+      "composite": 0.559,
+      "high": false
+    }
+  },
+  "events": {
+    "202507": "Pre-event baseline. Erika Kirk appears in public coverage only as Charlie Kirk's wife, with no independent storyline. GDELT records zero mainstream articles mentioning her by name; social mentions are background noise tied to incidental TPUSA event posts.",
+    "202508": "Still pre-event. Charlie Kirk's summer TPUSA tour generates minor coverage but Erika remains incidental. GDELT again records zero mainstream articles; the small composite score comes from a minor topic-overlap mismatch in negligible-volume coverage.",
+    "202509": "Charlie Kirk is assassinated September 10 at Utah Valley University. Erika delivers her first public remarks two days later, the TPUSA board names her CEO, and at the funeral she publicly forgives the accused killer. Both channels are saturated with the same set of topics, which is why divergence stays moderate despite the largest volume spike of the year.",
+    "202510": "Trump posthumously awards Charlie the Presidential Medal of Freedom in a Rose Garden ceremony on October 14 — mainstream's headline event. Social cycles through fact-checked rumors instead: a false 'Air Force 2' claim and a fabricated $400M Soros lawsuit. The topic agenda starts to fork.",
+    "202511": "Erika gives her first TV interview to Jesse Watters on Fox News (November 5) and receives the inaugural Charlie Kirk Legacy Award. Mainstream covers the interview, awards, and TPUSA's courtroom-cameras fight. Social latches onto a 'never dated' moment with circulating receipts and clipped reaction shots.",
+    "202512": "TPUSA AmericaFest draws 30,000 attendees, majority women. Charlie's posthumous book launches and Erika endorses JD Vance for 2028. Social is dominated by escalating Candace Owens tensions, the first pregnancy rumors, and early Vance-affair speculation.",
+    "202601": "Mainstream covers the Make Heaven Crowded Tour and TPUSA's state expansions. Social is wholly consumed by debunked pregnancy rumors (originating from a satirical 'Hoops Crave' account), an AI-deepfake clip of Erika 'dancing' at Rolling Loud Orlando, and remarriage speculation. Topic overlap drops to zero — the channels have no shared agenda this month.",
+    "202602": "Erika fights to keep cameras in the assassin's trial and partners with Montana's governor on TPUSA expansion. Social fixates on a wedding photo being moved off Charlie's office shelf, her absent wedding ring in recent footage, and the first hour-long episode of Candace Owens' 'Bride of Charlie' series. The HF model picks up the biggest sentiment delta of the year (+0.27).",
+    "202603": "Trump appoints Erika to the U.S. Air Force Academy Board of Visitors; she's named to TIME100 Next; Hillsdale College announces her as commencement speaker. Druski's 'Conservative Women' parody about her hits 80M+ views on X. Volume asymmetry maxes out at 106× the September baseline — but mainstream tabloids covered the parody too, so topic overlap and sentiment delta were both moderate. Just below the HIGH threshold.",
+    "202604": "The White House Correspondents' Dinner is cut short by gunfire on April 25; Erika leaves in tears. She announces a step-back and cancels Make Heaven Crowded Tour appearances. Both channels cover the same dramatic event, which partially re-aligns the agenda and pulls topic overlap back up to 0.30.",
+    "202605": "Erika cancels a TPUSA event at the University of Georgia citing 'very serious threats'; the Secret Service subsequently says no credible threats were identified. Mainstream and social diverge on whether the threats narrative is credible. GDELT tone reaches its most negative reading of the entire series (−2.87 raw)."
+  },
+  "yt_data": {
+    "202507": {
+      "label": "Jul 2025",
+      "avg": 100.0,
+      "composite": 0.0,
+      "summary": "Baseline month for the five channels with July content. Joe Rogan dominates absolute views (18M); Candace Owens close behind (50.6M). Real Baron Podcast and the Josh Hammer Newsweek playlist did not publish in July. Paramount Tactical had only 9 videos in Jul (55K total views) — that anomaly is why its indexed values explode after September.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 100,
+          "raw": 17.98
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 100,
+          "raw": 38.09
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 100,
+          "raw": 50.55
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 100,
+          "raw": 2.0
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 100,
+          "raw": 2.62
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": null,
+          "raw": 0.0
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": null,
+          "raw": 0.0
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 100,
+          "raw": 0.06
+        }
+      ]
+    },
+    "202508": {
+      "label": "Aug 2025",
+      "avg": 98.0,
+      "composite": 0.25,
+      "summary": "Pre-event lull. Most channels below July; Valhalla VFT and Paramount Tactical both gain modestly (128 and 296). Average down to 98.0.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 93,
+          "raw": 16.8
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 87,
+          "raw": 33.25
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 73,
+          "raw": 37.01
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 109,
+          "raw": 2.18
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 128,
+          "raw": 3.35
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": null,
+          "raw": 0.0
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": null,
+          "raw": 0.0
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 296,
+          "raw": 0.16
+        }
+      ]
+    },
+    "202509": {
+      "label": "Sep 2025",
+      "avg": 190.6,
+      "composite": 0.45,
+      "summary": "Charlie Kirk's assassination. Candace Owens explodes to 98.4M (1.95×) — her year peak. Ian Carroll jumps to 5.3M (2.65×); Valhalla VFT also 2.65×. Paramount Tactical posts a <strong>60× spike</strong> on its tiny July baseline (55K → 3.37M views). Real Baron Podcast publishes its first videos. 5-channel average peaks at 190.6.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 144,
+          "raw": 25.94
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 84,
+          "raw": 32.0
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 195,
+          "raw": 98.37
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 265,
+          "raw": 5.29
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 265,
+          "raw": 6.95
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": null,
+          "raw": 0.0
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 100,
+          "raw": 0.16
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 6098,
+          "raw": 3.37
+        }
+      ]
+    },
+    "202510": {
+      "label": "Oct 2025",
+      "avg": 173.2,
+      "composite": 0.57,
+      "summary": "Joe Rogan's peak (40.0M, 2.22×) — single mega-episode, not Erika-specific. Candace Owens snaps back to baseline. Ian Carroll holds at 2.61×. Real Baron jumps 4× MoM to 690K. Paramount Tactical stays elevated (4,366) but cooling from Sep. Josh Hammer playlist begins.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 222,
+          "raw": 39.98
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 93,
+          "raw": 35.42
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 104,
+          "raw": 52.48
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 261,
+          "raw": 5.22
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 186,
+          "raw": 4.88
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 100,
+          "raw": 0.1
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 428,
+          "raw": 0.69
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 4366,
+          "raw": 2.41
+        }
+      ]
+    },
+    "202511": {
+      "label": "Nov 2025",
+      "avg": 148.0,
+      "composite": 0.46,
+      "summary": "Ben Shapiro collapses to 41 — start of a sustained decline. Ian Carroll keeps climbing to 5.96M (2.99×). Real Baron triples to 2.14M. Paramount Tactical drops sharply back to 535 (from 4,366). Valhalla VFT holds at 162.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 139,
+          "raw": 24.93
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 41,
+          "raw": 15.66
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 99,
+          "raw": 50.09
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 299,
+          "raw": 5.96
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 162,
+          "raw": 4.25
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 30,
+          "raw": 0.03
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 1330,
+          "raw": 2.14
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 535,
+          "raw": 0.3
+        }
+      ]
+    },
+    "202512": {
+      "label": "Dec 2025",
+      "avg": 160.6,
+      "composite": 0.46,
+      "summary": "Ian Carroll peaks: 6.79M views, 3.40× baseline. Candace Owens recovers to 62.6M. Real Baron doubles to 4.32M. Joe Rogan stable. Paramount Tactical rebounds to 1,123.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 139,
+          "raw": 24.94
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 42,
+          "raw": 15.98
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 124,
+          "raw": 62.63
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 340,
+          "raw": 6.79
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 158,
+          "raw": 4.14
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 36,
+          "raw": 0.04
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 2683,
+          "raw": 4.32
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 1123,
+          "raw": 0.62
+        }
+      ]
+    },
+    "202601": {
+      "label": "Jan 2026",
+      "avg": 127.8,
+      "composite": 0.61,
+      "summary": "Tab 1 divergence hits HIGH but most YouTube audiences cool. Real Baron pushes to 4.96M (second-best month). Valhalla VFT drops to 140. Paramount Tactical settles around 616.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 137,
+          "raw": 24.66
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 61,
+          "raw": 23.3
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 100,
+          "raw": 50.44
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 201,
+          "raw": 4.02
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 140,
+          "raw": 3.67
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 34,
+          "raw": 0.03
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 3079,
+          "raw": 4.96
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 616,
+          "raw": 0.34
+        }
+      ]
+    },
+    "202602": {
+      "label": "Feb 2026",
+      "avg": 111.2,
+      "composite": 0.61,
+      "summary": "Real Baron peaks at 5.12M (3,179 indexed — 32× its Sep baseline). Valhalla VFT climbs to 172. The 'Bride of Charlie' launch (Feb 26) does NOT lift Candace Owens — she's flat at 53.4M.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 96,
+          "raw": 17.22
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 50,
+          "raw": 18.96
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 106,
+          "raw": 53.35
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 132,
+          "raw": 2.63
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 172,
+          "raw": 4.52
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 32,
+          "raw": 0.03
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 3179,
+          "raw": 5.12
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 622,
+          "raw": 0.34
+        }
+      ]
+    },
+    "202603": {
+      "label": "Mar 2026",
+      "avg": 130.2,
+      "composite": 0.59,
+      "summary": "Druski parody month. Valhalla VFT jumps to 272 (7.14M views). Candace Owens at 94, below July baseline — her anti-Erika series didn't deliver audience growth. Joe Rogan 19.3M (JRE #2471 month with Mark Normand on Erika Kirk).",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 108,
+          "raw": 19.33
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 70,
+          "raw": 26.53
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 94,
+          "raw": 47.45
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 107,
+          "raw": 2.13
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 272,
+          "raw": 7.14
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 23,
+          "raw": 0.02
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 3104,
+          "raw": 5.0
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 672,
+          "raw": 0.37
+        }
+      ]
+    },
+    "202604": {
+      "label": "Apr 2026",
+      "avg": 110.8,
+      "composite": 0.52,
+      "summary": "<strong>Valhalla VFT peaks at 288</strong> (7.55M views) — its biggest month, breaking the typical September-peak pattern. Ian Carroll crashes to just 5 videos / 0.39M views (idx 20). Candace Owens slides further to 31.3M.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 124,
+          "raw": 22.23
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 60,
+          "raw": 22.71
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 62,
+          "raw": 31.34
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 20,
+          "raw": 0.39
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 288,
+          "raw": 7.55
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 18,
+          "raw": 0.02
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 3082,
+          "raw": 4.96
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 572,
+          "raw": 0.32
+        }
+      ]
+    },
+    "202605": {
+      "label": "May 2026",
+      "avg": 122.8,
+      "composite": 0.56,
+      "summary": "Average recovers to 122.8. Ian Carroll bounces 11× MoM to 4.47M (16 videos vs 5 in April). Valhalla VFT cools to 210. Joe Rogan posts his lowest month at 14.5M.",
+      "channels": [
+        {
+          "name": "Joe Rogan",
+          "idx": 80,
+          "raw": 14.48
+        },
+        {
+          "name": "Ben Shapiro",
+          "idx": 46,
+          "raw": 17.65
+        },
+        {
+          "name": "Candace Owens",
+          "idx": 54,
+          "raw": 27.36
+        },
+        {
+          "name": "Ian Carroll Show",
+          "idx": 224,
+          "raw": 4.47
+        },
+        {
+          "name": "Valhalla VFT",
+          "idx": 210,
+          "raw": 5.5
+        },
+        {
+          "name": "Josh Hammer Show",
+          "idx": 15,
+          "raw": 0.01
+        },
+        {
+          "name": "Real Baron Podcast",
+          "idx": 2259,
+          "raw": 3.64
+        },
+        {
+          "name": "Paramount Tactical",
+          "idx": 590,
+          "raw": 0.33
+        }
+      ]
+    }
+  },
+  "channel_color": {
+    "Ian Carroll Show": "#e76f51",
+    "Real Baron Podcast": "#6d597a",
+    "Josh Hammer Show": "#2a9d8f",
+    "Ben Shapiro": "#d4a017",
+    "Candace Owens": "#e63946",
+    "Joe Rogan": "#457b9d",
+    "Valhalla VFT": "#06b6d4",
+    "Paramount Tactical": "#c2410c"
+  },
+  "total_videos": {
+    "202507": "262",
+    "202508": "224",
+    "202509": "238",
+    "202510": "269",
+    "202511": "244",
+    "202512": "241",
+    "202601": "261",
+    "202602": "277",
+    "202603": "343",
+    "202604": "378",
+    "202605": "381"
+  },
+  "yellow_rows": [
+    "202509",
+    "202510",
+    "202512",
+    "202604"
+  ],
+  "idx_bold": {
+    "202507": [],
+    "202508": [],
+    "202509": [
+      "Candace Owens",
+      "Paramount Tactical"
+    ],
+    "202510": [
+      "Joe Rogan"
+    ],
+    "202511": [],
+    "202512": [
+      "Ian Carroll Show"
+    ],
+    "202601": [],
+    "202602": [
+      "Real Baron Podcast"
+    ],
+    "202603": [],
+    "202604": [
+      "Valhalla VFT"
+    ],
+    "202605": []
+  },
+  "raw_bold": {
+    "202507": [],
+    "202508": [],
+    "202509": [
+      "Candace Owens",
+      "Paramount Tactical"
+    ],
+    "202510": [
+      "Joe Rogan"
+    ],
+    "202511": [],
+    "202512": [],
+    "202601": [],
+    "202602": [],
+    "202603": [],
+    "202604": [
+      "Valhalla VFT"
+    ],
+    "202605": []
+  }
+}

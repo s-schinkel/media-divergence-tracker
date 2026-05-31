@@ -335,39 +335,35 @@ where ratio = social_mentions / GDELT_vol
 
     <!-- Hardened v2 line. Composite values: -->
     <!-- Jul .000, Aug .250, Sep .449, Oct .570, Nov .462, Dec .464, Jan .609, Feb .614, Mar .593, Apr .520, May .559 -->
-    <polyline
-      points="60,290 132,225 204,173.3 276,141.8 348,169.9 420,169.4 492,131.7 564,130.4 636,135.8 708,154.8 780,144.7"
-      fill="none" stroke="#2b59c3" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-
-    <!-- Data points v2 (clickable) -->
-    <g>
-      <circle class="chart-point" data-month="202507" cx="60"  cy="290"   r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202508" cx="132" cy="225"   r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202509" cx="204" cy="173.3" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202510" cx="276" cy="141.8" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202511" cx="348" cy="169.9" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202512" cx="420" cy="169.4" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202601" cx="492" cy="131.7" r="6" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
-      <circle class="chart-point" data-month="202602" cx="564" cy="130.4" r="6" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
-      <circle class="chart-point" data-month="202603" cx="636" cy="135.8" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202604" cx="708" cy="154.8" r="5" fill="#2b59c3"/>
-      <circle class="chart-point" data-month="202605" cx="780" cy="144.7" r="5" fill="#2b59c3"/>
-    </g>
-
-    <!-- Value labels above points -->
-    <g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#1a1a1a" text-anchor="middle">
-      <text x="60"  y="282">0.00</text>
-      <text x="132" y="217">0.25</text>
-      <text x="204" y="165">0.45</text>
-      <text x="276" y="133">0.57</text>
-      <text x="348" y="161">0.46</text>
-      <text x="420" y="161">0.46</text>
-      <text x="492" y="123" fill="#c0392b" font-weight="700">0.61</text>
-      <text x="564" y="122" fill="#c0392b" font-weight="700">0.61</text>
-      <text x="636" y="127">0.59</text>
-      <text x="708" y="146">0.52</text>
-      <text x="780" y="136">0.56</text>
-    </g>
+    <!--GEN:tab1_chart-->
+      <polyline points="60,290 132,225 204,173.3 276,141.8 348,169.9 420,169.4 492,131.7 564,130.4 636,135.8 708,154.8 780,144.7" fill="none" stroke="#2b59c3" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
+      <g class="chart-points">
+        <circle class="chart-point" data-month="202507" cx="60" cy="290" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202508" cx="132" cy="225" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202509" cx="204" cy="173.3" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202510" cx="276" cy="141.8" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202511" cx="348" cy="169.9" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202512" cx="420" cy="169.4" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202601" cx="492" cy="131.7" r="6" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
+        <circle class="chart-point" data-month="202602" cx="564" cy="130.4" r="6" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
+        <circle class="chart-point" data-month="202603" cx="636" cy="135.8" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202604" cx="708" cy="154.8" r="5" fill="#2b59c3"/>
+        <circle class="chart-point" data-month="202605" cx="780" cy="144.7" r="5" fill="#2b59c3"/>
+      </g>
+      <g font-family="ui-monospace, Menlo, monospace" font-size="10" fill="#1a1a1a" text-anchor="middle">
+        <text x="60" y="282">0.00</text>
+        <text x="132" y="217">0.25</text>
+        <text x="204" y="165">0.45</text>
+        <text x="276" y="133">0.57</text>
+        <text x="348" y="161">0.46</text>
+        <text x="420" y="161">0.46</text>
+        <text x="492" y="123" fill="#c0392b" font-weight="700">0.61</text>
+        <text x="564" y="122" fill="#c0392b" font-weight="700">0.61</text>
+        <text x="636" y="127">0.59</text>
+        <text x="708" y="146">0.52</text>
+        <text x="780" y="136">0.56</text>
+      </g>
+    <!--GEN:/tab1_chart-->
 
     <!-- X-axis labels -->
     <g font-family="ui-monospace, Menlo, monospace" font-size="10.5" fill="#1a1a1a" text-anchor="middle">
@@ -428,7 +424,7 @@ where ratio = social_mentions / GDELT_vol
       <th>Flag</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><!--GEN:tab1_table-->
     <tr>
       <td class="month">Jul 2025</td>
       <td>0.000</td>
@@ -583,7 +579,7 @@ where ratio = social_mentions / GDELT_vol
       <td>0.56</td>
       <td>—</td>
     </tr>
-  </tbody>
+  <!--GEN:/tab1_table--></tbody>
 </table>
 </div>
 
@@ -955,7 +951,7 @@ where ratio = social_mentions / GDELT_vol
       <th>Tab 1</th>
     </tr>
   </thead>
-  <tbody>
+  <tbody><!--GEN:tab2_idx-->
     <tr><td class="month">Jul 2025</td><td>100</td><td>100</td><td>100</td><td>100</td><td>100</td><td>—</td><td>—</td><td>100</td><td><strong>100.0</strong></td><td>0.00</td></tr>
     <tr><td class="month">Aug 2025</td><td>93</td><td>87</td><td>73</td><td>109</td><td>128</td><td>—</td><td>—</td><td>296</td><td><strong>98.0</strong></td><td>0.25</td></tr>
     <tr style="background:#fef9c3;"><td class="month">Sep 2025</td><td>144</td><td>84</td><td><strong>195</strong></td><td>265</td><td>265</td><td>—</td><td>100</td><td><strong>6,098</strong></td><td><strong>190.6</strong></td><td>0.45</td></tr>
@@ -967,7 +963,7 @@ where ratio = social_mentions / GDELT_vol
     <tr><td class="month">Mar 2026</td><td>108</td><td>70</td><td>94</td><td>107</td><td>272</td><td>23</td><td>3,104</td><td>672</td><td><strong>130.2</strong></td><td>0.59</td></tr>
     <tr style="background:#fef9c3;"><td class="month">Apr 2026</td><td>124</td><td>60</td><td>62</td><td>20</td><td><strong>288</strong></td><td>18</td><td>3,082</td><td>572</td><td><strong>110.8</strong></td><td>0.52</td></tr>
     <tr><td class="month">May 2026</td><td>80</td><td>46</td><td>54</td><td>224</td><td>210</td><td>15</td><td>2,259</td><td>590</td><td><strong>122.8</strong></td><td>0.56</td></tr>
-  </tbody>
+  <!--GEN:/tab2_idx--></tbody>
 </table>
 </div>
 <p style="font-size:11.5px;color:var(--muted);margin:6px 0 0">Joe Rogan, Ben Shapiro, Candace Owens, Ian Carroll, Valhalla VFT, and Paramount Tactical indexed to Jul 2025 = 100. Josh Hammer Show playlist indexed to Oct 2025 (first month with data); Real Baron Podcast to Sep 2025 (channel began publishing). Yellow rows: months where at least one channel hit its all-window peak. 5-channel average uses only the Jul-baselined channels visible on the top panel (Rogan, Shapiro, Owens, Carroll, Valhalla VFT). <strong>Paramount Tactical is excluded from the average</strong> because its Jul baseline of only 9 videos / 55K views produces indexed values (peak 6,098 in Sep '25) that would distort the average mean — its trajectory is shown on the bottom panel where the scale accommodates it.</p>
@@ -979,19 +975,19 @@ where ratio = social_mentions / GDELT_vol
       <thead>
         <tr><th>Month</th><th>Joe Rogan</th><th>Ben Shapiro</th><th>Candace Owens</th><th>Ian Carroll</th><th>Valhalla VFT</th><th>Josh Hammer</th><th>Real Baron</th><th>Paramount Tactical</th><th>Total Videos</th></tr>
       </thead>
-      <tbody>
-        <tr><td class="month">Jul 2025</td><td>17.98M</td><td>38.09M</td><td>50.55M</td><td>2.00M</td><td>2.62M</td><td>—</td><td>—</td><td>0.06M</td><td>262</td></tr>
-        <tr><td class="month">Aug 2025</td><td>16.80M</td><td>33.25M</td><td>37.01M</td><td>2.18M</td><td>3.35M</td><td>—</td><td>—</td><td>0.16M</td><td>224</td></tr>
-        <tr><td class="month">Sep 2025</td><td>25.94M</td><td>32.00M</td><td><strong>98.37M</strong></td><td>5.29M</td><td>6.95M</td><td>—</td><td>0.16M</td><td><strong>3.37M</strong></td><td>238</td></tr>
-        <tr><td class="month">Oct 2025</td><td><strong>39.98M</strong></td><td>35.42M</td><td>52.48M</td><td>5.22M</td><td>4.88M</td><td>0.10M</td><td>0.69M</td><td>2.41M</td><td>269</td></tr>
-        <tr><td class="month">Nov 2025</td><td>24.93M</td><td>15.66M</td><td>50.09M</td><td>5.96M</td><td>4.25M</td><td>0.03M</td><td>2.14M</td><td>0.30M</td><td>244</td></tr>
-        <tr><td class="month">Dec 2025</td><td>24.94M</td><td>15.98M</td><td>62.63M</td><td>6.79M</td><td>4.14M</td><td>0.04M</td><td>4.32M</td><td>0.62M</td><td>241</td></tr>
-        <tr><td class="month">Jan 2026</td><td>24.66M</td><td>23.30M</td><td>50.44M</td><td>4.02M</td><td>3.67M</td><td>0.03M</td><td>4.96M</td><td>0.34M</td><td>261</td></tr>
-        <tr><td class="month">Feb 2026</td><td>17.22M</td><td>18.96M</td><td>53.35M</td><td>2.63M</td><td>4.52M</td><td>0.03M</td><td>5.12M</td><td>0.34M</td><td>277</td></tr>
-        <tr><td class="month">Mar 2026</td><td>19.33M</td><td>26.53M</td><td>47.45M</td><td>2.13M</td><td>7.14M</td><td>0.02M</td><td>5.00M</td><td>0.37M</td><td>343</td></tr>
-        <tr><td class="month">Apr 2026</td><td>22.23M</td><td>22.71M</td><td>31.34M</td><td>0.39M</td><td><strong>7.55M</strong></td><td>0.02M</td><td>4.96M</td><td>0.32M</td><td>378</td></tr>
-        <tr><td class="month">May 2026</td><td>14.48M</td><td>17.65M</td><td>27.36M</td><td>4.47M</td><td>5.50M</td><td>0.01M</td><td>3.64M</td><td>0.33M</td><td>381</td></tr>
-      </tbody>
+      <tbody><!--GEN:tab2_raw-->
+    <tr><td class="month">Jul 2025</td><td>17.98M</td><td>38.09M</td><td>50.55M</td><td>2.00M</td><td>2.62M</td><td>—</td><td>—</td><td>0.06M</td><td>262</td></tr>
+    <tr><td class="month">Aug 2025</td><td>16.80M</td><td>33.25M</td><td>37.01M</td><td>2.18M</td><td>3.35M</td><td>—</td><td>—</td><td>0.16M</td><td>224</td></tr>
+    <tr><td class="month">Sep 2025</td><td>25.94M</td><td>32.00M</td><td><strong>98.37M</strong></td><td>5.29M</td><td>6.95M</td><td>—</td><td>0.16M</td><td><strong>3.37M</strong></td><td>238</td></tr>
+    <tr><td class="month">Oct 2025</td><td><strong>39.98M</strong></td><td>35.42M</td><td>52.48M</td><td>5.22M</td><td>4.88M</td><td>0.10M</td><td>0.69M</td><td>2.41M</td><td>269</td></tr>
+    <tr><td class="month">Nov 2025</td><td>24.93M</td><td>15.66M</td><td>50.09M</td><td>5.96M</td><td>4.25M</td><td>0.03M</td><td>2.14M</td><td>0.30M</td><td>244</td></tr>
+    <tr><td class="month">Dec 2025</td><td>24.94M</td><td>15.98M</td><td>62.63M</td><td>6.79M</td><td>4.14M</td><td>0.04M</td><td>4.32M</td><td>0.62M</td><td>241</td></tr>
+    <tr><td class="month">Jan 2026</td><td>24.66M</td><td>23.30M</td><td>50.44M</td><td>4.02M</td><td>3.67M</td><td>0.03M</td><td>4.96M</td><td>0.34M</td><td>261</td></tr>
+    <tr><td class="month">Feb 2026</td><td>17.22M</td><td>18.96M</td><td>53.35M</td><td>2.63M</td><td>4.52M</td><td>0.03M</td><td>5.12M</td><td>0.34M</td><td>277</td></tr>
+    <tr><td class="month">Mar 2026</td><td>19.33M</td><td>26.53M</td><td>47.45M</td><td>2.13M</td><td>7.14M</td><td>0.02M</td><td>5.00M</td><td>0.37M</td><td>343</td></tr>
+    <tr><td class="month">Apr 2026</td><td>22.23M</td><td>22.71M</td><td>31.34M</td><td>0.39M</td><td><strong>7.55M</strong></td><td>0.02M</td><td>4.96M</td><td>0.32M</td><td>378</td></tr>
+    <tr><td class="month">May 2026</td><td>14.48M</td><td>17.65M</td><td>27.36M</td><td>4.47M</td><td>5.50M</td><td>0.01M</td><td>3.64M</td><td>0.33M</td><td>381</td></tr>
+  <!--GEN:/tab2_raw--></tbody>
     </table>
     <p style="font-size:11.5px;color:var(--muted);margin:6px 14px 14px">Each cell is the sum of <code>statistics.viewCount</code> across every video published that month, fetched via <code>videos.list?part=statistics</code>. "Total Videos" counts videos across all eight channels that month.</p>
   </div>
@@ -1025,7 +1021,7 @@ where ratio = social_mentions / GDELT_vol
 <p style="color:var(--muted);font-size:0.75rem;text-align:center;margin:24px 0 32px">Last updated: 2026-05-31</p>
 
 <script>
-  const MONTH_DATA = {
+  const MONTH_DATA = {/*GEN:month_data*/
     "202507": {
       label: "Jul 2025",
       composite: 0.00,
@@ -1092,7 +1088,7 @@ where ratio = social_mentions / GDELT_vol
       confidence: "MED",
       events: "Erika cancels a TPUSA event at the University of Georgia citing 'very serious threats'; the Secret Service subsequently says no credible threats were identified. Mainstream and social diverge on whether the threats narrative is credible. GDELT tone reaches its most negative reading of the entire series (−2.87 raw)."
     }
-  };
+  /*GEN:/month_data*/};
 
   function renderMonth(id) {
     const d = MONTH_DATA[id];
@@ -1134,16 +1130,16 @@ where ratio = social_mentions / GDELT_vol
   });
 
   // === Tab 2: YouTube month detail ===
-  const CHANNEL_COLOR = {
-    "Ian Carroll Show":     "#e76f51",
-    "Real Baron Podcast":   "#6d597a",
-    "Josh Hammer Show":     "#2a9d8f",
-    "Ben Shapiro":          "#d4a017",
-    "Candace Owens":         "#e63946",
-    "Joe Rogan":            "#457b9d",
-    "Valhalla VFT":         "#06b6d4",
-    "Paramount Tactical":   "#c2410c",
-  };
+  const CHANNEL_COLOR = {/*GEN:channel_color*/
+    "Ian Carroll Show": "#e76f51",
+    "Real Baron Podcast": "#6d597a",
+    "Josh Hammer Show": "#2a9d8f",
+    "Ben Shapiro": "#d4a017",
+    "Candace Owens": "#e63946",
+    "Joe Rogan": "#457b9d",
+    "Valhalla VFT": "#06b6d4",
+    "Paramount Tactical": "#c2410c",
+  /*GEN:/channel_color*/};
 
   function fmtViews(v) {
     if (!v) return "—";
@@ -1164,85 +1160,74 @@ where ratio = social_mentions / GDELT_vol
   // 5-channel average = mean of (Joe Rogan, Ben Shapiro, Candace Owens, Ian Carroll, Valhalla VFT) —
   // Paramount Tactical excluded from the average because its tiny Jul baseline (9 videos / 55K views)
   // produces indexed values up to 6,098 that would skew any mean.
-  const YT_DATA = {
-    "202507": {label:"Jul 2025", avg:100.0, composite:0.00, summary:"Baseline month for the five channels with July content. Joe Rogan dominates absolute views (18M); Candace Owens close behind (50.6M). Real Baron Podcast and the Josh Hammer Newsweek playlist did not publish in July. Paramount Tactical had only 9 videos in Jul (55K total views) — that anomaly is why its indexed values explode after September.", channels:[
-      {name:"Joe Rogan",idx:100,raw:17.98},{name:"Ben Shapiro",idx:100,raw:38.09},
-      {name:"Candace Owens",idx:100,raw:50.55},{name:"Ian Carroll Show",idx:100,raw:2.00},
-      {name:"Valhalla VFT",idx:100,raw:2.62},
-      {name:"Josh Hammer Show",idx:null,raw:0},{name:"Real Baron Podcast",idx:null,raw:0},
-      {name:"Paramount Tactical",idx:100,raw:0.06},
+  const YT_DATA = {/*GEN:yt_data*/
+    "202507": {label:"Jul 2025", avg:100, composite:0.00, summary:"Baseline month for the five channels with July content. Joe Rogan dominates absolute views (18M); Candace Owens close behind (50.6M). Real Baron Podcast and the Josh Hammer Newsweek playlist did not publish in July. Paramount Tactical had only 9 videos in Jul (55K total views) — that anomaly is why its indexed values explode after September.", channels:[
+      {name:"Joe Rogan",idx:100,raw:17.98}, {name:"Ben Shapiro",idx:100,raw:38.09},
+      {name:"Candace Owens",idx:100,raw:50.55}, {name:"Ian Carroll Show",idx:100,raw:2},
+      {name:"Valhalla VFT",idx:100,raw:2.62}, {name:"Josh Hammer Show",idx:null,raw:0},
+      {name:"Real Baron Podcast",idx:null,raw:0}, {name:"Paramount Tactical",idx:100,raw:0.06},
     ]},
-    "202508": {label:"Aug 2025", avg:98.0, composite:0.25, summary:"Pre-event lull. Most channels below July; Valhalla VFT and Paramount Tactical both gain modestly (128 and 296). Average down to 98.0.", channels:[
-      {name:"Joe Rogan",idx:93,raw:16.80},{name:"Ben Shapiro",idx:87,raw:33.25},
-      {name:"Candace Owens",idx:73,raw:37.01},{name:"Ian Carroll Show",idx:109,raw:2.18},
-      {name:"Valhalla VFT",idx:128,raw:3.35},
-      {name:"Josh Hammer Show",idx:null,raw:0},{name:"Real Baron Podcast",idx:null,raw:0},
-      {name:"Paramount Tactical",idx:296,raw:0.16},
+    "202508": {label:"Aug 2025", avg:98, composite:0.25, summary:"Pre-event lull. Most channels below July; Valhalla VFT and Paramount Tactical both gain modestly (128 and 296). Average down to 98.0.", channels:[
+      {name:"Joe Rogan",idx:93,raw:16.8}, {name:"Ben Shapiro",idx:87,raw:33.25},
+      {name:"Candace Owens",idx:73,raw:37.01}, {name:"Ian Carroll Show",idx:109,raw:2.18},
+      {name:"Valhalla VFT",idx:128,raw:3.35}, {name:"Josh Hammer Show",idx:null,raw:0},
+      {name:"Real Baron Podcast",idx:null,raw:0}, {name:"Paramount Tactical",idx:296,raw:0.16},
     ]},
     "202509": {label:"Sep 2025", avg:190.6, composite:0.45, summary:"Charlie Kirk's assassination. Candace Owens explodes to 98.4M (1.95×) — her year peak. Ian Carroll jumps to 5.3M (2.65×); Valhalla VFT also 2.65×. Paramount Tactical posts a <strong>60× spike</strong> on its tiny July baseline (55K → 3.37M views). Real Baron Podcast publishes its first videos. 5-channel average peaks at 190.6.", channels:[
-      {name:"Joe Rogan",idx:144,raw:25.94},{name:"Ben Shapiro",idx:84,raw:32.00},
-      {name:"Candace Owens",idx:195,raw:98.37},{name:"Ian Carroll Show",idx:265,raw:5.29},
-      {name:"Valhalla VFT",idx:265,raw:6.95},
-      {name:"Josh Hammer Show",idx:null,raw:0},{name:"Real Baron Podcast",idx:100,raw:0.16},
-      {name:"Paramount Tactical",idx:6098,raw:3.37},
+      {name:"Joe Rogan",idx:144,raw:25.94}, {name:"Ben Shapiro",idx:84,raw:32},
+      {name:"Candace Owens",idx:195,raw:98.37}, {name:"Ian Carroll Show",idx:265,raw:5.29},
+      {name:"Valhalla VFT",idx:265,raw:6.95}, {name:"Josh Hammer Show",idx:null,raw:0},
+      {name:"Real Baron Podcast",idx:100,raw:0.16}, {name:"Paramount Tactical",idx:6098,raw:3.37},
     ]},
     "202510": {label:"Oct 2025", avg:173.2, composite:0.57, summary:"Joe Rogan's peak (40.0M, 2.22×) — single mega-episode, not Erika-specific. Candace Owens snaps back to baseline. Ian Carroll holds at 2.61×. Real Baron jumps 4× MoM to 690K. Paramount Tactical stays elevated (4,366) but cooling from Sep. Josh Hammer playlist begins.", channels:[
-      {name:"Joe Rogan",idx:222,raw:39.98},{name:"Ben Shapiro",idx:93,raw:35.42},
-      {name:"Candace Owens",idx:104,raw:52.48},{name:"Ian Carroll Show",idx:261,raw:5.22},
-      {name:"Valhalla VFT",idx:186,raw:4.88},
-      {name:"Josh Hammer Show",idx:100,raw:0.10},{name:"Real Baron Podcast",idx:428,raw:0.69},
-      {name:"Paramount Tactical",idx:4366,raw:2.41},
+      {name:"Joe Rogan",idx:222,raw:39.98}, {name:"Ben Shapiro",idx:93,raw:35.42},
+      {name:"Candace Owens",idx:104,raw:52.48}, {name:"Ian Carroll Show",idx:261,raw:5.22},
+      {name:"Valhalla VFT",idx:186,raw:4.88}, {name:"Josh Hammer Show",idx:100,raw:0.1},
+      {name:"Real Baron Podcast",idx:428,raw:0.69}, {name:"Paramount Tactical",idx:4366,raw:2.41},
     ]},
-    "202511": {label:"Nov 2025", avg:148.0, composite:0.46, summary:"Ben Shapiro collapses to 41 — start of a sustained decline. Ian Carroll keeps climbing to 5.96M (2.99×). Real Baron triples to 2.14M. Paramount Tactical drops sharply back to 535 (from 4,366). Valhalla VFT holds at 162.", channels:[
-      {name:"Joe Rogan",idx:139,raw:24.93},{name:"Ben Shapiro",idx:41,raw:15.66},
-      {name:"Candace Owens",idx:99,raw:50.09},{name:"Ian Carroll Show",idx:299,raw:5.96},
-      {name:"Valhalla VFT",idx:162,raw:4.25},
-      {name:"Josh Hammer Show",idx:30,raw:0.03},{name:"Real Baron Podcast",idx:1330,raw:2.14},
-      {name:"Paramount Tactical",idx:535,raw:0.30},
+    "202511": {label:"Nov 2025", avg:148, composite:0.46, summary:"Ben Shapiro collapses to 41 — start of a sustained decline. Ian Carroll keeps climbing to 5.96M (2.99×). Real Baron triples to 2.14M. Paramount Tactical drops sharply back to 535 (from 4,366). Valhalla VFT holds at 162.", channels:[
+      {name:"Joe Rogan",idx:139,raw:24.93}, {name:"Ben Shapiro",idx:41,raw:15.66},
+      {name:"Candace Owens",idx:99,raw:50.09}, {name:"Ian Carroll Show",idx:299,raw:5.96},
+      {name:"Valhalla VFT",idx:162,raw:4.25}, {name:"Josh Hammer Show",idx:30,raw:0.03},
+      {name:"Real Baron Podcast",idx:1330,raw:2.14}, {name:"Paramount Tactical",idx:535,raw:0.3},
     ]},
     "202512": {label:"Dec 2025", avg:160.6, composite:0.46, summary:"Ian Carroll peaks: 6.79M views, 3.40× baseline. Candace Owens recovers to 62.6M. Real Baron doubles to 4.32M. Joe Rogan stable. Paramount Tactical rebounds to 1,123.", channels:[
-      {name:"Joe Rogan",idx:139,raw:24.94},{name:"Ben Shapiro",idx:42,raw:15.98},
-      {name:"Candace Owens",idx:124,raw:62.63},{name:"Ian Carroll Show",idx:340,raw:6.79},
-      {name:"Valhalla VFT",idx:158,raw:4.14},
-      {name:"Josh Hammer Show",idx:36,raw:0.04},{name:"Real Baron Podcast",idx:2683,raw:4.32},
-      {name:"Paramount Tactical",idx:1123,raw:0.62},
+      {name:"Joe Rogan",idx:139,raw:24.94}, {name:"Ben Shapiro",idx:42,raw:15.98},
+      {name:"Candace Owens",idx:124,raw:62.63}, {name:"Ian Carroll Show",idx:340,raw:6.79},
+      {name:"Valhalla VFT",idx:158,raw:4.14}, {name:"Josh Hammer Show",idx:36,raw:0.04},
+      {name:"Real Baron Podcast",idx:2683,raw:4.32}, {name:"Paramount Tactical",idx:1123,raw:0.62},
     ]},
     "202601": {label:"Jan 2026", avg:127.8, composite:0.61, summary:"Tab 1 divergence hits HIGH but most YouTube audiences cool. Real Baron pushes to 4.96M (second-best month). Valhalla VFT drops to 140. Paramount Tactical settles around 616.", channels:[
-      {name:"Joe Rogan",idx:137,raw:24.66},{name:"Ben Shapiro",idx:61,raw:23.30},
-      {name:"Candace Owens",idx:100,raw:50.44},{name:"Ian Carroll Show",idx:201,raw:4.02},
-      {name:"Valhalla VFT",idx:140,raw:3.67},
-      {name:"Josh Hammer Show",idx:34,raw:0.03},{name:"Real Baron Podcast",idx:3079,raw:4.96},
-      {name:"Paramount Tactical",idx:616,raw:0.34},
+      {name:"Joe Rogan",idx:137,raw:24.66}, {name:"Ben Shapiro",idx:61,raw:23.3},
+      {name:"Candace Owens",idx:100,raw:50.44}, {name:"Ian Carroll Show",idx:201,raw:4.02},
+      {name:"Valhalla VFT",idx:140,raw:3.67}, {name:"Josh Hammer Show",idx:34,raw:0.03},
+      {name:"Real Baron Podcast",idx:3079,raw:4.96}, {name:"Paramount Tactical",idx:616,raw:0.34},
     ]},
     "202602": {label:"Feb 2026", avg:111.2, composite:0.61, summary:"Real Baron peaks at 5.12M (3,179 indexed — 32× its Sep baseline). Valhalla VFT climbs to 172. The 'Bride of Charlie' launch (Feb 26) does NOT lift Candace Owens — she's flat at 53.4M.", channels:[
-      {name:"Joe Rogan",idx:96,raw:17.22},{name:"Ben Shapiro",idx:50,raw:18.96},
-      {name:"Candace Owens",idx:106,raw:53.35},{name:"Ian Carroll Show",idx:132,raw:2.63},
-      {name:"Valhalla VFT",idx:172,raw:4.52},
-      {name:"Josh Hammer Show",idx:32,raw:0.03},{name:"Real Baron Podcast",idx:3179,raw:5.12},
-      {name:"Paramount Tactical",idx:622,raw:0.34},
+      {name:"Joe Rogan",idx:96,raw:17.22}, {name:"Ben Shapiro",idx:50,raw:18.96},
+      {name:"Candace Owens",idx:106,raw:53.35}, {name:"Ian Carroll Show",idx:132,raw:2.63},
+      {name:"Valhalla VFT",idx:172,raw:4.52}, {name:"Josh Hammer Show",idx:32,raw:0.03},
+      {name:"Real Baron Podcast",idx:3179,raw:5.12}, {name:"Paramount Tactical",idx:622,raw:0.34},
     ]},
     "202603": {label:"Mar 2026", avg:130.2, composite:0.59, summary:"Druski parody month. Valhalla VFT jumps to 272 (7.14M views). Candace Owens at 94, below July baseline — her anti-Erika series didn't deliver audience growth. Joe Rogan 19.3M (JRE #2471 month with Mark Normand on Erika Kirk).", channels:[
-      {name:"Joe Rogan",idx:108,raw:19.33},{name:"Ben Shapiro",idx:70,raw:26.53},
-      {name:"Candace Owens",idx:94,raw:47.45},{name:"Ian Carroll Show",idx:107,raw:2.13},
-      {name:"Valhalla VFT",idx:272,raw:7.14},
-      {name:"Josh Hammer Show",idx:23,raw:0.02},{name:"Real Baron Podcast",idx:3104,raw:5.00},
-      {name:"Paramount Tactical",idx:672,raw:0.37},
+      {name:"Joe Rogan",idx:108,raw:19.33}, {name:"Ben Shapiro",idx:70,raw:26.53},
+      {name:"Candace Owens",idx:94,raw:47.45}, {name:"Ian Carroll Show",idx:107,raw:2.13},
+      {name:"Valhalla VFT",idx:272,raw:7.14}, {name:"Josh Hammer Show",idx:23,raw:0.02},
+      {name:"Real Baron Podcast",idx:3104,raw:5}, {name:"Paramount Tactical",idx:672,raw:0.37},
     ]},
     "202604": {label:"Apr 2026", avg:110.8, composite:0.52, summary:"<strong>Valhalla VFT peaks at 288</strong> (7.55M views) — its biggest month, breaking the typical September-peak pattern. Ian Carroll crashes to just 5 videos / 0.39M views (idx 20). Candace Owens slides further to 31.3M.", channels:[
-      {name:"Joe Rogan",idx:124,raw:22.23},{name:"Ben Shapiro",idx:60,raw:22.71},
-      {name:"Candace Owens",idx:62,raw:31.34},{name:"Ian Carroll Show",idx:20,raw:0.39},
-      {name:"Valhalla VFT",idx:288,raw:7.55},
-      {name:"Josh Hammer Show",idx:18,raw:0.02},{name:"Real Baron Podcast",idx:3082,raw:4.96},
-      {name:"Paramount Tactical",idx:572,raw:0.32},
+      {name:"Joe Rogan",idx:124,raw:22.23}, {name:"Ben Shapiro",idx:60,raw:22.71},
+      {name:"Candace Owens",idx:62,raw:31.34}, {name:"Ian Carroll Show",idx:20,raw:0.39},
+      {name:"Valhalla VFT",idx:288,raw:7.55}, {name:"Josh Hammer Show",idx:18,raw:0.02},
+      {name:"Real Baron Podcast",idx:3082,raw:4.96}, {name:"Paramount Tactical",idx:572,raw:0.32},
     ]},
     "202605": {label:"May 2026", avg:122.8, composite:0.56, summary:"Average recovers to 122.8. Ian Carroll bounces 11× MoM to 4.47M (16 videos vs 5 in April). Valhalla VFT cools to 210. Joe Rogan posts his lowest month at 14.5M.", channels:[
-      {name:"Joe Rogan",idx:80,raw:14.48},{name:"Ben Shapiro",idx:46,raw:17.65},
-      {name:"Candace Owens",idx:54,raw:27.36},{name:"Ian Carroll Show",idx:224,raw:4.47},
-      {name:"Valhalla VFT",idx:210,raw:5.50},
-      {name:"Josh Hammer Show",idx:15,raw:0.01},{name:"Real Baron Podcast",idx:2259,raw:3.64},
-      {name:"Paramount Tactical",idx:590,raw:0.33},
-    ]},
-  };
+      {name:"Joe Rogan",idx:80,raw:14.48}, {name:"Ben Shapiro",idx:46,raw:17.65},
+      {name:"Candace Owens",idx:54,raw:27.36}, {name:"Ian Carroll Show",idx:224,raw:4.47},
+      {name:"Valhalla VFT",idx:210,raw:5.5}, {name:"Josh Hammer Show",idx:15,raw:0.01},
+      {name:"Real Baron Podcast",idx:2259,raw:3.64}, {name:"Paramount Tactical",idx:590,raw:0.33},
+    ]}
+  /*GEN:/yt_data*/};
 
   function fmtRaw(m) {
     if (m >= 100)  return m.toFixed(0) + "M";
