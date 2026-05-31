@@ -1,0 +1,84 @@
+name: Refresh Erika data snapshots
+
+# Re-pulls the Erika tracker's raw data snapshots into erika-kirk/data/ and commits any
+# changes. This refreshes the DATA LAYER only — it does not re-render the page (see
+# build_erika.py for that) and does not bump the "Last updated" date.
+#
+#   • GDELT pull always runs (no API key needed).
+#   • HuggingFace sentiment runs only if the HF_TOKEN repo secret is set.
+#   • YouTube pull runs only if the YT_KEY repo secret is set.
+#
+# Dispatch-only on purpose: these scripts hit live APIs and overwrite the curated/hardened
+# snapshot, so you run it deliberately, then review the diff and re-render before shipping.
+# (Add secrets at: repo Settings → Secrets and variables → Actions.)
+
+on:
+  workflow_dispatch:
+    inputs:
+      rebuild:
+        description: "Also re-render index.html via build_erika.py after pulling?"
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-erika-data
+  cancel-in-progress: false
+
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Pull GDELT (no key needed)
+        run: python3 erika-kirk/scripts/pull_gdelt.py
+
+      - name: Pull HuggingFace sentiment (if HF_TOKEN set)
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ -z "${HF_TOKEN:-}" ]; then echo "HF_TOKEN not set — skipping sentiment pull."; exit 0; fi
+          python3 erika-kirk/scripts/score_hf.py
+
+      - name: Pull YouTube stats (if YT_KEY set)
+        env:
+          YT_KEY: ${{ secrets.YT_KEY }}
+        run: |
+          set -euo pipefail
+          if [ -z "${YT_KEY:-}" ]; then echo "YT_KEY not set — skipping YouTube pull."; exit 0; fi
+          python3 erika-kirk/scripts/pull_youtube.py
+
+      - name: Re-render page (optional)
+        if: ${{ inputs.rebuild }}
+        run: |
+          set -euo pipefail
+          if [ -f erika-kirk/scripts/build_erika.py ]; then
+            python3 erika-kirk/scripts/build_erika.py
+          else
+            echo "build_erika.py not present yet — skipping render (data snapshots still refreshed)."
+          fi
+
+      - name: Commit & push if changed
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain)" ]; then
+            git add -A
+            git commit -m "chore(erika): refresh data snapshots ($(date -u +%F)) [skip ci]"
+            git push
+            echo "Pushed refreshed snapshots."
+          else
+            echo "No changes — snapshots already current."
+          fi
