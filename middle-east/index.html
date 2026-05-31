@@ -109,6 +109,9 @@
     #indPanel .ind-sec{color:#58a6ff;font-variant:small-caps;font-size:.74rem;font-weight:700;letter-spacing:.03em;margin:.6rem 0 .15rem;}
     #indPanel ul.ind-list{margin:.1rem 0 .4rem;padding-left:1.1rem;}
     #indPanel ul.ind-list li{font-family:"Inter",sans-serif;font-size:.78rem;line-height:1.6;color:#c9d1d9;margin:.18rem 0;}
+
+    #staleBanner{margin:8px 0;background:rgba(255,136,0,.08);border:1px solid #ff8800;border-radius:6px;
+      padding:.5rem .8rem;font-size:.75rem;color:#e6edf3;transition:opacity .4s;}
   </style>
 </head>
 <body>
@@ -118,6 +121,7 @@
       <div class="pill"><b id="pillVol">–</b><span>~Total story volume</span></div>
       <div class="pill"><b id="pillEvt">–</b><span>Events logged</span></div>
       <div class="pill"><b class="mono">Jan 2025 – May 2026</b><span>Date range</span></div>
+      <div class="pill"><b id="pillUpdated">–</b><span>Last updated</span></div>
     </div>
     <button class="pill" id="warToggle" title="Toggle war-period shading" style="cursor:pointer;font-family:inherit;font-size:.72rem;color:var(--text);align-items:center"><span id="warDot" style="color:#ff4444;font-size:.8rem">●</span><span>War periods</span></button>
   </header>
@@ -610,6 +614,19 @@
   const grand=VOLUME_DATA.reduce((s,d)=>s+d.uk+d.usa+d.au+d.ca,0);
   document.getElementById("pillVol").textContent="~"+grand.toLocaleString();
   document.getElementById("pillEvt").textContent=EVENTS_DATA.length;
+
+  // last-updated badge + staleness notice (from data/meta.json; fails silently if missing)
+  fetch("data/meta.json").then(r=>r.json()).then(d=>{
+    document.getElementById("pillUpdated").textContent=d.last_updated;
+    const days=(Date.now()-new Date(d.last_updated+"T00:00:00Z").getTime())/86400000;
+    if(days>7){
+      const b=document.createElement("div"); b.id="staleBanner"; b.style.width=CHART_W+"px";
+      b.textContent="⚠ Data last refreshed "+d.last_updated+" — an update may be due.";
+      const sa=document.getElementById("scrollArea");
+      sa.insertBefore(b, sa.firstChild);
+      setTimeout(()=>{ b.style.opacity=0; setTimeout(()=>b.remove(),450); },6000);
+    }
+  }).catch(()=>{});
 
   /* ============================ LEGEND ============================ */
   const leg=document.getElementById("legend");
