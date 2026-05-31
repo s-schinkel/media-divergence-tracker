@@ -97,6 +97,18 @@
     .leg-scale{display:flex;align-items:center;gap:.3rem;}
     .leg-scale .lab{color:var(--muted);font-size:.62rem;}
     .leg-div{width:1px;height:18px;background:var(--border);}
+    .leg-note{margin-left:auto;color:var(--muted);font-size:.62rem;font-style:italic;max-width:360px;text-align:right;}
+
+    /* Leading/trailing indicators panel */
+    #indPanel{margin:14px auto 24px;background:var(--panel);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+    #indPanel .ind-head{font-family:"JetBrains Mono",monospace;font-weight:600;font-size:.8rem;
+      padding:.6rem .8rem;cursor:pointer;display:flex;align-items:center;gap:.5rem;color:var(--text);user-select:none;}
+    #indPanel .ind-head .chev{color:#58a6ff;font-size:.7rem;width:.8rem;}
+    #indPanel .ind-body{max-height:0;overflow:hidden;padding:0 .9rem;transition:max-height .25s ease,padding .25s ease;}
+    #indPanel.open .ind-body{max-height:640px;padding:.1rem .9rem .8rem;}
+    #indPanel .ind-sec{color:#58a6ff;font-variant:small-caps;font-size:.74rem;font-weight:700;letter-spacing:.03em;margin:.6rem 0 .15rem;}
+    #indPanel ul.ind-list{margin:.1rem 0 .4rem;padding-left:1.1rem;}
+    #indPanel ul.ind-list li{font-family:"Inter",sans-serif;font-size:.78rem;line-height:1.6;color:#c9d1d9;margin:.18rem 0;}
   </style>
 </head>
 <body>
@@ -116,6 +128,23 @@
       <div id="tonePanel">
         <div class="tp-cap">Story-tone composition by month (Escalatory / Neutral / De-escalatory) — switch country at left.</div>
         <canvas id="toneCanvas"></canvas>
+      </div>
+      <div id="indPanel">
+        <div class="ind-head" id="indHead"><span class="chev">▶</span>📊 Leading &amp; Trailing Indicators</div>
+        <div class="ind-body">
+          <div class="ind-sec">Leading indicators (media precedes events)</div>
+          <ul class="ind-list">
+            <li>UK/USA volume spiked in May 2025 — 4–6 weeks before the June war. Tone turned Escalatory in Feb 2025 when the strikes were still 4 months away.</li>
+            <li>AU volume spike (Aug 2025) preceded the IRGC terror listing by 3 months (Nov 2025) — the expulsion drove coverage before policy hardened.</li>
+            <li>Canada's protest-solidarity coverage (Dec 2025–Jan 2026) preceded Epic Fury by 6–8 weeks.</li>
+          </ul>
+          <div class="ind-sec">Trailing indicators (events precede media)</div>
+          <ul class="ind-list">
+            <li>The snapback trigger (Aug 28 2025) took a full month to peak in AU/CA coverage — both countries' Sep volumes lag the E3 announcement.</li>
+            <li>MBS's conciliatory posture in June 2025 (refused airspace, condemned strikes) preceded a media narrative shift by ~6 weeks — outlets caught up in July/Aug.</li>
+            <li>The ceasefire (Apr 8 2026) produced a faster trailing response in UK (same month) vs USA (volume stayed elevated into May).</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -376,6 +405,19 @@
   const totals = VOLUME_DATA.map((d,i)=>({i,total:d.uk+d.usa+d.au+d.ca}));
   const area=d3.area().x(d=>xc(d.i)).y0(WAVE_BASE).y1(d=>yVol(d.total)).curve(d3.curveCatmullRom.alpha(.5));
   const lineGen=d3.line().x(d=>xc(d.i)).y(d=>yVol(d.total)).curve(d3.curveCatmullRom.alpha(.5));
+
+  // --- WAR-PERIOD SHADING (behind the wave; wave-zone only) ---
+  const WARS=[
+    {x1:cellX(5,0.43),  x2:cellX(5,0.80),  label:"War I"},    // 13–24 Jun 2025
+    {x1:cellX(13,0.98), x2:cellX(15,0.27), label:"War II"}    // 28 Feb – 8 Apr 2026
+  ];
+  WARS.forEach(w=>{
+    svg.append("rect").attr("x",w.x1).attr("y",6).attr("width",w.x2-w.x1).attr("height",WAVE_BASE-6)
+      .attr("fill","#ff4444").attr("fill-opacity",.09);
+    svg.append("text").attr("x",(w.x1+w.x2)/2).attr("y",13).attr("text-anchor","middle")
+      .attr("fill","#ff4444").attr("fill-opacity",.7).attr("font-size",8).text(w.label);
+  });
+
   svg.append("path").datum(totals).attr("d",area).attr("fill","#4a9eff").attr("fill-opacity",.2);
   svg.append("path").datum(totals).attr("d",lineGen).attr("fill","none").attr("stroke","#4a9eff").attr("stroke-width",2);
 
@@ -398,6 +440,27 @@
           `<div>Tone: ${toneLabel(det.tone)}</div>`,ev))
         .on("mouseleave",hideTip);
     });
+  });
+
+  // --- INLINE MONTH ANNOTATIONS (above the total wave) ---
+  const ANNOT=[
+    {m:"2025-06", t:"12-Day War"},
+    {m:"2025-08", t:"AU expels ambassador"},
+    {m:"2025-09", t:"UN snapback", sec:true},
+    {m:"2025-11", t:"AU lists IRGC"},
+    {m:"2025-12", t:"Iran protests begin", sec:true},
+    {m:"2026-02", t:"Operation Epic Fury"},
+    {m:"2026-03", t:"War peaks / Hormuz closed", sec:true},
+    {m:"2026-04", t:"Pakistan ceasefire"},
+    {m:"2026-05", t:"Deal largely negotiated", sec:true}
+  ];
+  ANNOT.forEach(a=>{
+    const i=mi(a.m); if(i<0) return;
+    const x=xc(i), wy=yVol(totals[i].total), ty=wy-(a.sec?40:10);
+    svg.append("line").attr("x1",x).attr("x2",x).attr("y1",ty+1).attr("y2",wy)
+      .attr("stroke","#e6edf3").attr("stroke-opacity",.35).attr("stroke-width",1);
+    svg.append("text").attr("x",x).attr("y",ty).attr("text-anchor","middle")
+      .attr("fill","#e6edf3").attr("fill-opacity",.85).attr("font-size",8.5).text(a.t);
   });
 
   // --- EVENT MARKERS (grouped by month, staggered) ---
@@ -502,6 +565,13 @@
 
   /* ============================ TONE PANEL (Chart.js) ============================ */
   document.getElementById("tonePanel").style.width=CHART_W+"px";
+  const indP=document.getElementById("indPanel");
+  if(indP){ indP.style.width=CHART_W+"px";
+    document.getElementById("indHead").addEventListener("click",()=>{
+      const open=indP.classList.toggle("open");
+      indP.querySelector(".chev").textContent=open?"▼":"▶";
+    });
+  }
   const cv=document.getElementById("toneCanvas"); cv.width=CHART_W; cv.height=180;
   cv.style.width=CHART_W+"px"; cv.style.height="180px";
   function toneDatasets(c){
@@ -538,7 +608,8 @@
   function scale(map){ return Object.entries(map).map(([k,v])=>`<span class="leg-item"><span class="leg-sw" style="background:${v}"></span><span class="lab">${k}</span></span>`).join(""); }
   const cLines=Object.entries(CCOL).map(([k,v])=>`<span class="leg-item"><span class="leg-sw" style="background:${v};height:3px;border-radius:0"></span><span class="lab">${k.toUpperCase()}</span></span>`).join("");
   leg.innerHTML=
-    `<div class="leg-row"><span class="leg-cap">Event markers</span>${evItems}</div>`+
+    `<div class="leg-row"><span class="leg-cap">Event markers</span>${evItems}`+
+      `<span class="leg-note">Story volumes are approximate (search-signal estimates, not Factiva/LexisNexis). 2026 events verified against primary wire sources. Shape reliable; absolute numbers indicative.</span></div>`+
     `<div class="leg-row"><span class="leg-cap">Posture</span>`+
       `<span class="leg-scale"><span class="lab" style="font-weight:600">US:</span>${scale(PUS)}</span>`+
       `<span class="leg-div"></span>`+
