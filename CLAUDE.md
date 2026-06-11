@@ -23,6 +23,7 @@ HTML artifact served by GitHub Pages. This file is the repo map; each tracker ha
 |---|---|---|---|
 | Erika Kirk media divergence | `index.html` (repo root) | `erika-kirk/` | `/` |
 | Iran / Middle East media & conflict | `middle-east/index.html` | `middle-east/` | `/middle-east/` |
+| JRE guest scope (topic diversity) | `jre-scope/index.html` | `jre-scope/` | `/jre-scope/` |
 
 Each tracker is otherwise independent: its own data, scripts, design conventions, and
 `CLAUDE.md`. When working on one, read that tracker's `CLAUDE.md` for specifics.
@@ -37,6 +38,10 @@ Each tracker is otherwise independent: its own data, scripts, design conventions
 │   ├── scripts/   data/
 ├── middle-east/      ← Iran / Middle East tracker — fully self-contained
 │   ├── index.html ← served at /middle-east/
+│   ├── README.md  CLAUDE.md
+│   ├── scripts/   data/
+├── jre-scope/        ← JRE guest scope tracker — fully self-contained
+│   ├── index.html ← served at /jre-scope/
 │   ├── README.md  CLAUDE.md
 │   ├── scripts/   data/
 ├── README.md         ← repo hub (public-facing)
