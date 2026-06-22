@@ -264,5 +264,141 @@
     "target_type": "naval",
     "description": "US ‘self-defense’ strikes hit two IRGC mine-laying boats and a Bandar Abbas SAM site; Iran calls it a ceasefire violation.",
     "source": "CNN; NBC; NPR"
+  },
+  {
+    "date": "2026-06-04",
+    "type": "diplomatic",
+    "actor": "IAEA",
+    "target_type": null,
+    "description": "IAEA Board of Governors issues safeguards report (GOV/2026/33) and Western nations draft resolution calling on Iran to restart nuclear cooperation and provide information on enriched uranium stores",
+    "source": "IAEA; Al Jazeera (Jun 9)"
+  },
+  {
+    "date": "2026-06-05",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "military base",
+    "description": "CENTCOM shoots down four Iranian one-way attack drones launched toward Strait of Hormuz and strikes Iranian coastal surveillance radar sites at Goruk and on Qeshm Island",
+    "source": "CENTCOM statement; CNN (Jun 5)"
+  },
+  {
+    "date": "2026-06-05",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran fires seven ballistic missiles at US-aligned bases in Kuwait and Bahrain; six intercepted by US and Bahraini air defenses, seventh fails to reach target",
+    "source": "CENTCOM statement; CNN (Jun 5)"
+  },
+  {
+    "date": "2026-06-07",
+    "type": "us_israel_strike",
+    "actor": "Israel",
+    "target_type": "military base",
+    "description": "Israel strikes Beirut's southern Dahieh suburb, killing two and wounding eleven — first Israeli strike on Lebanese capital since ceasefire renewal",
+    "source": "CBS News (Jun 8); CNN (Jun 7)"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran launches ballistic missiles at Israel targeting Ramat David Airbase; Israel says all intercepted, Iran claims base was damaged",
+    "source": "Reuters (Jun 8); Wikipedia – 2026 Iran war"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "us_israel_strike",
+    "actor": "Israel",
+    "target_type": "other",
+    "description": "Israel retaliates with strikes on military targets in western and central Iran including Mahshahr petrochemical complex in Khuzestan Province, defying Trump's phone call urging restraint",
+    "source": "Reuters (Jun 8); CNN (Jun 8)"
+  },
+  {
+    "date": "2026-06-08",
+    "type": "policy",
+    "actor": "EU",
+    "target_type": null,
+    "description": "EU imposes first-ever freedom-of-navigation sanctions on IRGC Navy's Hormozgan Provincial Command and two Iranian officials over Strait of Hormuz blockade",
+    "source": "AP (Jun 8); EU press release"
+  },
+  {
+    "date": "2026-06-10",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "military base",
+    "description": "US launches new round of airstrikes on multiple targets in Iran including surveillance capabilities, communications, air defense sites, a manufacturing complex, barracks and IRGC base near Tehran and Bandar Abbas",
+    "source": "AP (Jun 10); CENTCOM statement"
+  },
+  {
+    "date": "2026-06-10",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran retaliates with strikes against US base in Jordan and 21 other targets in Gulf states; Jordan intercepts 20 missiles near base hosting US troops",
+    "source": "AP (Jun 10); Reuters (Jun 10)"
+  },
+  {
+    "date": "2026-06-12",
+    "type": "diplomatic",
+    "actor": "USA+Iran",
+    "target_type": null,
+    "description": "US and Iran agree to new 60-day ceasefire conditions mediated by Pakistan and Qatar, paving the way for an MOU signing",
+    "source": "Wikipedia – 2026 Iran war ceasefire; AP"
+  },
+  {
+    "date": "2026-06-13",
+    "type": "us_israel_strike",
+    "actor": "Israel",
+    "target_type": "other",
+    "description": "Israeli air raids across southern Lebanon kill at least five including Ar-Rihan municipality mayor Ali Badie; continued Israeli operations despite ceasefire",
+    "source": "Wikipedia – 2026 Israel–Lebanon ceasefire"
+  },
+  {
+    "date": "2026-06-14",
+    "type": "diplomatic",
+    "actor": "USA+Iran",
+    "target_type": null,
+    "description": "Mediators announce MOU framework agreed; Pakistan PM Sharif announces US and Iran have reached a deal for immediate and permanent end to conflict",
+    "source": "AP (Jun 14); GOV.UK Starmer statement (Jun 14)"
+  },
+  {
+    "date": "2026-06-17",
+    "type": "diplomatic",
+    "actor": "USA+Iran",
+    "target_type": null,
+    "description": "Trump signs MOU at Palace of Versailles during G7; Pezeshkian signs electronically in Tehran. 60-day ceasefire extended, Strait of Hormuz to reopen, Iran agrees to dilute HEU stockpile and nuclear talks to follow",
+    "source": "NBC News (Jun 17); Al Jazeera (Jun 17); AP (Jun 17)"
+  },
+  {
+    "date": "2026-06-18",
+    "type": "statement",
+    "actor": "Iran (Mojtaba Khamenei)",
+    "target_type": null,
+    "description": "Supreme Leader Mojtaba Khamenei publicly authorizes the MOU despite stating he had 'a different opinion'; endorses direct negotiations with US while warning against additional American demands",
+    "source": "Al Jazeera (Jun 18); Reuters (Jun 19)"
+  },
+  {
+    "date": "2026-06-18",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "US lifts naval blockade of Iranian ports; Iran begins reopening Strait of Hormuz to commercial traffic; Saudi supertankers begin transiting the strait",
+    "source": "CNBC (Jun 19); Pakistan statement (Jun 18)"
+  },
+  {
+    "date": "2026-06-21",
+    "type": "diplomatic",
+    "actor": "USA+Iran",
+    "target_type": null,
+    "description": "Vance-led US delegation meets Iran's Ghalibaf and Araghchi at Bürgenstock resort, Switzerland for implementation talks; Trump threatens to resume bombing and 'take over' Hormuz, temporarily disrupting talks; mediators report 'encouraging progress'",
+    "source": "PBS NewsHour (Jun 21); CBC News (Jun 21); CNN (Jun 21)"
+  },
+  {
+    "date": "2026-06-21",
+    "type": "statement",
+    "actor": "Iran",
+    "target_type": null,
+    "description": "Iran announces closure of Strait of Hormuz again in response to latest Israeli strikes in Lebanon, adding new tensions during Switzerland talks",
+    "source": "CNN (Jun 21); PBS (Jun 21)"
   }
 ]

@@ -493,5 +493,54 @@
     "posture": "Engaged",
     "summary": "Focused on Hormuz freedom of navigation (EU Aspides mission needs ‘more ships’).",
     "source": "US News (28 May)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Ordered new US strikes on Iran ~June 10 over stalled talks, threatened to 'take over' Hormuz and resume bombing during June 21 Switzerland talks, but also signed the Versailles MOU on June 17 to end the war — combining military escalation with deal-making",
+    "source": "AP via PBS (Jun 21); NBC News (Jun 17); AP via Washington Post (Jun 10)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "starmer",
+    "posture": "Engaged",
+    "summary": "Warmly welcomed US-Iran MOU on June 14 as 'hugely important step forward', pledged UK support for technical talks on nuclear issues and Hormuz; continued to advocate for diplomatic resolution while maintaining UK defensive military posture in region",
+    "source": "GOV.UK PM statement (Jun 14); Politico (Jun 15)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "albanese",
+    "posture": "Engaged",
+    "summary": "Welcomed US-Iran agreement on June 15, called for restraint and constructive engagement; stressed importance of Hormuz reopening for Australian economy and urged Iran to address nuclear concerns through dialogue",
+    "source": "Australian Minister for Foreign Affairs statement (Jun 15); SBS News (Jun 15)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "ca_pm",
+    "posture": "Engaged",
+    "summary": "PM Carney called US-Iran deal a 'game changer' at G7 (Jun 16), offered Canada as third-party financial monitor for deal compliance; advocated diversifying energy supply away from Hormuz chokepoint",
+    "source": "CBC News (Jun 16); CNN interview (Jun 16); CPAC (Jun 15)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Defied Trump's call to halt strikes on June 8, hitting Iranian petrochemical plant; declared Israel's 'struggle is not over' and pledged to stay in Lebanon 'security zones'; ministers said Israel 'won't be bound' by US-Iran deal",
+    "source": "NBC News / Reuters (Jun 8-9); Times of Israel (Jun 12); CNN (Jun 8)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "iran",
+    "posture": "Cautious",
+    "summary": "New Supreme Leader Mojtaba Khamenei authorized the MOU despite stating he had 'a different opinion'; endorsed direct US talks while warning against US 'greed'; Pezeshkian signed the deal and displayed it publicly, showing more conciliatory posture than the supreme leader",
+    "source": "Al Jazeera (Jun 18-19); AP News (Jun 17); Reuters (Jun 19)"
+  },
+  {
+    "month": "2026-06",
+    "leader": "kallas",
+    "posture": "Cautious",
+    "summary": "Imposed first-ever EU freedom-of-navigation sanctions on IRGC entities over Hormuz blockade on June 8; called Iran's actions 'unacceptable' while urging all parties to return to negotiating table; EU welcomed MOU but refused to back regime change",
+    "source": "EU press release via AP (Jun 8); Euronews (Mar 1); UANI digest (Jun 8)"
   }
 ]

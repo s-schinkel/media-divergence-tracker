@@ -564,5 +564,39 @@
         "‘Risk-averse Carney’ debate"
       ]
     }
+  },
+  "2026-06": {
+    "uk": {
+      "tone": "ND",
+      "topics": [
+        "Starmer welcomes US-Iran MOU as 'hugely important step forward'; UK pledges support for technical talks and Strait of Hormuz reopening",
+        "UK House of Commons Library briefings on ceasefire, nuclear talks, and Hormuz reopening; Parliament debates UK defensive military role in region",
+        "UK involved in international Hormuz shipping security mission; ongoing concern over fuel-price and economic impacts of the war"
+      ]
+    },
+    "usa": {
+      "tone": "EN",
+      "topics": [
+        "June 7-8 Israel-Iran strikes shatter ceasefire on war's 100th day; June 10 Trump orders new US strikes on Iran over stalled negotiations",
+        "June 14-17 US-Iran MOU framework agreed and signed at Versailles by Trump and Pezeshkian; Strait of Hormuz reopening begins",
+        "June 21 Vance-led talks with Iran in Switzerland at Bürgenstock complicated by Trump threatening to 'take over' Hormuz and resume bombing"
+      ]
+    },
+    "au": {
+      "tone": "ND",
+      "topics": [
+        "Albanese and Wong welcome US-Iran MOU; stress urgency of reopening Strait of Hormuz to ease energy prices and trade impacts on Australia",
+        "Domestic focus on fuel costs and inflation driven by Hormuz closure; SBS and ABC coverage of Australian fuel reserve adequacy",
+        "Debate over Australia's alignment with US war aims vs. diplomatic approach; op-ed criticism of Albanese for following Trump into conflict"
+      ]
+    },
+    "ca": {
+      "tone": "ND",
+      "topics": [
+        "PM Carney calls US-Iran deal a 'game changer' at G7; offers Canada as third-party monitor for deal implementation",
+        "Canada maintains diplomatic-only posture, abstaining from military involvement; Carney highlights Canadian energy exports as alternative to Hormuz dependency",
+        "Canadian-Iranian diaspora reacts with mixed feelings to peace deal; CBC covers domestic debate on sanctions policy and PS752 accountability"
+      ]
+    }
   }
 }
