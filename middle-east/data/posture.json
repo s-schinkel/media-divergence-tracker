@@ -542,5 +542,61 @@
     "posture": "Cautious",
     "summary": "Imposed first-ever EU freedom-of-navigation sanctions on IRGC entities over Hormuz blockade on June 8; called Iran's actions 'unacceptable' while urging all parties to return to negotiating table; EU welcomed MOU but refused to back regime change",
     "source": "EU press release via AP (Jun 8); Euronews (Mar 1); UANI digest (Jun 8)"
+  },
+  {
+    "month": "2026-07",
+    "leader": "trump",
+    "posture": "Threatening",
+    "summary": "Declared ceasefire 'over' at NATO summit Jul 8; ordered 13 consecutive nights of strikes; reimposed oil sanctions; called Iran leaders 'cuckoo,' 'evil,' and 'scum.' Softened late-month, pausing strikes Jul 25-26 and saying Iran 'getting more serious' about talks.",
+    "source": "CNN Jul 8 live blog; NPR Jul 8; CNN Jul 24-25 live blogs"
+  },
+  {
+    "month": "2026-07",
+    "leader": "starmer",
+    "posture": "Cautious",
+    "summary": "Condemned Iran's strikes on commercial shipping and Gulf partners; called for urgent ceasefire resumption Jul 13; government proscribed IRGC as terrorist organization; maintained UK 'not our war' line while warning of energy-price impact on UK households at NATO summit.",
+    "source": "Anadolu Agency Jul 13; AA.com.tr NATO Jul 8; Reuters Jul 13"
+  },
+  {
+    "month": "2026-07",
+    "leader": "albanese",
+    "posture": "Cautious",
+    "summary": "Australian forces remain deployed but government distances itself from escalation; Albanese appeals to Trump over tariffs amid strike pause; energy supply concerns drive domestic debate.",
+    "source": "Bloomberg Australia Briefing Jul 26; WSWS Jul 17"
+  },
+  {
+    "month": "2026-07",
+    "leader": "ca_pm",
+    "posture": "Cautious",
+    "summary": "Carney backed US strikes as 'appropriate' at NATO Ankara summit Jul 8 but stressed 'not a blank cheque'; visited Saudi Arabia Jul 9 to deepen ties amid ceasefire collapse; condemned Iranian attacks on Gulf shipping.",
+    "source": "CBC News Jul 8; CBC News Jul 9; Global News"
+  },
+  {
+    "month": "2026-07",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "Told Fox News Jul 26 the Iran war will end 'when the Iranian regime falls, or weakens to such an extent that it understands it must end its nuclear program'; vowed expanded operations; discussed 'all issues on the agenda including the situation in Iran' ahead of Trump meeting.",
+    "source": "Jerusalem Post Jul 26; Times of Israel Jul 26; World Israel News Jul 26"
+  },
+  {
+    "month": "2026-07",
+    "leader": "iran",
+    "posture": "Hostile",
+    "summary": "Under Mojtaba Khamenei (successor since Mar 8, not yet publicly appeared), Iran declared Strait of Hormuz closed Jul 11, struck commercial ships, attacked US bases across Bahrain/Kuwait/Jordan/Qatar/Syria, fired ballistic missiles at Aqaba. Pezeshkian divergence: president called for massive funeral turnout and earlier set conditions for ceasefire but state machinery continued escalation. An Iranian official dismissed Trump's late-month overtures, calling it 'a war that will not end.'",
+    "source": "CNN Jul 11; Al Jazeera Jul 17; IranWire Jul 21; CNN Jul 25"
+  },
+  {
+    "month": "2026-07",
+    "leader": "mbs",
+    "posture": "Cautious",
+    "summary": "Saudi Arabia came under direct Iranian and Houthi attack in July; MBS had previously counseled Trump against strikes then urged ceasefire once war began; now pursuing security priorities while hosting Carney for economic talks amid ceasefire collapse.",
+    "source": "House of Saud analysis; CBC Jul 9; AP/Bloomberg Jul 22-25"
+  },
+  {
+    "month": "2026-07",
+    "leader": "kallas",
+    "posture": "Cautious",
+    "summary": "EU High Rep Kallas posted Jul 25 criticizing Iran's repression of its own people and saying the regime pays a steep economic price for reckless actions; EASA warned airlines against Jordanian airspace. Iran slammed Kallas for 'hypocrisy.'",
+    "source": "CBS News Jul 25; Tasnim News Agency Jul 25; Tehran Times Jul 25"
   }
 ]

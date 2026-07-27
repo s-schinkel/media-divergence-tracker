@@ -598,5 +598,39 @@
         "Canadian-Iranian diaspora reacts with mixed feelings to peace deal; CBC covers domestic debate on sanctions policy and PS752 accountability"
       ]
     }
+  },
+  "2026-07": {
+    "uk": {
+      "tone": "EN",
+      "topics": [
+        "UK proscribes IRGC as terrorist organization on July 13 following antisemitic attacks, criminalizing support with up to 14 years in prison",
+        "Starmer condemns Iran's strikes on commercial shipping and Gulf partners, calls for urgent ceasefire resumption while maintaining 'not our war' stance at NATO Ankara summit",
+        "Strait of Hormuz closure drives UK energy price fears; Starmer warns instability could hit household bills"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "US-Iran ceasefire collapses: 13 consecutive nights of US strikes (Jul 11-24) hitting 80+ targets per wave; Trump declares ceasefire 'over' at NATO Ankara summit; oil sanctions reimposed Jul 7",
+        "Two US soldiers killed in Iranian ballistic-missile/drone attack on Jordan airbase Jul 18, first US combat deaths of the war; Trump orders retaliatory strikes",
+        "Late-month strike pause Jul 25-26 amid renewed diplomatic signals; Waltz says Trump giving talks 'some space'; Trump says Iran 'getting more serious'"
+      ]
+    },
+    "au": {
+      "tone": "EN",
+      "topics": [
+        "Ceasefire collapse and Hormuz closure rattle Australian energy markets and ASX; Albanese flags fuel supply concerns",
+        "Albanese appeals to Trump over US tariffs amid Iran strike pause, describing levies as 'unjustified' — tariff and war stories overlap",
+        "Ongoing Australian military deployment (RAAF, SAS elements) in Middle East draws domestic scrutiny as government tries to distance from escalation"
+      ]
+    },
+    "ca": {
+      "tone": "EN",
+      "topics": [
+        "PM Carney backs US strikes as 'appropriate response' to ceasefire violations en route to NATO Ankara summit Jul 7-8, while stressing support is 'not a blank cheque'",
+        "Carney courts Saudi Arabia Jul 9 as ceasefire collapses; FM Anand delivers sympathy amid Iranian attacks on Gulf states",
+        "Canadian media cover oil-price spike above $100/barrel, Hormuz closure impact on energy security, and widening Houthi attacks on Saudi shipping"
+      ]
+    }
   }
 }

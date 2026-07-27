@@ -400,5 +400,149 @@
     "target_type": null,
     "description": "Iran announces closure of Strait of Hormuz again in response to latest Israeli strikes in Lebanon, adding new tensions during Switzerland talks",
     "source": "CNN (Jun 21); PBS (Jun 21)"
+  },
+  {
+    "date": "2026-07-01",
+    "type": "diplomatic",
+    "actor": "USA / Iran (via Qatar & Pakistan)",
+    "target_type": null,
+    "description": "Indirect US-Iran talks in Doha; VP Vance says talks 'going well'; Qatar and Pakistan report 'positive progress' on MOU issues.",
+    "source": "CNN Jul 1 live blog; RFE/RL"
+  },
+  {
+    "date": "2026-07-04",
+    "type": "statement",
+    "actor": "Iran",
+    "target_type": null,
+    "description": "Multi-day funeral procession for slain Supreme Leader Khamenei begins (Jul 4-9, Tehran to Qom to Mashhad). Millions mourn; successor Mojtaba Khamenei does not appear publicly, fueling leadership uncertainty.",
+    "source": "CNN Jul 4; CNBC Jul 5; Al Jazeera Jul 5-6"
+  },
+  {
+    "date": "2026-07-06",
+    "type": "iran_strike",
+    "actor": "Iran (IRGC Navy)",
+    "target_type": "naval",
+    "description": "Iran attacks three commercial vessels transiting the Strait of Hormuz on Jul 6-7, violating the June MOU and triggering US retaliation.",
+    "source": "Britannica; CNN Jul 7; ABC News timeline"
+  },
+  {
+    "date": "2026-07-07",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "military base",
+    "description": "US launches 'series of powerful strikes' hitting 80+ targets across Iran (maritime, missile storage, air-defense sites). CENTCOM statement confirms operation.",
+    "source": "CNN Jul 7 live blog; CENTCOM statement"
+  },
+  {
+    "date": "2026-07-07",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Trump administration reimposed sanctions on Iranian oil and petrochemical sales, reversing the 60-day sanctions lift agreed in June MOU.",
+    "source": "CNN Jul 7; Daily Caller Jul 7"
+  },
+  {
+    "date": "2026-07-07",
+    "type": "diplomatic",
+    "actor": "NATO",
+    "target_type": null,
+    "description": "NATO Ankara Summit opens (Jul 7-8); Iran war dominates agenda; Trump declares ceasefire 'over' at closing press conference Jul 8.",
+    "source": "NATO.int; NPR Jul 8; Al Jazeera Jul 7"
+  },
+  {
+    "date": "2026-07-11",
+    "type": "iran_strike",
+    "actor": "Iran (IRGC Navy)",
+    "target_type": "naval",
+    "description": "IRGC strikes a container ship in the Strait of Hormuz; Iran declares the waterway closed 'until further notice.'",
+    "source": "CNN Jul 11; Bloomberg Jul 11; Al Jazeera Jul 11; CTV News"
+  },
+  {
+    "date": "2026-07-13",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "naval",
+    "description": "Iran strikes and disables two UAE-flagged tankers in Omani territorial waters in the Strait of Hormuz, killing one crew member.",
+    "source": "CNN Jul 13 live blog; CNBC Jul 13"
+  },
+  {
+    "date": "2026-07-13",
+    "type": "policy",
+    "actor": "United Kingdom",
+    "target_type": null,
+    "description": "UK proscribes IRGC and linked groups as terrorist organizations; support now punishable by up to 14 years in prison.",
+    "source": "Reuters Jul 13; Sky News; Global Banking & Finance"
+  },
+  {
+    "date": "2026-07-13",
+    "type": "statement",
+    "actor": "Starmer (UK)",
+    "target_type": null,
+    "description": "Starmer says 'I utterly condemn Iran's strikes on commercial shipping and on our Gulf partners. These attacks must stop'; calls for urgent ceasefire resumption.",
+    "source": "Anadolu Agency Jul 13"
+  },
+  {
+    "date": "2026-07-17",
+    "type": "iran_strike",
+    "actor": "Iran (IRGC)",
+    "target_type": "military base",
+    "description": "IRGC claims strikes on US military assets in Bahrain, Kuwait, Oman, Qatar, Jordan, and Syria in widening regional attacks.",
+    "source": "Al Jazeera Jul 17; CNN Jul 16"
+  },
+  {
+    "date": "2026-07-18",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iranian ballistic-missile and drone attack on US airbase in Jordan kills two US soldiers (James Feehan, 25; Isabella Gonzales, 19) — first US combat deaths of the war.",
+    "source": "NBC News Jul 18; PBS Jul 20; Axios Jul 18"
+  },
+  {
+    "date": "2026-07-22",
+    "type": "iran_strike",
+    "actor": "Houthis (Iran-backed)",
+    "target_type": "naval",
+    "description": "Houthis attack two Saudi oil tankers (Encelia and Layla) in the Red Sea, threatening shipments from Saudi Arabia's Yanbu port.",
+    "source": "Al Jazeera Jul 22; Spectrum News Jul 23"
+  },
+  {
+    "date": "2026-07-23",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "drone-missile",
+    "description": "Iran fires six ballistic missiles at Jordan's Aqaba; US defenses intercept four; Iron Dome engages debris over Eilat. CENTCOM completes 13th consecutive night of strikes on Iran.",
+    "source": "GlobalSecurity.org daily calendar; US News Jul 23"
+  },
+  {
+    "date": "2026-07-25",
+    "type": "iran_strike",
+    "actor": "Houthis (Iran-backed)",
+    "target_type": "other",
+    "description": "Houthis claim missile and drone attacks on Saudi oil refinery and southern Saudi Arabia in response to Saudi strikes on Hodeida — first such attacks since 2022.",
+    "source": "Washington Post Jul 25; Bloomberg Jul 25; AP Jul 25"
+  },
+  {
+    "date": "2026-07-25",
+    "type": "policy",
+    "actor": "Ukraine",
+    "target_type": null,
+    "description": "Ukraine strikes Iranian commercial vessel in Caspian Sea, killing one sailor; Kyiv says ship carried drone/missile components bound for Iran. Iran condemns attack as 'hostile and criminal'; Zelenskyy hails 'very strong results.'",
+    "source": "UPI Jul 26; Al Jazeera Jul 25; Jerusalem Post Jul 26"
+  },
+  {
+    "date": "2026-07-25",
+    "type": "diplomatic",
+    "actor": "USA / Iran",
+    "target_type": null,
+    "description": "US does not announce new strikes for first time in two weeks, signaling a pause. By Jul 26, pause holds for second day; UN envoy Waltz says Trump giving talks 'some space.'",
+    "source": "CNN Jul 25; CNN Jul 26; Al Jazeera Jul 26"
+  },
+  {
+    "date": "2026-07-26",
+    "type": "statement",
+    "actor": "Netanyahu",
+    "target_type": null,
+    "description": "Netanyahu tells Fox News the Iran war will end 'when the Iranian regime falls, or weakens to such an extent that it understands it must end its nuclear program.'",
+    "source": "Jerusalem Post Jul 26; Times of Israel Jul 26"
   }
 ]
