@@ -632,5 +632,39 @@
         "Canadian media cover oil-price spike above $100/barrel, Hormuz closure impact on energy security, and widening Houthi attacks on Saudi shipping"
       ]
     }
+  },
+  "2026-08": {
+    "uk": {
+      "tone": "EN",
+      "topics": [
+        "UK co-signs 32-country joint statement (Aug 12) condemning Iran's execution of protesters and use of capital punishment to silence dissent",
+        "Strait of Hormuz shipping disruption and Iran-Oman demining proposal dominate trade/security coverage; UK maintains stance against joining US blockade",
+        "Ongoing debate over UK balancing act—permitting US use of bases while refusing direct war participation; 60-day ceasefire deadline expiry and extension"
+      ]
+    },
+    "usa": {
+      "tone": "EN",
+      "topics": [
+        "Trump cancels planned strikes on Iran (Aug 1) then threatens to bomb Oman (Aug 17) as 60-day ceasefire/MoU deadline expires without breakthrough; ceasefire extended",
+        "Bessent announces 'economic D-Day' (Aug 24) sweeping sanctions on Iranian shipping, oil, crypto, gold, aviation and secondary sanctions on partner countries",
+        "Kushner-led back-channel talks stall; Pezeshkian pushes to end 'no war, no peace' status as Khamenei stays silent; renewed peace MoU endorsed Aug 30"
+      ]
+    },
+    "au": {
+      "tone": "N",
+      "topics": [
+        "Australia joins 32-country statement (Aug 12) condemning Iran's execution of protesters; maintains travel advisory against Iran",
+        "Continued Australian military contribution (RAAF, SAS elements) to coalition operations under cautious government messaging",
+        "Coverage of Strait of Hormuz crisis impact on trade and oil prices with focus on energy security implications for Australia"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "Canada sanctions five Iranian officials (Aug 14) over Strait of Hormuz blockade, including IRGC-linked commanders",
+        "Canada co-signs 32-country joint statement (Aug 12) condemning Iran's execution of protesters and arbitrary detentions",
+        "Ongoing debate over Carney government's cautious positioning—officially abstaining from war while supporting US non-proliferation goals"
+      ]
+    }
   }
 }

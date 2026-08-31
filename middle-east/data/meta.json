@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-08-17",
+  "last_updated": "2026-08-31",
   "coverage_start": "2025-01",
-  "coverage_end": "2026-07",
-  "volume_rows": 19,
-  "events_rows": 68,
-  "posture_rows": 83,
+  "coverage_end": "2026-08",
+  "volume_rows": 20,
+  "events_rows": 83,
+  "posture_rows": 91,
   "note": "Volumes are search-signal approximations. 2026 events verified against primary wire sources."
 }

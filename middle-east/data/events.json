@@ -544,5 +544,125 @@
     "target_type": null,
     "description": "Netanyahu tells Fox News the Iran war will end 'when the Iranian regime falls, or weakens to such an extent that it understands it must end its nuclear program.'",
     "source": "Jerusalem Post Jul 26; Times of Israel Jul 26"
+  },
+  {
+    "date": "2026-08-01",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Trump cancels planned multi-day military strikes on Iran, citing progress in talks and requests from Saudi Arabia, UAE, Qatar, and Iran.",
+    "source": "CNN Aug 1 2026; CBS News Aug 1 2026"
+  },
+  {
+    "date": "2026-08-05",
+    "type": "iran_strike",
+    "actor": "Houthis (Iran proxy)",
+    "target_type": "naval",
+    "description": "Houthis claim ballistic missile attack on Saudi oil tanker 'Daisy' in Gulf of Aden, forcing it to change course.",
+    "source": "CNN Aug 5 2026"
+  },
+  {
+    "date": "2026-08-07",
+    "type": "diplomatic",
+    "actor": "Saudi Arabia / Turkey / Pakistan",
+    "target_type": null,
+    "description": "Saudi Arabia, Turkey, and Pakistan sign the Mecca Joint Defence Agreement, a NATO-style mutual defense pact stipulating an attack on one is an attack on all.",
+    "source": "Atlantic Council Aug 7 2026; PBS News Aug 7 2026; Al Jazeera Aug 9 2026"
+  },
+  {
+    "date": "2026-08-09",
+    "type": "statement",
+    "actor": "Iran (Pezeshkian)",
+    "target_type": null,
+    "description": "President Pezeshkian publicly calls for an end to Iran's 'no war, no peace' status with the US, breaking with Supreme Leader Khamenei's hardline stance.",
+    "source": "Al Jazeera Aug 9 2026; Critical Threats Aug 4 2026"
+  },
+  {
+    "date": "2026-08-10",
+    "type": "statement",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Trump says he would require compensation from Iran as a condition for resuming talks.",
+    "source": "CNN Aug 10 2026"
+  },
+  {
+    "date": "2026-08-11",
+    "type": "policy",
+    "actor": "Iran (Khamenei)",
+    "target_type": null,
+    "description": "Supreme Leader Mojtaba Khamenei formalizes six senior military and security appointments within 48 hours, including Ali Abdollahi as Chief of General Staff and Ahmad Vahidi as IRGC Commander-in-Chief, rebuilding command structure gutted by war.",
+    "source": "IranWire Aug 11 2026; RFE/RL Aug 11 2026; Al Jazeera Aug 11 2026"
+  },
+  {
+    "date": "2026-08-12",
+    "type": "diplomatic",
+    "actor": "EU + 32 countries (incl. UK, Canada, Australia)",
+    "target_type": null,
+    "description": "32-country joint statement condemns Iran's use of capital punishment to silence protesters and calls for immediate end to executions and release of arbitrarily detained individuals.",
+    "source": "CNN Aug 12 2026; IranWire Aug 12 2026; Canada.ca Aug 12 2026; Italian Foreign Ministry"
+  },
+  {
+    "date": "2026-08-14",
+    "type": "policy",
+    "actor": "Canada",
+    "target_type": null,
+    "description": "Canada sanctions five Iranian officials including IRGC-linked commanders for roles in restricting Strait of Hormuz traffic.",
+    "source": "CTV News Aug 14 2026; CBC News Aug 14 2026; GlobalSecurity Aug 14 2026"
+  },
+  {
+    "date": "2026-08-17",
+    "type": "diplomatic",
+    "actor": "USA / Iran",
+    "target_type": null,
+    "description": "60-day ceasefire deadline (from June Islamabad MoU) expires without a final agreement; ceasefire reportedly extended per Al Arabiya. Trump threatens to attack Oman if it interferes with Hormuz efforts.",
+    "source": "CNN Aug 17 2026; Washington Post Aug 17 2026; NBC News Aug 17 2026; JPost Aug 17 2026"
+  },
+  {
+    "date": "2026-08-18",
+    "type": "statement",
+    "actor": "USA (Kushner)",
+    "target_type": null,
+    "description": "Kushner says Iran is 'not showing any interest in doing something that makes sense for us' in back-channel talks, declaring negotiations deadlocked.",
+    "source": "The National Aug 18 2026"
+  },
+  {
+    "date": "2026-08-20",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "US imposes new sanctions on Hezbollah and threatens broader economic pressure on countries providing any 'lifeline' to Iran.",
+    "source": "CNN Aug 20 2026"
+  },
+  {
+    "date": "2026-08-24",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Treasury Secretary Bessent announces 'economic D-Day'—sweeping sanctions targeting 60+ Iranian and international entities across shipping, oil, crypto, gold, and aviation sectors, plus secondary sanctions.",
+    "source": "CNN Aug 24 2026; Bloomberg Aug 25 2026; NBC News Aug 24 2026; Al Jazeera Aug 25 2026"
+  },
+  {
+    "date": "2026-08-24",
+    "type": "iran_strike",
+    "actor": "Houthis (Iran proxy)",
+    "target_type": "naval",
+    "description": "Houthis fire ballistic missile at Saudi supertanker 'Amzan' in the Red Sea near Yanbu, the second Houthi attack on Saudi oil shipping this month.",
+    "source": "Bloomberg Aug 24 2026; Al Jazeera Aug 24 2026"
+  },
+  {
+    "date": "2026-08-25",
+    "type": "diplomatic",
+    "actor": "Iran / Oman",
+    "target_type": null,
+    "description": "Iran and Oman announce a joint proposal for a temporary shipping lane through the Strait of Hormuz and a joint demining project to clear the waterway.",
+    "source": "CNN Aug 25 2026; Times of Israel Aug 25 2026; Al Jazeera Aug 25 2026"
+  },
+  {
+    "date": "2026-08-30",
+    "type": "diplomatic",
+    "actor": "Iran (Pezeshkian) / USA",
+    "target_type": null,
+    "description": "President Pezeshkian endorses the renewed Iran-US peace MoU, stating it serves the interests of Iran, West Asia, and the world—further diverging from Khamenei's silence.",
+    "source": "Gulf News Aug 30 2026; IANS Aug 30 2026"
   }
 ]
