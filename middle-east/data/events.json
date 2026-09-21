@@ -664,5 +664,149 @@
     "target_type": null,
     "description": "President Pezeshkian endorses the renewed Iran-US peace MoU, stating it serves the interests of Iran, West Asia, and the world—further diverging from Khamenei's silence.",
     "source": "Gulf News Aug 30 2026; IANS Aug 30 2026"
+  },
+  {
+    "date": "2026-09-01",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "military base",
+    "description": "CENTCOM strikes on Iranian IRGC air defense sites, radar systems, maritime assets, and mine-laying capabilities across southern Iran.",
+    "source": "centcom.mil (Sep 1 2026); criticalthreats.org Iran Update Sep 1 2026"
+  },
+  {
+    "date": "2026-09-01",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran retaliatory strikes on US and allied bases in Bahrain, Jordan, and Iraq; Kuwait also confronted Iranian attacks.",
+    "source": "aljazeera.com (Sep 1 2026); criticalthreats.org Iran Update Sep 1 2026"
+  },
+  {
+    "date": "2026-09-02",
+    "type": "policy",
+    "actor": "Canada",
+    "target_type": null,
+    "description": "PM Carney extends suspension of fuel excise tax to early 2027 due to surging energy costs driven by Iran war.",
+    "source": "bloomberg.com (Sep 2 2026)"
+  },
+  {
+    "date": "2026-09-03",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "Iran launches drone and missile attacks on US bases in UAE, Kuwait, and Jordan as part of months-long military campaign.",
+    "source": "criticalthreats.org Iran Update Sep 4 2026"
+  },
+  {
+    "date": "2026-09-03",
+    "type": "protest",
+    "actor": "UK anti-war protesters",
+    "target_type": null,
+    "description": "Anti-war protesters gather outside RAF Fairford calling on PM Burnham to end US use of British military bases for Iran strikes.",
+    "source": "morningstaronline.co.uk (Sep 3 2026)"
+  },
+  {
+    "date": "2026-09-05",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "naval",
+    "description": "CENTCOM destroys 3 Iranian oil tankers (M/T Kaviz, M/T Charminar, M/T Horizon 1) after IRGC launches ballistic missiles at US aircraft carrier and destroyer.",
+    "source": "centcom.mil (Sep 5 2026); abcnews.com live updates"
+  },
+  {
+    "date": "2026-09-06",
+    "type": "statement",
+    "actor": "Israel",
+    "target_type": null,
+    "description": "Netanyahu at Rosh Hashanah toast declares 'the end of the Iranian regime is near' and vows to complete mission of regime toppling.",
+    "source": "jpost.com (Sep 6 2026); foxnews.com (Sep 6 2026)"
+  },
+  {
+    "date": "2026-09-06",
+    "type": "statement",
+    "actor": "Canada",
+    "target_type": null,
+    "description": "Canada formally condemns Iran's destabilizing actions in the Middle East; calls for immediate end to destabilizing activities.",
+    "source": "canada.ca Global Affairs (Sep 6 2026)"
+  },
+  {
+    "date": "2026-09-08",
+    "type": "iran_strike",
+    "actor": "Iran",
+    "target_type": "military base",
+    "description": "20 Iranian missiles strike Muwaffaq Salti Air Base in Jordan overnight (Sep 8-9); US A-10 loses a wing, ~8 F-15s damaged.",
+    "source": "theaviationist.com (Sep 10 2026); globalsecurity.org Day 203 update; cbsnews.com"
+  },
+  {
+    "date": "2026-09-09",
+    "type": "us_israel_strike",
+    "actor": "USA",
+    "target_type": "naval",
+    "description": "CENTCOM destroys 5 Iranian oil tankers total including M/T Riesco and M/T Derya near Kharg island; Iran retaliates by attacking 10 ships.",
+    "source": "aljazeera.com (Sep 9 2026); centcom.mil"
+  },
+  {
+    "date": "2026-09-10",
+    "type": "diplomatic",
+    "actor": "USA / Iran",
+    "target_type": null,
+    "description": "Fire pause begins between US and Iran — no Iranian ballistic missile or drone attacks on host states reported; pause enters 9th day by Sep 18.",
+    "source": "globalsecurity.org Day 203 update (Sep 18 2026); globalsecurity.org Daily Calendar"
+  },
+  {
+    "date": "2026-09-10",
+    "type": "iran_strike",
+    "actor": "Iran-backed militias (Iraq)",
+    "target_type": "other",
+    "description": "Drone strikes launched from Iraqi territory hit Saudi Arabia's East-West Crude Oil Pipeline in multiple locations, causing fires.",
+    "source": "en.wikipedia.org/2026_East-West_Pipeline_attack; cnn.com (Sep 11 2026); nbcnews.com (Sep 12 2026)"
+  },
+  {
+    "date": "2026-09-11",
+    "type": "policy",
+    "actor": "Saudi Arabia",
+    "target_type": null,
+    "description": "Saudi Arabia shuts down entire East-West Crude Oil Pipeline as precaution after drone attacks, removing main Hormuz-bypass oil route.",
+    "source": "fdd.org (Sep 13 2026); aljazeera.com (Sep 12 2026); cnbc.com (Sep 14 2026)"
+  },
+  {
+    "date": "2026-09-15",
+    "type": "statement",
+    "actor": "EU",
+    "target_type": null,
+    "description": "Kallas addresses European Parliament on Iran escalation; announces new EU sanctions on 19 Iranian officials; pledges to reinforce ASPIDES and support Saudi maritime coalition.",
+    "source": "globalsecurity.org EEAS (Sep 15 2026)"
+  },
+  {
+    "date": "2026-09-16",
+    "type": "statement",
+    "actor": "Amnesty International",
+    "target_type": null,
+    "description": "Amnesty International reports Iranian regime committed crimes against humanity during suppression of protests; names 87 officials.",
+    "source": "globalsecurity.org Day 203; en.wikipedia.org/2025-2026_Iran_massacres (Sep 16 2026)"
+  },
+  {
+    "date": "2026-09-17",
+    "type": "protest",
+    "actor": "Kurdish groups / Iranian regime",
+    "target_type": null,
+    "description": "Kurdish strike and general closure across Iranian Kurdistan; regime announces massive Basij mobilization of up to 330,000 in Tehran for Sep 18 in response.",
+    "source": "globalsecurity.org Day 203 update (Sep 18 2026); globalsecurity.org Daily Calendar"
+  },
+  {
+    "date": "2026-09-20",
+    "type": "statement",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Trump on Fox News lays out three paths for Iran: make a deal, 'let them rot economically,' or 'wiping Iran out entirely.'",
+    "source": "politicalwire.com (Sep 20 2026); cnbc.com (Sep 21 2026)"
+  },
+  {
+    "date": "2026-09-20",
+    "type": "diplomatic",
+    "actor": "USA / Iran",
+    "target_type": null,
+    "description": "US approves visas for President Pezeshkian and FM Araghchi to attend UN General Assembly; Pezeshkian departs for New York, signaling diplomatic divergence from Supreme Leader.",
+    "source": "tbsnews.net (Sep 20 2026); cnbc.com (Sep 21 2026)"
   }
 ]

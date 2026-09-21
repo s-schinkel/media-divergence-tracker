@@ -666,5 +666,39 @@
         "Ongoing debate over Carney government's cautious positioning—officially abstaining from war while supporting US non-proliferation goals"
       ]
     }
+  },
+  "2026-09": {
+    "uk": {
+      "tone": "EN",
+      "topics": [
+        "PM Burnham under pressure over allowing UK bases (Diego Garcia, RAF Fairford) for US strikes on Iran; anti-war protests at RAF Fairford",
+        "Saudi East-West pipeline shutdown and deepening energy/Hormuz crisis; Kallas addresses European Parliament on Iran escalation Sep 15",
+        "Burnham-Trump first in-person meeting at UNGA; UK focus on securing Strait of Hormuz shipping"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "CENTCOM strikes on Iranian air defenses, radars, and oil tankers (Sep 1, 5, 9); Iranian retaliatory missile/drone strikes on US bases in Jordan, Kuwait, Bahrain, Iraq",
+        "Trump lays out three Iran options on Fox News (deal, economic rot, or 'wiping out'); US approves visas for Pezeshkian to attend UNGA",
+        "Saudi East-West pipeline attack and oil above $100; fire pause begins ~Sep 10 after Muwaffaq Salti strike; Strait of Hormuz remains contested"
+      ]
+    },
+    "au": {
+      "tone": "EN",
+      "topics": [
+        "Australian military operations continue in Persian Gulf (Wedgetail, naval assets in UAE); ongoing debate over war endgame",
+        "Rising energy costs and economic impact of Iran war on Australian households",
+        "Albanese government navigating alliance obligations vs. domestic opposition to open-ended conflict"
+      ]
+    },
+    "ca": {
+      "tone": "N",
+      "topics": [
+        "PM Carney extends fuel excise tax suspension to early 2027 due to Iran-war-driven energy costs",
+        "Hundreds of Iranian IRGC conscript families face deportation/inadmissibility under terrorist designation; CBC coverage",
+        "Carney-Trump calls on Iran and Ukraine; Canada formally condemns Iran's destabilizing actions (Sep 6)"
+      ]
+    }
   }
 }
