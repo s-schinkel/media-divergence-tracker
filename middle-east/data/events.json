@@ -808,5 +808,109 @@
     "target_type": null,
     "description": "US approves visas for President Pezeshkian and FM Araghchi to attend UN General Assembly; Pezeshkian departs for New York, signaling diplomatic divergence from Supreme Leader.",
     "source": "tbsnews.net (Sep 20 2026); cnbc.com (Sep 21 2026)"
+  },
+  {
+    "date": "2026-10-03",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "US deploys third aircraft carrier, USS Theodore Roosevelt, to the Arabian Gulf as Iran war enters eighth month.",
+    "source": "MarineLink 2026-10-03; Al Jazeera 2026-10-02"
+  },
+  {
+    "date": "2026-10-07",
+    "type": "iran_strike",
+    "actor": "Iran (IRGC/proxies)",
+    "target_type": "naval",
+    "description": "Tanker 'On Peace' struck in Strait of Hormuz off Oman; 12 sailors injured; Oman air force evacuates crew. Part of record month for Hormuz ship attacks (28+ confirmed incidents).",
+    "source": "Al Jazeera 2026-10-07; CNBC 2026-10-09"
+  },
+  {
+    "date": "2026-10-08",
+    "type": "iran_strike",
+    "actor": "Houthis (Iran-backed)",
+    "target_type": "other",
+    "description": "Houthi ballistic missiles strike Riyadh King Khalid International Airport, killing 3 Saudi nationals and destroying a Saudia Airbus A320. Series of Houthi airport attacks across October kill 22 total and injure 380+.",
+    "source": "Al Jazeera 2026-10-09; CNN 2026-10-08"
+  },
+  {
+    "date": "2026-10-08",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "White House asks Pentagon for options to strike Iran before midterms; Axios reports CENTCOM told to prepare for possible resumption of major combat operations.",
+    "source": "CNBC 2026-10-08; Axios 2026-10-08"
+  },
+  {
+    "date": "2026-10-12",
+    "type": "statement",
+    "actor": "UK",
+    "target_type": null,
+    "description": "UK PM Burnham tells Commons that IRGC 'almost certainly' directed RAF Fairford bomber-base plot; UK sanctions two Iranian nationals for hostile activity.",
+    "source": "Reuters 2026-10-12; Bloomberg 2026-10-12; Washington Post 2026-10-12"
+  },
+  {
+    "date": "2026-10-12",
+    "type": "diplomatic",
+    "actor": "28-country coalition (incl. US, UK, Canada, Australia, EU states)",
+    "target_type": null,
+    "description": "Foreign ministers of 28 countries issue joint statement condemning 'in the strongest terms Iran's use of violent attacks, including lethal plotting, arson, sabotage, cyber-attacks, and other hybrid activities.'",
+    "source": "Canada.ca 2026-10-12; Globe and Mail 2026-10-12"
+  },
+  {
+    "date": "2026-10-21",
+    "type": "statement",
+    "actor": "Israel",
+    "target_type": null,
+    "description": "Netanyahu at IDF graduation orders military and Mossad to overthrow Iranian regime — declares it 'the only way to remove this threat once and for all.' Defense Min. Katz warns 'Iran will burn.'",
+    "source": "Washington Post 2026-10-22; Jerusalem Post 2026-10-21; Times of Israel 2026-10-20"
+  },
+  {
+    "date": "2026-10-22",
+    "type": "iran_strike",
+    "actor": "Iran (IRGC)",
+    "target_type": "naval",
+    "description": "Iran reports 7 oil tankers attacked in single day in Strait of Hormuz — largest single-day toll since war began. Four caught fire; three struck mines.",
+    "source": "Al Jazeera 2026-10-22; US News/Reuters 2026-10-23"
+  },
+  {
+    "date": "2026-10-22",
+    "type": "policy",
+    "actor": "EU",
+    "target_type": null,
+    "description": "European Parliament adopts resolution calling on EU Council to designate Houthis as terrorist organization; Kallas backs push citing 20% of EU trade via Red Sea.",
+    "source": "The National (UAE) 2026-10-22; Euronews 2026-10-22"
+  },
+  {
+    "date": "2026-10-23",
+    "type": "policy",
+    "actor": "USA",
+    "target_type": null,
+    "description": "State Department reduces staffing at 4 US embassies in Middle East after intelligence finds Iran has 'substantially increased' efforts to target American personnel.",
+    "source": "AP 2026-10-23"
+  },
+  {
+    "date": "2026-10-24",
+    "type": "statement",
+    "actor": "Iran (President Pezeshkian)",
+    "target_type": null,
+    "description": "Iranian President Pezeshkian blames US for interim deal failure on state TV but urges new attempt: 'I still think we should go and conclude it' — signaling divergence from hardline IRGC stance.",
+    "source": "Reuters 2026-10-24; Al Arabiya 2026-10-24"
+  },
+  {
+    "date": "2026-10-26",
+    "type": "diplomatic",
+    "actor": "Saudi Arabia, Turkey, Pakistan, Iran",
+    "target_type": null,
+    "description": "Mecca Defense Pact officials — Saudi defense minister Prince Khalid bin Salman, Pakistani military chief Asim Munir, Turkish intelligence chief Ibrahim Kalin — meet Pezeshkian and Iranian security officials in Tehran amid fears of post-midterm US-Israeli strikes.",
+    "source": "CNN 2026-10-26; Reuters 2026-10-26; Semafor 2026-10-26"
+  },
+  {
+    "date": "2026-10-26",
+    "type": "statement",
+    "actor": "USA",
+    "target_type": null,
+    "description": "Trump tells Fox News it is 'getting to be decision time' on whether to 'make a deal' with Iran or 'finish it off,' while confirming the US has a blockade on the Strait of Hormuz.",
+    "source": "CNBC 2026-10-26; Fox News 2026-10-26"
   }
 ]

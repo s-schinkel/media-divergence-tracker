@@ -710,5 +710,61 @@
     "posture": "Cautious",
     "summary": "Kallas addressed European Parliament (Sep 15) warning of perilous escalation; announced new sanctions on 19 Iranian officials for human rights violations; pledged to reinforce EU ASPIDES naval operation and support Saudi-led maritime coalition. Called for end to repression and diplomatic resolution.",
     "source": "globalsecurity.org EEAS (Sep 15 2026); x.com/kajakallas sanctions announcement"
+  },
+  {
+    "month": "2026-10",
+    "leader": "trump",
+    "posture": "Hawkish",
+    "summary": "Told Fox News it is 'decision time' to 'make a deal or finish it off'; Pentagon drew up post-midterm strike plans (Axios, NPR), but pledged no attack before Nov 3 midterms. Deployed third carrier group and ordered embassy staff reductions at 4 Middle East posts.",
+    "source": "CNBC 2026-10-26; NPR 2026-10-22; CNBC 2026-10-08; The National News 2026-10-25"
+  },
+  {
+    "month": "2026-10",
+    "leader": "starmer",
+    "posture": "Cautious",
+    "summary": "NOTE: UK PM is now Andy Burnham (replaced Starmer in July 2026). Burnham told Commons the RAF Fairford plot was 'almost certainly' IRGC-directed, sanctioned two Iranian nationals, joined the 28-country condemnation statement, but maintained the UK will not join the war — 'We will not tolerate these threats on our soil' while insisting 'this is not our war.'",
+    "source": "Reuters 2026-10-12; Al Jazeera 2026-10-12; Bloomberg 2026-10-12; Washington Post 2026-10-12"
+  },
+  {
+    "month": "2026-10",
+    "leader": "albanese",
+    "posture": "Cautious",
+    "summary": "Stayed largely quiet on Iran in October as Labor backbench unrest grew over alignment with US war; maintained limited E-7 Wedgetail deployment in UAE and co-signed 28-country statement but resisted calls to expand role. Facing domestic headwinds from fuel-price inflation and falling polls.",
+    "source": "ABC News Australia 2026-10-25; Canada.ca joint statement 2026-10-12"
+  },
+  {
+    "month": "2026-10",
+    "leader": "ca_pm",
+    "posture": "Cautious",
+    "summary": "PM Carney co-signed 28-country joint statement condemning Iran's hybrid attacks. Spoke with Trump on Oct 21 discussing trade and Iran. Maintains Canada has abstained from combat while supporting non-proliferation goals and exploring diplomatic reopening with Tehran.",
+    "source": "Canada.ca 2026-10-12; CTV News 2026-10-21; Globe and Mail 2026-10-12"
+  },
+  {
+    "month": "2026-10",
+    "leader": "netanyahu",
+    "posture": "Hostile",
+    "summary": "At IDF cadets' graduation on Oct 21, ordered military and Mossad to overthrow the Iranian regime — 'the only way to remove this threat once and for all.' Defense Minister Katz warned 'Iran will burn.' Rhetoric intensified ahead of Oct 27 Israeli election.",
+    "source": "Washington Post 2026-10-22; Jerusalem Post 2026-10-21; Washington Times 2026-10-21; Times of Israel 2026-10-20"
+  },
+  {
+    "month": "2026-10",
+    "leader": "iran",
+    "posture": "Hostile",
+    "summary": "Supreme Leader Mojtaba Khamenei (succeeded assassinated Ali Khamenei in March 2026) oversaw record Hormuz tanker attacks and IRGC-directed RAF Fairford plot. Threatened Gulf undersea cables and wider strikes if war resumes. DIVERGENCE: President Pezeshkian on Oct 24 blamed US for interim deal failure but urged a new attempt — 'I still think we should go and conclude it' — reflecting a more conciliatory civilian government stance vs hardline IRGC/Supreme Leader posture.",
+    "source": "Al Jazeera 2026-10-22; Reuters 2026-10-24; USNI News 2026-10-09; Tehran Times 2026-10-05"
+  },
+  {
+    "month": "2026-10",
+    "leader": "mbs",
+    "posture": "Engaged",
+    "summary": "Dispatched defense minister Prince Khalid bin Salman to Tehran on Oct 26 for Mecca Defense Pact talks with Iran amid fears of renewed US-Israeli strikes. Saudi Arabia absorbing deadly Houthi airport attacks (22 killed, 380+ injured across October) while MBS pressed Trump to prioritize dialogue over escalation.",
+    "source": "CNN 2026-10-26; Jewish Insider 2026-10-12; Semafor 2026-10-23; Al Jazeera 2026-10-09"
+  },
+  {
+    "month": "2026-10",
+    "leader": "kallas",
+    "posture": "Cautious",
+    "summary": "Condemned Houthi Riyadh airport attack as a 'horrific terrorist act'; backed European Parliament resolution to list Houthis as terror group on Oct 22. Noted one-fifth of EU trade passes through Red Sea. Called for deeper negotiations on Iran's nuclear program while maintaining EU will not join the war.",
+    "source": "The National (UAE) 2026-10-22; Euronews 2026-10-22; Yemen Monitor 2026-10-11"
   }
 ]

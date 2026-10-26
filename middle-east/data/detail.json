@@ -700,5 +700,39 @@
         "Carney-Trump calls on Iran and Ukraine; Canada formally condemns Iran's destabilizing actions (Sep 6)"
       ]
     }
+  },
+  "2026-10": {
+    "uk": {
+      "tone": "EN",
+      "topics": [
+        "PM Burnham blames IRGC for RAF Fairford bomber-base plot, sanctions two Iranian nationals, and joins 28-country statement condemning Iran's hybrid attacks",
+        "Record Strait of Hormuz tanker attacks and Houthi strikes on Saudi airports dominate security and maritime coverage",
+        "Domestic debate over UK role in Iran conflict — Burnham maintains 'not our war' stance while opposition presses for tougher IRGC action"
+      ]
+    },
+    "usa": {
+      "tone": "E",
+      "topics": [
+        "Trump oscillates between 'deal or finish it off' rhetoric; Pentagon drafts post-midterm strike plans as third carrier group deploys to Arabian Gulf",
+        "Record Hormuz ship attacks and Houthi strikes on Riyadh airport drive oil above $114/bbl, dominating midterm-election affordability debate",
+        "Rubio says Iran missed 'multiple' deal chances; Vance signals enrichment compromise while Netanyahu demands regime change ahead of Israeli election"
+      ]
+    },
+    "au": {
+      "tone": "EN",
+      "topics": [
+        "Labor backbench disquiet over Albanese's support for US-Israeli war grows as fuel prices and cost-of-living pressures mount",
+        "Australia signs 28-country joint statement condemning Iran's hybrid attacks; maintains limited defensive deployment (E-7 Wedgetail in UAE)",
+        "Polling shows voter discontent with economy; Iran war's impact on energy costs features in domestic political coverage"
+      ]
+    },
+    "ca": {
+      "tone": "ND",
+      "topics": [
+        "Canada co-signs 28-country joint statement condemning Iran's hybrid attacks and RAF Fairford plot",
+        "PM Carney maintains diplomatic emphasis — advocates civilian protection and de-escalation while not ruling out future military participation",
+        "Rising energy prices and economic impact of war on Canadian households; debate over reopening embassy in Iran"
+      ]
+    }
   }
 }
